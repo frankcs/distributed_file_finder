@@ -81,7 +81,7 @@ class db_manager:
 #my_db=db_manager('D:/Work/SISTDIST/DB/files_db.db',["D:\Work\SISTDIST\Sentry\Test"])
 #my_db.populate_database()
 #input()
-#my_db.delete_all_within_path("D:\Work\SISTDIST\Sentry\Test\\3")
+##my_db.delete_all_within_path("D:\Work\SISTDIST\Sentry\Test\\3")
 #my_db.update_paths_on_moved("D:\Work\SISTDIST\Sentry\Test\\3","D:")
 #my_db.insert_new_created_entries("D:\Work\SISTDIST\Sentry\Test\\3\gacana.txt",0)
 #print(my_db.search_result(sys.argv[1],int(sys.argv[2])))
