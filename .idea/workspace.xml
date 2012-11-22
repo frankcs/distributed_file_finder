@@ -40,10 +40,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db_module.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="1" selection-start="3195" selection-end="3195" vertical-scroll-proportion="0.75977653">
+            <state line="83" column="1" selection-start="3195" selection-end="3195" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -53,6 +53,15 @@
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
             <state line="214" column="28" selection-start="8184" selection-end="8184" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_md5.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/get_md5.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="10" selection-start="35" selection-end="39" vertical-scroll-proportion="0.06331471">
               <folding />
             </state>
           </provider>
@@ -126,6 +135,7 @@
         <option value="$PROJECT_DIR$/QT_disk_search.py" />
         <option value="$PROJECT_DIR$/app.pyw" />
         <option value="$PROJECT_DIR$/db_module.py" />
+        <option value="$PROJECT_DIR$/get_md5.py" />
       </list>
     </option>
   </component>
@@ -161,7 +171,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -182,6 +191,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,7 +206,7 @@
       <PyConsoleSettings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.app.pyw">
+  <component name="RunManager" selected="Python.get_md5">
     <configuration default="false" name="app.pyw" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -214,6 +224,24 @@
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="get_md5" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="SISTDIST" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/get_md5.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -270,8 +298,9 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.app.pyw" />
+      <item index="1" class="java.lang.String" itemvalue="Python.get_md5" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -284,14 +313,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1040" height="754" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1040" height="754" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2612705" sideWeight="0.62184876" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27971312" sideWeight="0.62184876" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -378,6 +407,11 @@
         <state line="71" column="46" selection-start="2624" selection-end="2624" vertical-scroll-proportion="0.6730769" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../DB/db_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sentry.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="0" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0" />
@@ -386,6 +420,16 @@
     <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/events.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="329" column="6" selection-start="9552" selection-end="9552" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="1" selection-start="3195" selection-end="3195" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.pyw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="214" column="28" selection-start="8184" selection-end="8184" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/QT_disk_search.py">
@@ -413,19 +457,9 @@
         <state line="57" column="34" selection-start="2952" selection-end="2978" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.pyw">
+    <entry file="file://$PROJECT_DIR$/get_md5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="28" selection-start="8184" selection-end="8184" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DB/db_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="1" selection-start="3195" selection-end="3195" vertical-scroll-proportion="0.75977653">
+        <state line="2" column="10" selection-start="35" selection-end="39" vertical-scroll-proportion="0.06331471">
           <folding />
         </state>
       </provider>
