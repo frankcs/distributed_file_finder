@@ -19,4 +19,4 @@ def get_md5_for_files(paths):
         result.append(m.hexdigest())
     return result
 
-print(get_md5_for_files(["D:\Software\Programming and learning\VS 12\VS2012 RTM\en_visual_studio_ultimate_2012_RTM_x86_dvd.rar"]))
+#print(get_md5_for_files(["D:\Software\Programming and learning\VS 12\VS2012 RTM\en_visual_studio_ultimate_2012_RTM_x86_dvd.rar"]))

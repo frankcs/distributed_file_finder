@@ -8,10 +8,17 @@ class db_manager:
         self.db_path=db_path
         self.watches=watches
 
+    def create_database(self):
+        file=open(self.db_path,mode='w')
+        file.close()
+
     def populate_database(self):
+        self.create_database()
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
-        cursor.execute('DROP TABLE "files";')
+        try:
+            cursor.execute('DROP TABLE "files";')
+        except : pass
         cursor.execute('CREATE TABLE "files" (\
                        "id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
                         "path"  TEXT NOT NULL,\
