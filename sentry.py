@@ -25,7 +25,7 @@ class octopus_handler(FileSystemEventHandler):
             print("Created Directory: {}".format(event.src_path))
             #hubo un movimiento de ficheros en windows
             if self.last_deleted_path and os.path.basename(self.last_deleted_path)==os.path.basename(event.src_path):
-                self.ev_db_manager.insert_everything_under_path(event.src_path)
+                self.ev_db_manager.insert_on_move(event.src_path)
             else:
                 self.ev_db_manager.insert_new_created_entries(event.src_path,1)
         else:

@@ -39,15 +39,30 @@ class db_manager:
     def insert_everything_under_path(self,path):
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
+        path_id=0
         for directory in os.walk(path,topdown=True):
             self.db_paths_insert(cursor,directory[0])
-            cursor.execute('SELECT path_id FROM paths WHERE path=?',(directory[0],))
-            path_id=cursor.fetchone()[0]
+            #cursor.execute('SELECT path_id FROM paths WHERE path=?',(directory[0],))
+            path_id=cursor.lastrowid
             for dirs in directory[1]:
                 self.db_files_insert(cursor,path_id,dirs,1,"")
             for file in directory[2]:
                 self.db_files_insert(cursor,path_id,file,0,"")
         connection.commit()
+
+    # se usa para crear la entrada en files antes de proceder a revisar lo nuevo
+    def insert_on_move(self, path):
+        connection=sqlite3.connect(self.db_path)
+        cursor= connection.cursor()
+        parent_directory, base_name =os.path.split(path)
+        cursor.execute('SELECT path_id FROM paths WHERE path=?',(parent_directory,))
+        path_id=cursor.fetchone()[0]
+        #calcular el md5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        self.db_files_insert(cursor,path_id,base_name, 1,'')
+        connection.commit()
+        cursor.close()
+        self.insert_everything_under_path(path)
+
 
     def db_paths_insert(self,cursor,path):
         return cursor.execute('INSERT INTO paths (path) VALUES (?)',(path,))
@@ -117,7 +132,7 @@ class db_manager:
         #Si es directorio va generar un nuevo camino
         if(isdir):
             self.db_paths_insert(cursor,path)
-        #calcular el md5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         parent_directory, base_name =os.path.split(path)
         cursor.execute('SELECT path_id FROM paths WHERE path=?',(parent_directory,))
         path_id=cursor.fetchone()[0]

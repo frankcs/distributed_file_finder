@@ -22,10 +22,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="db_module.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="45" selection-start="5935" selection-end="5935" vertical-scroll-proportion="4.6084337">
+            <state line="62" column="22" selection-start="2466" selection-end="2466" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -34,18 +34,16 @@
       <file leaf-file-name="sentry.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sentry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="1207" selection-end="1207" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state line="17" column="25" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.pyw" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.pyw" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="69" selection-start="7659" selection-end="7659" vertical-scroll-proportion="0.0">
+            <state line="189" column="14" selection-start="7180" selection-end="7180" vertical-scroll-proportion="0.59130436">
               <folding />
             </state>
           </provider>
@@ -271,22 +269,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1040" height="754" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28586066" sideWeight="0.62184876" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37815127" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37815127" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -341,7 +339,14 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/db_module.py</url>
+          <line>45</line>
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../Sentry/sentry.py">
@@ -374,11 +379,6 @@
         <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://C:/Python32/Lib/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="735" column="0" selection-start="24160" selection-end="24160" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qt_references.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="11" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0" />
@@ -396,16 +396,17 @@
     </entry>
     <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/observers/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="418" column="0" selection-start="11561" selection-end="11561" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="418" column="0" selection-start="11561" selection-end="11561" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/searcher.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="48" selection-start="5540" selection-end="5560" vertical-scroll-proportion="0.053291537">
-          <folding />
-        </state>
+        <state line="100" column="48" selection-start="5540" selection-end="5560" vertical-scroll-proportion="0.053291537" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python32/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="735" column="0" selection-start="24160" selection-end="24160" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/get_md5.py">
@@ -413,25 +414,23 @@
         <state line="21" column="1" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="22" selection-start="2466" selection-end="2466" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sentry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1207" selection-end="1207" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state line="17" column="25" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="69" selection-start="7659" selection-end="7659" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="45" selection-start="5935" selection-end="5935" vertical-scroll-proportion="4.6084337">
+        <state line="189" column="14" selection-start="7180" selection-end="7180" vertical-scroll-proportion="0.59130436">
           <folding />
         </state>
       </provider>
