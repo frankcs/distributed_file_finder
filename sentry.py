@@ -46,7 +46,7 @@ class octopus_handler(FileSystemEventHandler):
         else:
             print("Moved File: \"{}\" to \"{}\"".format(event.src_path,event.dest_path))
         self.ev_db_manager.update_paths_on_moved(event.src_path,event.dest_path)
-        print("Updates were made")
+        #print("Updates were made")
         self.last_deleted_path=""
 
     def on_modified(self, event):

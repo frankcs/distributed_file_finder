@@ -17,15 +17,20 @@ class db_manager:
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
         try:
+            cursor.execute('DROP TABLE "paths";')
+        except : pass
+        try:
             cursor.execute('DROP TABLE "files";')
         except : pass
+        cursor.execute('CREATE TABLE "paths" (\
+                       "path_id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
+                       "path"  TEXT NOT NULL);')
         cursor.execute('CREATE TABLE "files" (\
-                       "id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
-                        "path"  TEXT NOT NULL,\
-                        "base_name"  TEXT NOT NULL,\
-                        "is_directory"  TEXT NOT NULL,\
-                        CONSTRAINT "id" UNIQUE ("id" ASC)\
-        );')
+            "id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
+            "path"  INTEGER NOT NULL REFERENCES "paths" ("path_id") ON DELETE CASCADE ON UPDATE CASCADE,\
+            "base_name"  TEXT NOT NULL,\
+            "is_directory"  INTEGER NOT NULL,\
+            "md5"  TEXT );')
         connection.commit()
         for watch in self.watches:
             self.insert_everything_under_path(watch)
@@ -35,38 +40,89 @@ class db_manager:
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
         for directory in os.walk(path,topdown=True):
-            self.db_insert(cursor,directory[0],os.path.basename(directory[0]),1)
+            self.db_paths_insert(cursor,directory[0])
+            cursor.execute('SELECT path_id FROM paths WHERE path=?',(directory[0],))
+            path_id=cursor.fetchone()[0]
+            for dirs in directory[1]:
+                self.db_files_insert(cursor,path_id,dirs,1,"")
             for file in directory[2]:
-                self.db_insert(cursor,os.path.join(directory[0],file),file,0)
+                self.db_files_insert(cursor,path_id,file,0,"")
         connection.commit()
 
-    def db_insert(self,cursor, path, base_name, isdir):
-        cursor.execute("INSERT INTO files {} VALUES (?,?,?)".format(self.COLUMNS),(path,base_name,isdir))
+    def db_paths_insert(self,cursor,path):
+        return cursor.execute('INSERT INTO paths (path) VALUES (?)',(path,))
+    def db_files_insert(self,cursor, path_id, base_name, isdir, md5):
+        cursor.execute('INSERT INTO files (path,base_name,is_directory,md5) VALUES (?,?,?,?)'
+            ,(path_id,base_name,isdir,md5))
 
     def delete_all_within_path(self, deletion_path):
         connection=sqlite3.connect(self.db_path)
         cursor=connection.cursor()
-        cursor.execute("DELETE FROM files WHERE path LIKE ?",(deletion_path+"%",))
-        connection.commit()
+        #dividir el camino que me dan para hacer las respectivas consultas
+        parent_directory, base_name =os.path.split(deletion_path)
+        #preguntar por quién tiene ese camino
+        result=cursor.execute('SELECT path_id, id, is_directory\
+                               FROM paths\
+                               INNER JOIN files\
+                               ON paths.path_id = files.path\
+                               WHERE paths.path=?\
+                               AND files.base_name=?',(parent_directory,base_name))
+        tmp=result.fetchone()
+
+        file_id=tmp[1]
+        is_directory=tmp[2]
+
+        #siempre vas eliminar la entrada de la tabla files
+        cursor.execute('DELETE FROM files WHERE id=?',(file_id,))
+        #si es un directorio has de eleminar todos los caminos que lo tengan de sufijo y todas las entradas
+        #en la tabla files que tuvieran a estos caminos....
+        if(is_directory):
+            #tengo que copiar la lista porque el cursor se va a actualizar
+            result=[row for row in cursor.execute('SELECT path_id FROM paths WHERE path LIKE ?',(deletion_path+'%',))]
+            #por cada camino eliminado eliminar las entradas que los tienen en la tabla files
+            for row in result:
+                path_id=row[0]
+                cursor.execute('DELETE FROM files WHERE path = ?',(path_id,))
+            #eliminar todos los caminos que tengan com prefijo el elimnado
+            cursor.execute('DELETE FROM paths WHERE path LIKE ?',(deletion_path+'%',))
+        connection.commit();
 
     def update_paths_on_moved(self, old_path, new_path):
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
-        cursor.execute("SELECT * FROM files WHERE path LIKE ?",(old_path+"%",))
+        #dividir el camino que me dan para hacer las respectivas consultas
+        old_parent_directory, old_base_name =os.path.split(old_path)
+        new_parent_directory, new_base_name =os.path.split(new_path)
+        #si fue el nombre de un directorio buscar todos los que tengan el sufijo viejo y cambiarlo por el nuevo
+        cursor.execute('SELECT path FROM paths WHERE path LIKE ?',(old_path+"%",))
         result=[row for row in cursor]
         for row in result:
-            new_full_path=row[1][:].replace(old_path,new_path)
-            new_base_name=os.path.basename(new_full_path)
-            cursor.execute("UPDATE files SET path=?, base_name=?\
-            WHERE path = ?",
-            (new_full_path,new_base_name,row[1]))
+            #copio el nombre y le aplico replace
+            new_full_path=row[0][:].replace(old_path,new_path)
+            cursor.execute('UPDATE paths SET path=? WHERE path = ?',
+            (new_full_path,row[0]))
+        #cambiar las entradas en la tabla files
+        cursor.execute('UPDATE files\
+                        SET base_name=?\
+                        WHERE base_name=?\
+                        AND path =(\
+                        SELECT path_id\
+                        FROM paths\
+                        WHERE path =?)',(new_base_name,old_base_name,new_parent_directory))
         connection.commit()
 
     def insert_new_created_entries(self, path, isdir):
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
-        base_name= os.path.basename(path);
-        self.db_insert(cursor,path,base_name, isdir)
+        #Si es directorio va generar un nuevo camino
+        if(isdir):
+            self.db_paths_insert(cursor,path)
+        #calcular el md5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        parent_directory, base_name =os.path.split(path)
+        cursor.execute('SELECT path_id FROM paths WHERE path=?',(parent_directory,))
+        path_id=cursor.fetchone()[0]
+        #calcular el md5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        self.db_files_insert(cursor,path_id,base_name, isdir,'')
         connection.commit()
 
     def search_result(self, pattern, option):
@@ -79,11 +135,15 @@ class db_manager:
             final_pattern="%"+pattern
 
         print(final_pattern)
-        cursor.execute("SELECT * FROM files WHERE base_name LIKE ?",(final_pattern,))
+        cursor.execute('SELECT paths.path, files.base_name, files.is_directory \
+                        FROM files \
+                        INNER JOIN paths \
+                        ON files.path = paths.path_id \
+                        WHERE files.base_name LIKE ?',(final_pattern,))
         stop=False
         for item in cursor:
             if not stop:
-                stop=yield (item[1],item[2],item[3])
+                stop=yield (item[0],item[1],item[2])
 
 #my_db=db_manager('D:/Work/SISTDIST/DB/files_db.db',["D:\Work\SISTDIST\Sentry\Test"])
 #my_db.populate_database()

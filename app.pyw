@@ -187,7 +187,7 @@ def is_alive(qobj):
         return False
     return True
 
-WATCHES=["D:\Work\SISTDIST\Sentry\Test"]
+WATCHES=["D:\\"]
 FIRSTIME=True
 class Sys_Tray(QDialog):
     def __init__(self):

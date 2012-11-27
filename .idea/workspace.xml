@@ -22,29 +22,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sentry.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sentry.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="events.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/events.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="329" column="6" selection-start="9552" selection-end="9552" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="db_module.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="40" selection-start="139" selection-end="139" vertical-scroll-proportion="0.21794872">
+            <state line="128" column="45" selection-start="5935" selection-end="5935" vertical-scroll-proportion="4.6084337">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sentry.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sentry.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="0" selection-start="1207" selection-end="1207" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,7 +45,16 @@
       <file leaf-file-name="app.pyw" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="44" selection-start="7355" selection-end="7355" vertical-scroll-proportion="0.0">
+            <state line="201" column="69" selection-start="7659" selection-end="7659" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="threading.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python32/Lib/threading.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="735" column="0" selection-start="24160" selection-end="24160" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,51 +64,6 @@
         <entry file="file://$PROJECT_DIR$/get_md5.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="21" column="1" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QT_disk_search.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/QT_disk_search.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="51" selection-start="1111" selection-end="1111" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="threading.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python32/Lib/threading.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="688" column="0" selection-start="22189" selection-end="22189" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="searcher.pyw" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/searcher.pyw">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="48" selection-start="5540" selection-end="5560" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="qt_references.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/qt_references.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="11" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="options.pyw" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/options.pyw">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="34" selection-start="2952" selection-end="2978" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -131,11 +88,11 @@
         <option value="$PROJECT_DIR$/searcher.pyw" />
         <option value="$PROJECT_DIR$/options.pyw" />
         <option value="$PROJECT_DIR$/../Sentry/sentry.py" />
-        <option value="$PROJECT_DIR$/sentry.py" />
         <option value="$PROJECT_DIR$/QT_disk_search.py" />
-        <option value="$PROJECT_DIR$/app.pyw" />
         <option value="$PROJECT_DIR$/get_md5.py" />
+        <option value="$PROJECT_DIR$/sentry.py" />
         <option value="$PROJECT_DIR$/db_module.py" />
+        <option value="$PROJECT_DIR$/app.pyw" />
       </list>
     </option>
   </component>
@@ -171,7 +128,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -192,6 +148,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,8 +276,9 @@
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28586066" sideWeight="0.62184876" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28586066" sideWeight="0.62184876" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -329,7 +287,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -387,21 +344,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Python32/Lib/queue.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="0" selection-start="6017" selection-end="6017" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd_breakpoints.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="0" selection-start="2030" selection-end="2030" vertical-scroll-proportion="0.31034482" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/about.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="4710" selection-end="4710" vertical-scroll-proportion="0.23698384" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Sentry/sentry.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="46" selection-start="2624" selection-end="2624" vertical-scroll-proportion="0.6730769" />
@@ -412,34 +354,29 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sentry.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/events.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="329" column="6" selection-start="9552" selection-end="9552" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/QT_disk_search.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="51" selection-start="1111" selection-end="1111" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd_breakpoints.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="0" selection-start="3617" selection-end="3617" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python32/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="302" column="0" selection-start="9861" selection-end="9861" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://C:/Python32/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="688" column="0" selection-start="22189" selection-end="22189" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/searcher.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="48" selection-start="5540" selection-end="5560" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/options.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="34" selection-start="2952" selection-end="2978" vertical-scroll-proportion="0.0" />
+        <state line="735" column="0" selection-start="24160" selection-end="24160" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qt_references.py">
@@ -447,23 +384,54 @@
         <state line="2" column="11" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/options.pyw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="34" selection-start="2952" selection-end="2978" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/events.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="349" column="0" selection-start="10144" selection-end="10144" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/observers/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="418" column="0" selection-start="11561" selection-end="11561" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searcher.pyw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="48" selection-start="5540" selection-end="5560" vertical-scroll-proportion="0.053291537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/get_md5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="1" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="21" column="1" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="1207" selection-end="1207" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="44" selection-start="7355" selection-end="7355" vertical-scroll-proportion="0.0">
+        <state line="201" column="69" selection-start="7659" selection-end="7659" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="40" selection-start="139" selection-end="139" vertical-scroll-proportion="0.21794872">
+        <state line="128" column="45" selection-start="5935" selection-end="5935" vertical-scroll-proportion="4.6084337">
           <folding />
         </state>
       </provider>
