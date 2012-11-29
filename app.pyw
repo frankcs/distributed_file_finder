@@ -1,5 +1,6 @@
 from references import *
 from ui_prog.searcher_prog import Form
+from ui_prog.global_options_prog import GlobalOptionsDialog
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -67,7 +68,8 @@ class Sys_Tray(QDialog):
         Form(self).show()
 
     def show_options(self):
-        QMessageBox.warning(self,"Error", "Not implemented yet")
+        dialog=GlobalOptionsDialog(parent=self)
+        if dialog.exec_():pass
 
     def search(self,pattern, match_option):
         return self.db_search_manager.search_result(pattern, match_option)

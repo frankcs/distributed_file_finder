@@ -1,6 +1,6 @@
 __author__ = 'Frank'
 from references import *
-from ui_prog.options_dialog_prog import OptionsDialog
+from ui_prog.local_options_prog import LocalOptionsDialog
 from ui_prog.about_dialog_prog import AboutDialog
 from threading import Thread
 
@@ -11,8 +11,7 @@ class Form(QMainWindow,Ui_MainWindow):
         self.setAttribute(Qt.WA_DeleteOnClose)
         Form.instances.append(self)
         #initializing
-        self.dir=OptionsDialog.default_dir
-        self.match_opt=OptionsDialog.contains
+        self.match_opt=LocalOptionsDialog.contains
         self.broker=broker
         self.text=""
         self.cancel=True
@@ -41,11 +40,9 @@ class Form(QMainWindow,Ui_MainWindow):
         dialog.exec_()
 
     def show_dialog_options(self):
-        dialog=OptionsDialog(self.match_opt,self.dir,self)
+        dialog=LocalOptionsDialog(self.match_opt,self)
         if dialog.exec_():
-            self.dir=dialog.lineEdit_root.text()
             self.match_opt=dialog.match_options
-
 
     def disable_buttons(self):
         self.pushButton_download.setEnabled(False)
