@@ -3,15 +3,14 @@ import os
 
 class db_manager:
     COLUMNS="(path,base_name,is_directory)"
-    def __init__(self,db_path, watches):
+    def __init__(self,db_path):
         self.db_path=db_path
-        self.watches=watches
 
     def create_database(self):
         file=open(self.db_path,mode='w')
         file.close()
 
-    def populate_database(self):
+    def reset_database(self):
         self.create_database()
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
@@ -31,8 +30,6 @@ class db_manager:
             "is_directory"  INTEGER NOT NULL,\
             "md5"  TEXT );')
         connection.commit()
-        for watch in self.watches:
-            self.insert_everything_under_path(watch)
         print("Changes Commited")
 
     def insert_everything_under_path(self,path):
@@ -80,14 +77,20 @@ class db_manager:
                                ON paths.path_id = files.path\
                                WHERE paths.path=?\
                                AND files.base_name=?',(parent_directory,base_name))
+        # setear lo de directorio siempre en true por el problema de que
+        #las watchs no están registradas en la DB
+        is_directory=True
+
+
         tmp=result.fetchone()
+        if tmp:
+            file_id=tmp[1]
+            is_directory=tmp[2]
 
-        file_id=tmp[1]
-        is_directory=tmp[2]
+            #siempre vas eliminar la entrada de la tabla files
+            cursor.execute('DELETE FROM files WHERE id=?',(file_id,))
 
-        #siempre vas eliminar la entrada de la tabla files
-        cursor.execute('DELETE FROM files WHERE id=?',(file_id,))
-        #si es un directorio has de eleminar todos los caminos que lo tengan de sufijo y todas las entradas
+        #si es un directorio has de eliminar todos los caminos que lo tengan de sufijo y todas las entradas
         #en la tabla files que tuvieran a estos caminos....
         if is_directory :
             #tengo que copiar la lista porque el cursor se va a actualizar

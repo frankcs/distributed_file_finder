@@ -49,10 +49,9 @@ class GlobalOptionsDialog(QDialog,Ui_Dialog_global_opt):
                                 self.watches.remove(subpath)
                     self.watches.append(text)
                 else:
-                    QMessageBox.warning(self,"Error", "El directorio seleccionado está siendo \
-                                                      monitoreado por un observador en {}".format(result))
+                    QMessageBox.warning(self,"Atención", "El directorio seleccionado está siendo monitoreado por un observador en {}".format(result))
             else:
-                QMessageBox.warning(self,"Error", "Directorio no válido")
+                QMessageBox.critical(self,"Error", "Directorio no válido")
             self.listWidget.clear()
             self.listWidget.addItems(self.watches)
 
@@ -78,5 +77,7 @@ class GlobalOptionsDialog(QDialog,Ui_Dialog_global_opt):
             self.pushButton_remove.setEnabled(False)
 
     def save(self):
-        #do stuff
+        if not self.watches:
+            QMessageBox.critical(self,"Error", "La lista de rutas a monitorear no debe ser vacía")
+            return
         self.accept()
