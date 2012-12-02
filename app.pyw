@@ -6,33 +6,39 @@ try:
 except AttributeError:
     _fromUtf8 = lambda s: s
 
-WATCHES=["D:\\"]
-FIRSTIME=False
-
 class Sys_Tray(QDialog):
-    def __init__(self, app):
+    def __init__(self):
         super(Sys_Tray, self).__init__()
         self.createActions()
         self.createTrayIcon()
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("images/Search Folder.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        #el paso de app para captura el close
-        self.app=app
+
         #para salvar las watches una vez quitada la app
         #self.connect(self.app,SIGNAL('lastWindowClosed ()'),self.save_watches)
         #self.trayIcon.activated.connect(self.iconActivated)
         self.trayIcon.setIcon(icon)
         self.trayIcon.show()
         self.showMessage()
-        self.watches=WATCHES
+        db_file=None
+        try:
+            db_file= open("./data/files_db.db",'r')
+        except:pass
+        #normal init
         self.db_search_manager=db_manager("./data/files_db.db")
-        if FIRSTIME:
-            self.db_search_manager.reset_database()
-        self.watches=self.db_search_manager.retrieve_watches()
         self.fs_handler= octopus_handler(self.db_search_manager)
         self.dict_watch_obs={}
+        if not db_file:
+            self.first_run()
+        #normal init
+        self.watches=self.db_search_manager.retrieve_watches()
         self.db_search_manager.delete_all_file_data()
         self.update_watches(self.watches)
+
+    def first_run(self):
+        self.db_search_manager.reset_database()
+        QMessageBox.information(self,"Inicio", "Octopus está corriendo por primera vez, por favor elija los directorios que desea monitorear")
+        self.show_options(first_time=True)
 
     def createActions(self):
         self.new_SearchAction = QtGui.QAction("Nueva Búsqueda", self,
@@ -70,10 +76,13 @@ class Sys_Tray(QDialog):
     def new_search(self):
         Form(self).show()
 
-    def show_options(self):
-        dialog=GlobalOptionsDialog(watches=[x for x in self.watches],parent=self)
+    def show_options(self, first_time=False):
+        dialog=GlobalOptionsDialog(watches=[] if first_time else [x for x in self.watches],parent=self)
         if dialog.exec_():
-            self.update_watches(dialog.watches)
+            if not first_time:
+                #el proceso de actualización se llevará a cabo en el constructor si es una base de datos nueva
+                self.update_watches(dialog.watches)
+            self.watches=dialog.watches
             self.save_watches()
 
     def update_watches(self, new_watches):
@@ -104,7 +113,6 @@ class Sys_Tray(QDialog):
             "Octopus ha actualizado sus índices")
         #habilitar las opciones de nueva búsqueda
         self.new_SearchAction.setEnabled(True)
-        self.watches=new_watches
 
     def save_watches(self):
         self.db_search_manager.persist_watches(self.watches)
@@ -114,7 +122,7 @@ class Sys_Tray(QDialog):
 
     def showMessage(self):
         self.trayIcon.showMessage("Hola",
-            "Octopus está desde ahora vigilando sus ficheros.")
+            "Octopus está vigilando sus ficheros.")
 
 def main():
     app=QApplication(sys.argv)
@@ -125,7 +133,7 @@ def main():
         sys.exit(1)
 
     QtGui.QApplication.setQuitOnLastWindowClosed(False)
-    tray=Sys_Tray(app)
+    tray=Sys_Tray()
     app.exec_()
 main()
 

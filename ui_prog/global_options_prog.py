@@ -41,7 +41,7 @@ class GlobalOptionsDialog(QDialog,Ui_Dialog_global_opt):
                     if result:
                         follow=QMessageBox.question(self, "Proceder?", "El directorio especificado contiene algunas de las direcciones ya monitoreadas, estas se eliminarán. Está seguro?",
                             buttons= QMessageBox.Ok|QMessageBox.Cancel)
-                        #no añadir la nueva dirección por que no quires reescribir
+                        #no añadir la nueva dirección por que no quieres reescribir
                         if  follow == QMessageBox.Cancel:
                             return
                         else:
