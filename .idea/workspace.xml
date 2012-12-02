@@ -25,7 +25,7 @@
       <file leaf-file-name="app.pyw" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="17" selection-start="3383" selection-end="3383" vertical-scroll-proportion="0.78571427">
+            <state line="125" column="0" selection-start="5022" selection-end="5022" vertical-scroll-proportion="3.5586734">
               <folding />
             </state>
           </provider>
@@ -61,7 +61,7 @@
       <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="30" selection-start="4300" selection-end="4300" vertical-scroll-proportion="0.0">
+            <state line="183" column="14" selection-start="7933" selection-end="7933" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -79,7 +79,7 @@
       <file leaf-file-name="searcher_prog.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="104" selection-start="1324" selection-end="1420" vertical-scroll-proportion="0.0">
+            <state line="10" column="32" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -400,7 +400,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/app.pyw</url>
-          <line>66</line>
+          <line>94</line>
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -456,19 +456,23 @@
         <state line="51" column="54" selection-start="2289" selection-end="2289" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/designer_generated_ui/global_options.pyw">
+    <entry file="file://$PROJECT_DIR$/references.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="8" selection-start="2448" selection-end="2467" vertical-scroll-proportion="0.0" />
+        <state line="3" column="29" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="104" selection-start="1324" selection-end="1420" vertical-scroll-proportion="0.0" />
+        <state line="10" column="32" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/references.py">
+    <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="29" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" />
+        <state line="183" column="14" selection-start="7933" selection-end="7933" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/designer_generated_ui/local_options.pyw">
@@ -476,16 +480,14 @@
         <state line="16" column="6" selection-start="368" selection-end="387" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
+    <entry file="file://$PROJECT_DIR$/designer_generated_ui/global_options.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="30" selection-start="4300" selection-end="4300" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="49" column="8" selection-start="2448" selection-end="2467" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="17" selection-start="3383" selection-end="3383" vertical-scroll-proportion="0.78571427">
+        <state line="125" column="0" selection-start="5022" selection-end="5022" vertical-scroll-proportion="3.5586734">
           <folding />
         </state>
       </provider>

@@ -20,6 +20,9 @@ class db_manager:
         try:
             cursor.execute('DROP TABLE "files";')
         except : pass
+        try:
+            cursor.execute('DROP TABLE "watches";')
+        except : pass
         cursor.execute('CREATE TABLE "paths" (\
                        "path_id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
                        "path"  TEXT NOT NULL);')
@@ -29,6 +32,10 @@ class db_manager:
             "base_name"  TEXT NOT NULL,\
             "is_directory"  INTEGER NOT NULL,\
             "md5"  TEXT );')
+        cursor.execute('CREATE TABLE "watches" ( \
+            "id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
+            "watch"  TEXT NOT NULL\
+            );')
         connection.commit()
         print("Changes Commited")
 
@@ -160,6 +167,26 @@ class db_manager:
         for item in cursor:
             if not stop:
                 stop=yield (item[0],item[1],item[2])
+
+    def persist_watches(self, watches):
+        connection=sqlite3.connect(self.db_path)
+        cursor= connection.cursor()
+        cursor.execute('DELETE FROM watches')
+        for watch in watches:
+            cursor.execute('INSERT INTO watches (watch) VALUES (?)' ,(watch,))
+        connection.commit()
+
+    def retrieve_watches(self):
+        connection=sqlite3.connect(self.db_path)
+        cursor= connection.cursor()
+        return [x[0] for x in cursor.execute('SELECT watch FROM watches')]
+
+    def delete_all_file_data(self):
+        connection=sqlite3.connect(self.db_path)
+        cursor= connection.cursor()
+        cursor.execute('DELETE FROM files')
+        cursor.execute('DELETE FROM paths')
+        connection.commit()
 
 #my_db=db_manager('D:/Work/SISTDIST/DB/files_db.db',["D:\Work\SISTDIST\Sentry\Test"])
 #my_db.populate_database()
