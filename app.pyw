@@ -120,6 +120,7 @@ class Sys_Tray(QDialog):
                     self.dict_watch_obs[new_watch].start()
                 else:#ocurrio que la watch se eliminó antes de crear el observer, es posible que ya estuviera en la base de datos
                     self.db_search_manager.delete_all_within_path(new_watch)
+                    self.db_search_manager.delete_watch(new_watch)
                     deleted.append(new_watch)
         for x in deleted:
             self.watches.remove(x);

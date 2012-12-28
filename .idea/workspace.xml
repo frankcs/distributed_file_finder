@@ -23,21 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.pyw" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.pyw" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="0" selection-start="5653" selection-end="5653" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/observers/api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="334" column="0" selection-start="8829" selection-end="8829" vertical-scroll-proportion="0.0">
+            <state line="107" column="53" selection-start="4379" selection-end="4379" vertical-scroll-proportion="0.25287357">
               <folding />
             </state>
           </provider>
@@ -97,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="36" selection-start="5644" selection-end="5659" vertical-scroll-proportion="0.47204968">
+            <state line="194" column="36" selection-start="5644" selection-end="5659" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#3549#3786#0" expanded="false" />
                 <element signature="e#3835#4981#0" expanded="false" />
@@ -113,7 +102,16 @@
       <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="166" column="0" selection-start="7310" selection-end="7310" vertical-scroll-proportion="0.0">
+            <state line="188" column="0" selection-start="8136" selection-end="8136" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/observers/api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="334" column="0" selection-start="8829" selection-end="8829" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,11 +138,11 @@
         <option value="$PROJECT_DIR$/ui_prog/local_options_prog.py" />
         <option value="$PROJECT_DIR$/ui_prog/options_dialog_prog.py" />
         <option value="$PROJECT_DIR$/references.py" />
-        <option value="$PROJECT_DIR$/data/db_module.py" />
         <option value="$PROJECT_DIR$/ui_prog/global_options_prog.py" />
         <option value="$PROJECT_DIR$/ui_prog/searcher_prog.py" />
-        <option value="$PROJECT_DIR$/app.pyw" />
         <option value="$PROJECT_DIR$/network/Node.py" />
+        <option value="$PROJECT_DIR$/data/db_module.py" />
+        <option value="$PROJECT_DIR$/app.pyw" />
       </list>
     </option>
   </component>
@@ -180,7 +178,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -223,21 +220,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="network" />
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="recentsLimit" value="5" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -374,18 +372,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18651363" sideWeight="0.7723464" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18938307" sideWeight="0.6703911" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -466,9 +464,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/designer_generated_ui/options.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6" selection-start="362" selection-end="371" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="6" selection-start="362" selection-end="371" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui_prog/local_options_prog.py">
@@ -485,9 +481,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/designer_generated_ui/global_options.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="8" selection-start="2448" selection-end="2467" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="49" column="8" selection-start="2448" selection-end="2467" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui_prog/global_options_prog.py">
@@ -547,12 +541,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.pyw">
+    <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="0" selection-start="5653" selection-end="5653" vertical-scroll-proportion="0.0">
+        <state line="194" column="36" selection-start="5644" selection-end="5659" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#3549#3786#0" expanded="false" />
+            <element signature="e#3835#4981#0" expanded="false" />
+            <element signature="e#5030#5552#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/db_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="188" column="0" selection-start="8136" selection-end="8136" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -563,21 +566,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
+    <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="0" selection-start="7310" selection-end="7310" vertical-scroll-proportion="0.0">
+        <state line="107" column="53" selection-start="4379" selection-end="4379" vertical-scroll-proportion="0.25287357">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="36" selection-start="5644" selection-end="5659" vertical-scroll-proportion="0.47204968">
-          <folding>
-            <element signature="e#3549#3786#0" expanded="false" />
-            <element signature="e#3835#4981#0" expanded="false" />
-            <element signature="e#5030#5552#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

@@ -181,6 +181,12 @@ class db_manager:
         cursor= connection.cursor()
         return [x[0] for x in cursor.execute('SELECT watch FROM watches')]
 
+    def delete_watch(self, watch):
+        connection=sqlite3.connect(self.db_path)
+        cursor= connection.cursor()
+        cursor.execute('DELETE FROM watches WHERE watch=?',(watch,))
+        connection.commit()
+
     def delete_all_file_data(self):
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
