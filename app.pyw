@@ -103,12 +103,20 @@ class Sys_Tray(QDialog):
                 to_delete.append(old_watch)
         for x in to_delete:
             del self.dict_watch_obs[x]
+        #por cada watch pasada poner un observador
+        deleted= []
         for new_watch in new_watches:
             if not new_watch in self.dict_watch_obs.keys():
-                self.db_search_manager.insert_everything_under_path(new_watch)
-                self.dict_watch_obs[new_watch]=Observer()
-                self.dict_watch_obs[new_watch].schedule(self.fs_handler,new_watch, recursive=True)
-                self.dict_watch_obs[new_watch].start()
+                if path.isdir(new_watch):
+                    self.db_search_manager.insert_everything_under_path(new_watch)
+                    self.dict_watch_obs[new_watch]=Observer()
+                    self.dict_watch_obs[new_watch].schedule(self.fs_handler,new_watch, recursive=True)
+                    self.dict_watch_obs[new_watch].start()
+                else:#ocurrio que la watch se eliminó antes de crear el observer, es posible que ya estuviera en la base de datos
+                    self.db_search_manager.delete_all_within_path(new_watch)
+                    deleted.append(new_watch)
+        for x in deleted:
+            self.watches.remove(x);
         self.trayIcon.showMessage("Terminado",
             "Octopus ha actualizado sus índices")
         #habilitar las opciones de nueva búsqueda
