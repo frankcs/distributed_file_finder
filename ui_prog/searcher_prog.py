@@ -81,23 +81,24 @@ class Form(QMainWindow,Ui_MainWindow):
         self.pushButton_search.setText("Cancelar")
         results=self.broker.search(self.text,self.match_opt)
         try:
-            for x in results:
-                t1=QTableWidgetItem(x[1])
-                t1.setFlags(Qt.ItemIsSelectable)
-                t1.setTextColor(QColor('Black'))
-                t1.setBackgroundColor (QColor('whitesmoke'))
-                t2=QTableWidgetItem(x[0])
-                t2.setFlags(Qt.ItemIsSelectable)
-                t2.setTextColor(QColor('Black'))
+            for list in results:
+                for x in list:
+                    t1=QTableWidgetItem(x[1])
+                    t1.setFlags(Qt.ItemIsSelectable)
+                    t1.setTextColor(QColor('Black'))
+                    t1.setBackgroundColor (QColor('whitesmoke'))
+                    t2=QTableWidgetItem(x[0])
+                    t2.setFlags(Qt.ItemIsSelectable)
+                    t2.setTextColor(QColor('Black'))
 
-                self.tableWidget_result.insertRow(self.current_pos)
-                self.tableWidget_result.setItem(self.current_pos,0,t1)
-                self.tableWidget_result.setItem(self.current_pos,1,t2)
-                self.current_pos+=1
-                if self.current_pos%200==0:
-                    self.setWindowTitle('Resultados para "{}": más de {}'.format(self.text,self.current_pos))
-                if self.cancel:
-                    results.send(self.cancel)
+                    self.tableWidget_result.insertRow(self.current_pos)
+                    self.tableWidget_result.setItem(self.current_pos,0,t1)
+                    self.tableWidget_result.setItem(self.current_pos,1,t2)
+                    self.current_pos+=1
+                    if self.current_pos%200==0:
+                        self.setWindowTitle('Resultados para "{}": más de {}'.format(self.text,self.current_pos))
+                    if self.cancel:
+                        results.send(self.cancel)
         except : pass
         self.pushButton_search.setText("Buscar")
         self.lineEdit_input.setEnabled(True)
