@@ -150,7 +150,8 @@ def main():
 
     QtGui.QApplication.setQuitOnLastWindowClosed(False)
     tray=Sys_Tray()
-    app.exec_()
+    print(tray)
+    sys.exit(app.exec_())
 main()
 
 

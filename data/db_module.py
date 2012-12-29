@@ -88,7 +88,6 @@ class db_manager:
         #las watchs no están registradas en la DB
         is_directory=True
 
-
         tmp=result.fetchone()
         if tmp:
             file_id=tmp[1]
@@ -193,6 +192,8 @@ class db_manager:
         cursor.execute('DELETE FROM files')
         cursor.execute('DELETE FROM paths')
         connection.commit()
+
+    #para dar servicio a la red
 
 #my_db=db_manager('D:/Work/SISTDIST/DB/files_db.db',["D:\Work\SISTDIST\Sentry\Test"])
 #my_db.populate_database()
