@@ -71,8 +71,22 @@
       <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="257" column="8" selection-start="7943" selection-end="7943" vertical-scroll-proportion="0.33333334">
-              <folding />
+            <state line="216" column="4" selection-start="6263" selection-end="6263" vertical-scroll-proportion="0.2902439">
+              <folding>
+                <element signature="e#22#34#0" expanded="true" />
+                <element signature="e#3000#3065#0" expanded="false" />
+                <element signature="e#3132#4093#0" expanded="false" />
+                <element signature="e#4141#4378#0" expanded="false" />
+                <element signature="e#5622#6144#0" expanded="false" />
+                <element signature="e#6223#6257#0" expanded="false" />
+                <element signature="e#6311#6384#0" expanded="false" />
+                <element signature="e#6430#6479#0" expanded="false" />
+                <element signature="e#7854#7954#0" expanded="false" />
+                <element signature="e#7991#8010#0" expanded="false" />
+                <element signature="e#8044#8382#0" expanded="false" />
+                <element signature="e#11177#11310#0" expanded="false" />
+                <element signature="e#11340#11398#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -375,14 +389,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20014347" sideWeight="0.6703911" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20014347" sideWeight="0.6703911" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.50071734" order="7" side_tool="true" content_ui="tabs" />
@@ -570,8 +584,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="8" selection-start="7943" selection-end="7943" vertical-scroll-proportion="0.33333334">
-          <folding />
+        <state line="216" column="4" selection-start="6263" selection-end="6263" vertical-scroll-proportion="0.2902439">
+          <folding>
+            <element signature="e#22#34#0" expanded="true" />
+            <element signature="e#3000#3065#0" expanded="false" />
+            <element signature="e#3132#4093#0" expanded="false" />
+            <element signature="e#4141#4378#0" expanded="false" />
+            <element signature="e#5622#6144#0" expanded="false" />
+            <element signature="e#6223#6257#0" expanded="false" />
+            <element signature="e#6311#6384#0" expanded="false" />
+            <element signature="e#6430#6479#0" expanded="false" />
+            <element signature="e#7854#7954#0" expanded="false" />
+            <element signature="e#7991#8010#0" expanded="false" />
+            <element signature="e#8044#8382#0" expanded="false" />
+            <element signature="e#11177#11310#0" expanded="false" />
+            <element signature="e#11340#11398#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

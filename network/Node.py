@@ -7,6 +7,7 @@ from threading import Timer
 
 TIMEOUT=10.0
 PORT=3200
+ANSWERPORT=3201
 
 class Node(threading.Thread):
     """
@@ -20,7 +21,8 @@ class Node(threading.Thread):
         self.id=Id
         self.next=None
         self.previous=None
-        self.pyroDaemon=Pyro4.Daemon(Pyro4.socketutil.getMyIpAddress())
+        self.myIp=Pyro4.socketutil.getMyIpAddress()
+        self.pyroDaemon=Pyro4.Daemon(self.myIp)
         self.imInRing=False
         self.uri=None
         self.child=None
@@ -212,6 +214,8 @@ class Node(threading.Thread):
     def TakeChanges(self,list):
         self.manager.UpdateFromChild(list)
 
+    
+
     def GetDataToMyParent(self,data):
         if self.parent is not None:
             self.parent.TakeInitialData(data)
@@ -224,13 +228,14 @@ class Node(threading.Thread):
             print("CallForParent")
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg="Are you there?"
-            sock_out.sendto(msg.encode(), (str(self.parentAdrr), int(input("advice port:"))))
+            sock_out.sendto(msg.encode(), (str(self.parentAdrr), PORT))
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            sock_out.bind((str(self.parentAdrr),int(input("listen port:"))))
+            sock_out.bind((str(self.myIp),ANSWERPORT))
             self.timer=Timer(5.0,self.print_death)
             self.timer.start()
             (msg, address) = sock_out.recvfrom(65536)
             self.timer.cancel()
+            sock_out.close()
             if msg.decode() == "YES":
                return True
 
@@ -239,13 +244,14 @@ class Node(threading.Thread):
             print("CallForChild")
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg="Are you there?"
-            sock_out.sendto(msg.encode(), (str(self.childAdrr), int(input("advice port:"))))
+            sock_out.sendto(msg.encode(), (str(self.childAdrr), PORT))
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            sock_out.bind((str(self.childAdrr),int(input("listen port:"))))
+            sock_out.bind((str(self.myIp),ANSWERPORT))
             self.timer=Timer(5.0,self.print_death)
             self.timer.start()
             (msg, address) = sock_out.recvfrom(65536)
             self.timer.cancel()
+            sock_out.close()
             if msg.decode() == "YES":
                 return True
 
@@ -265,15 +271,14 @@ class Node(threading.Thread):
         sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         msg = "hello"
-        port = 3100
-        sock_out.sendto(msg.encode(), ("255.255.255.255", int(input("hello port:"))))
+        sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
 
     def ImListen(self):
         """
         Listen for Broadcast messages.
         """
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.bind(("0.0.0.0",int(input("listen port:"))))
+        s.bind(("0.0.0.0",PORT))
         #s.bind(("0.0.0.0",PORT))
         t=None
         while True:
@@ -299,8 +304,11 @@ class Node(threading.Thread):
                 sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                 msg="YES"
                 print(msg)
-                sock_out.sendto(msg.encode(), (address[0], int(input("answer port:"))))
-                print("child response send!!!.")
+                sock_out.sendto(msg.encode(), (address[0], ANSWERPORT))
+                if self.imInRing:
+                    print("child response send!!!.")
+                else:
+                    print("parent response send!!!.")
             elif sms=="hello": #and self.imInRing:
                 sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                 if self.imInRing:
@@ -309,14 +317,14 @@ class Node(threading.Thread):
                     else:
                         msg="Full House.{0}".format(self.uri)
                     print(msg)
-                    sock_out.sendto(msg.encode(), (address[0], int(input("send port:"))))
+                    sock_out.sendto(msg.encode(), (address[0], PORT))
                     print("info send!!!.")
                 else:
                     if self.parent is None:
                         continue
                     msg="Full House.{0}".format(self.parent.GetUri())
                     print(msg)
-                    sock_out.sendto(msg.encode(), (address[0], int(input("send port:"))))
+                    sock_out.sendto(msg.encode(), (address[0], PORT))
                     print("info send!!!.")
 
 
@@ -332,10 +340,6 @@ class Node(threading.Thread):
                     if self.parent.SetChild(self):
                         continue
                     else:self.parent=None
-
-
-
-
 
     def ImTheOne(self):
         """
