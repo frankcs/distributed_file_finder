@@ -25,7 +25,8 @@ class db_manager:
         except : pass
         cursor.execute('CREATE TABLE "paths" (\
                        "path_id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
-                       "path"  TEXT NOT NULL);')
+                       "path"  TEXT NOT NULL,\
+                       "machine_id"  TEXT NOT NULL DEFAULT localhost);')
         cursor.execute('CREATE TABLE "files" (\
             "id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
             "path"  INTEGER NOT NULL REFERENCES "paths" ("path_id") ON DELETE CASCADE ON UPDATE CASCADE,\
@@ -66,8 +67,8 @@ class db_manager:
         self.insert_everything_under_path(path)
 
 
-    def db_paths_insert(self,cursor,path):
-        return cursor.execute('INSERT INTO paths (path) VALUES (?)',(path,))
+    def db_paths_insert(self,cursor,path, machine_id='localhost'):
+        return cursor.execute('INSERT INTO paths (path, machine_id) VALUES (?,?)',(path,machine_id))
     def db_files_insert(self,cursor, path_id, base_name, isdir, md5):
         cursor.execute('INSERT INTO files (path,base_name,is_directory,md5) VALUES (?,?,?,?)'
             ,(path_id,base_name,isdir,md5))
@@ -194,11 +195,36 @@ class db_manager:
         connection.commit()
 
     #para dar servicio a la red
+    def push_into_database(self, pusher_id, data):
+        connection=sqlite3.connect(self.db_path)
+        cursor= connection.cursor()
+        path_id= None
+        for item in data:
+            self.db_paths_insert(cursor,item[0],pusher_id)
+            path_id=cursor.lastrowid
+            for entry in item[1]:
+                self.db_files_insert(cursor, path_id, entry[0], entry[1], entry[2])
+        connection.commit()
 
-#my_db=db_manager('D:/Work/SISTDIST/DB/files_db.db',["D:\Work\SISTDIST\Sentry\Test"])
+    def extract_database_data(self):
+        connection=sqlite3.connect(self.db_path)
+        cursor= connection.cursor()
+        paths= [x for x in cursor.execute('SELECT path_id, path FROM paths')]
+        #para poder parar
+        stop=False
+        for path in paths:
+            files_entries=[x for x in cursor.execute('SELECT base_name, is_directory, md5 FROM files where path = ?',(path[0],))]
+            if not stop:
+                stop=yield (path[1], files_entries)
+
+
+
+
+#my_db=db_manager('./files_db.db')
 #my_db.populate_database()
 #input()
 ##my_db.delete_all_within_path("D:\Work\SISTDIST\Sentry\Test\\3")
 #my_db.update_paths_on_moved("D:\Work\SISTDIST\Sentry\Test\\3","D:")
 #my_db.insert_new_created_entries("D:\Work\SISTDIST\Sentry\Test\\3\gacana.txt",0)
 #print(my_db.search_result(sys.argv[1],int(sys.argv[2])))
+#my_db.push_into_database('10.6.129.1',my_db.extract_database_data())

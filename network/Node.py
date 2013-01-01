@@ -32,6 +32,8 @@ class Node(threading.Thread):
         self.manager=manager
         self.timer=None
         self.daemon=True
+        self.fail=False
+        self.mySocket=None
 
 
     def GetId(self):
@@ -214,7 +216,8 @@ class Node(threading.Thread):
     def TakeChanges(self,list):
         self.manager.UpdateFromChild(list)
 
-    
+    def IsAlive(self):
+        return True
 
     def GetDataToMyParent(self,data):
         if self.parent is not None:
@@ -229,13 +232,13 @@ class Node(threading.Thread):
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg="Are you there?"
             sock_out.sendto(msg.encode(), (str(self.parentAdrr), PORT))
-            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            sock_out.bind((str(self.myIp),ANSWERPORT))
+            self.mySocket =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            self.mySocket.bind((str(self.myIp),ANSWERPORT))
             self.timer=Timer(5.0,self.print_death)
             self.timer.start()
-            (msg, address) = sock_out.recvfrom(65536)
+            (msg, address) = self.mySocket.recvfrom(65536)
             self.timer.cancel()
-            sock_out.close()
+            self.mySocket.close()
             if msg.decode() == "YES":
                return True
 
@@ -245,13 +248,13 @@ class Node(threading.Thread):
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg="Are you there?"
             sock_out.sendto(msg.encode(), (str(self.childAdrr), PORT))
-            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            sock_out.bind((str(self.myIp),ANSWERPORT))
+            self.mySocket =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            self.mySocket.bind((str(self.myIp),ANSWERPORT))
             self.timer=Timer(5.0,self.print_death)
             self.timer.start()
-            (msg, address) = sock_out.recvfrom(65536)
+            (msg, address) = self.mySocket.recvfrom(65536)
             self.timer.cancel()
-            sock_out.close()
+            self.mySocket.close()
             if msg.decode() == "YES":
                 return True
 
@@ -262,7 +265,64 @@ class Node(threading.Thread):
             self.CallForChild()
 
     def print_death(self):
+        self.mySocket.close()
         print("some death")
+        if self.imInRing:
+            try:
+                if self.next is not None and self.previous is not None:
+                    if self.next.IsAlive() and self.previous.IsAlive():
+                        self.child=None
+                        self.childAdrr=None
+                        print("my son is dead and my nexts alive")
+                else:
+                    self.child=None
+                    self.childAdrr=None
+                    print("My son is dead")
+            except:
+                self.imInRing=False
+                self.child=None
+                self.childAdrr=None
+                self.next=None
+                self.previous=None
+                self.parent=None
+                self.parentAdrr=None
+                self.SayHello()
+                print("im a dead father")
+        else:
+            try:
+                if self.next is not None and self.previous is not None:
+                    if self.next.IsAlive() and self.previous.IsAlive():
+                        self.parent=None
+                        self.parentAdrr=None
+                        self.next.SetPrevious(self)
+                        self.previous.SetNext(self)
+                        print("nexts updated.!!!")
+                        self.imInRing=True
+                        self.child=None
+                        self.childAdrr=None
+                else:
+                    self.parent=None
+                    self.parentAdrr=None
+                    self.child=None
+                    self.childAdrr=None
+                    self.fail=True
+                    Timer(1.0,self.SayHelloOnFails).start()
+                print("my father is dead and im in ring")
+            except:
+                self.parent=None
+                self.parentAdrr=None
+                self.next=None
+                self.previous=None
+                print("im a dead son")
+
+
+    def SayHelloOnFails(self):
+        if self.fail:
+            print("Saying Hello")
+            self.SayHello()
+            Timer(1.0,self.SayHelloOnFails).start()
+
+
 
     def SayHello(self):
         """
@@ -329,6 +389,9 @@ class Node(threading.Thread):
 
 
             elif str(sms).__contains__("Full House") and not self.imInRing:
+                if self.fail:
+                    self.fail=False
+                    Timer(3.0,self.VerifyParent).start()
                 substr=str(sms)#implementar logica de esperar mas respuestas por posibles anfitriones
                 sim=str(substr[11:])
                 print("URI FULL HOUSE:{0}".format(sim))
@@ -338,6 +401,9 @@ class Node(threading.Thread):
                 if self.parent == None:
                     self.parent=Pyro4.Proxy(sms)
                     if self.parent.SetChild(self):
+                        if self.fail:
+                            self.fail=False
+                            Timer(3.0,self.VerifyParent).start()
                         continue
                     else:self.parent=None
 

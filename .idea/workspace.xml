@@ -26,34 +26,7 @@
       <file leaf-file-name="app.pyw" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="references.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/references.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="28" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="global_options_prog.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui_prog/global_options_prog.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="149" selection-start="2256" selection-end="2385" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="os.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python32/Lib/os.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="295" column="0" selection-start="9880" selection-end="9880" vertical-scroll-proportion="0.0">
+            <state line="50" column="38" selection-start="1909" selection-end="1909" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -68,33 +41,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="216" column="4" selection-start="6263" selection-end="6263" vertical-scroll-proportion="0.2902439">
+            <state line="383" column="32" selection-start="12440" selection-end="12448" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#22#34#0" expanded="true" />
-                <element signature="e#3000#3065#0" expanded="false" />
-                <element signature="e#3132#4093#0" expanded="false" />
-                <element signature="e#4141#4378#0" expanded="false" />
-                <element signature="e#5622#6144#0" expanded="false" />
-                <element signature="e#6223#6257#0" expanded="false" />
-                <element signature="e#6311#6384#0" expanded="false" />
-                <element signature="e#6430#6479#0" expanded="false" />
-                <element signature="e#7854#7954#0" expanded="false" />
-                <element signature="e#7991#8010#0" expanded="false" />
-                <element signature="e#8044#8382#0" expanded="false" />
-                <element signature="e#11177#11310#0" expanded="false" />
-                <element signature="e#11340#11398#0" expanded="false" />
+                <element signature="e#3051#3116#0" expanded="false" />
+                <element signature="e#3183#4144#0" expanded="false" />
+                <element signature="e#4192#4429#0" expanded="false" />
+                <element signature="e#5673#6195#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="db_module.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="45" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0">
+            <state line="229" column="1" selection-start="9782" selection-end="9782" vertical-scroll-proportion="0.79204893">
               <folding />
             </state>
           </provider>
@@ -127,6 +92,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="os.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python32/Lib/os.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="295" column="0" selection-start="9880" selection-end="9880" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="global_options_prog.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui_prog/global_options_prog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="149" selection-start="2256" selection-end="2385" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="references.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/references.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="28" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -149,18 +141,18 @@
         <option value="$PROJECT_DIR$/ui_prog/options_dialog_prog.py" />
         <option value="$PROJECT_DIR$/ui_prog/global_options_prog.py" />
         <option value="$PROJECT_DIR$/ui_prog/searcher_prog.py" />
-        <option value="$PROJECT_DIR$/data/db_module.py" />
         <option value="$PROJECT_DIR$/references.py" />
         <option value="$PROJECT_DIR$/app.pyw" />
         <option value="$PROJECT_DIR$/network/Node.py" />
+        <option value="$PROJECT_DIR$/data/db_module.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="1032" />
+    <option name="height" value="748" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -176,7 +168,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -187,63 +179,13 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SISTDIST" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SISTDIST" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SISTDIST" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="network" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SISTDIST" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="options.lastSelected" value="editing.templates" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
@@ -260,7 +202,7 @@
       <recent name="C:\Users\Frank\Desktop\UI\network" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app.pyw">
+  <component name="RunManager" selected="Python.db_module">
     <configuration default="false" name="app.pyw" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -294,6 +236,23 @@
       <module name="SISTDIST" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="D:\Work\SISTDIST\UI\data\get_md5.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="db_module" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="SISTDIST" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/db_module.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -351,13 +310,15 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.app.pyw" />
       <item index="1" class="java.lang.String" itemvalue="Python.get_md5" />
+      <item index="2" class="java.lang.String" itemvalue="Python.db_module" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.app.pyw" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.db_module" />
+        <item index="1" class="java.lang.String" itemvalue="Python.app.pyw" />
       </list>
     </recent_temporary>
   </component>
@@ -389,18 +350,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="1" />
+    <frame x="-4" y="-4" width="1032" height="748" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20014347" sideWeight="0.6703911" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20449898" sideWeight="0.67221296" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.50071734" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960895" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.359401" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -474,8 +435,13 @@
           <line>34</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/data/db_module.py</url>
+          <line>198</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -554,23 +520,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="45" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/references.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="28" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -582,24 +534,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.pyw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="38" selection-start="1909" selection-end="1909" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="4" selection-start="6263" selection-end="6263" vertical-scroll-proportion="0.2902439">
+        <state line="383" column="32" selection-start="12440" selection-end="12448" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#22#34#0" expanded="true" />
-            <element signature="e#3000#3065#0" expanded="false" />
-            <element signature="e#3132#4093#0" expanded="false" />
-            <element signature="e#4141#4378#0" expanded="false" />
-            <element signature="e#5622#6144#0" expanded="false" />
-            <element signature="e#6223#6257#0" expanded="false" />
-            <element signature="e#6311#6384#0" expanded="false" />
-            <element signature="e#6430#6479#0" expanded="false" />
-            <element signature="e#7854#7954#0" expanded="false" />
-            <element signature="e#7991#8010#0" expanded="false" />
-            <element signature="e#8044#8382#0" expanded="false" />
-            <element signature="e#11177#11310#0" expanded="false" />
-            <element signature="e#11340#11398#0" expanded="false" />
+            <element signature="e#3051#3116#0" expanded="false" />
+            <element signature="e#3183#4144#0" expanded="false" />
+            <element signature="e#4192#4429#0" expanded="false" />
+            <element signature="e#5673#6195#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/db_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="229" column="1" selection-start="9782" selection-end="9782" vertical-scroll-proportion="0.79204893">
+          <folding />
         </state>
       </provider>
     </entry>
