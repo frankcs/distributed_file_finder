@@ -79,7 +79,7 @@ class db_manager:
         return cursor.execute('INSERT INTO paths (path, machine_id) VALUES (?,?)',(path,machine_id))
     def db_files_insert(self,cursor, path_id, base_name, isdir, md5):
         if self.keep_journal:
-            path= cursor.execute('SELECT path FROM paths WHERE path_id=?'(path_id,))
+            path= cursor.execute('SELECT path FROM paths WHERE path_id=?',(path_id,)).fetchone()[0]
             self.operation_list.append(("db_files_insert", path, base_name,isdir,md5))
         cursor.execute('INSERT INTO files (path,base_name,is_directory,md5) VALUES (?,?,?,?)'
             ,(path_id,base_name,isdir,md5))
@@ -218,7 +218,7 @@ class db_manager:
 
     def stop_journal(self):
         self.keep_journal=False
-        self.operation_list=[]
+
 
     def push_into_database(self, machine_id, data):
         connection=sqlite3.connect(self.db_path)
@@ -260,19 +260,24 @@ class db_manager:
             elif changes[0]=="db_paths_insert":
                 self.db_paths_insert(cursor,changes[1],machine_id)
             elif changes[0]=="db_files_insert":
-                pathid= cursor.execute('SELECT path_id FROM paths WHERE path=? AND machine_id=?',(changes[1],machine_id))
+                pathid= cursor.execute('SELECT path_id FROM paths WHERE path=? AND machine_id=?',
+                    (changes[1],machine_id)).fetchone()[0]
                 self.db_files_insert(cursor,pathid,changes[2],changes[3],changes[4])
             elif changes[0]== "delete_all_within_path":
                 self.delete_all_within_path(changes[1],machine_id)
         connection.commit()
 
 
-my_db=db_manager('./files_db.db')
+#my_db=db_manager('./files_db.db')
 #my_db.populate_database()
 #input()
 ##my_db.delete_all_within_path("D:\Work\SISTDIST\Sentry\Test\\3")
 #my_db.update_paths_on_moved("D:\Work\SISTDIST\Sentry\Test\\3","D:")
 #my_db.insert_new_created_entries("D:\Work\SISTDIST\Sentry\Test\\3\gacana.txt",0)
 #print(my_db.search_result(sys.argv[1],int(sys.argv[2])))
-my_db.push_into_database('10.6.129.1',my_db.extract_database_data())
+#my_db.start_journal()
+#my_db.push_into_database('10.6.129.1',my_db.extract_database_data())
+#my_db.stop_journal()
+#my_db.delete_everything_from('10.6.129.1')
+#my_db.process_changes_from('10.6.129.1',my_db.operation_list)
 #my_db.delete_everything_from('10.6.129.1')

@@ -88,6 +88,8 @@ class Node(threading.Thread):
             self.child.SetNext(self.next)
             self.child.SetPrevious(self.previous)
             self.child.SetParentAddress(self.GetIpAddress())
+            #data calls
+            self.TakeInitialData()
             print("CHILD:{0}".format(self.child))
             return True
         else:return False
@@ -212,19 +214,8 @@ class Node(threading.Thread):
             #    break
             nextHelper=nextHelper.GetNext()
 
-    #self.connect.parent.TakeChanges(list)
-    def TakeChanges(self,list):
-        self.manager.UpdateFromChild(list)
-
     def IsAlive(self):
         return True
-
-    def GetDataToMyParent(self,data):
-        if self.parent is not None:
-            self.parent.TakeInitialData(data)
-
-    def TakeInitialData(self,data):
-        self.manager.TakeInitialData(data)#implementation
 
     def CallForParent(self):
         if self.parentAdrr is not None:
@@ -443,4 +434,14 @@ class Node(threading.Thread):
         # t.start()
         #self.pyroDaemon.requestLoop()
 
+    #data acces
+    def GetDataToMyParent(self):
+        return [x for x in self.manager.extract_database_data()]
 
+
+    def TakeInitialData(self):
+        self.manager.push_into_database(self.childAdrr, self.child.GetDataToMyParent())
+
+    #self.connect.parent.TakeChanges(list)
+    def TakeChanges(self,list):
+        pass

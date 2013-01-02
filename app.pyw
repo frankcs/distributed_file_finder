@@ -30,9 +30,6 @@ class Sys_Tray(QDialog):
         #normal init
         self.db_search_manager=db_manager("./data/files_db.db")
         self.fs_handler= octopus_handler(self.db_search_manager)
-        number= str(random.randint(1,4294967296))
-        self.connection= Node(number,self.db_search_manager)
-        self.connection.start()
         self.dict_watch_obs={}
         if not db_file:
             self.first_run()
@@ -40,6 +37,9 @@ class Sys_Tray(QDialog):
         self.watches=self.db_search_manager.retrieve_watches()
         self.db_search_manager.delete_all_file_data()
         self.update_watches(self.watches)
+        number= str(random.randint(1,4294967296))
+        self.connection= Node(number,self.db_search_manager)
+        self.connection.start()
 
     def first_run(self):
         self.db_search_manager.reset_database()
