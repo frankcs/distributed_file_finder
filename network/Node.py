@@ -4,7 +4,8 @@ import Pyro4
 import threading
 import socket
 from threading import Timer
-
+from threading import Thread
+import time
 TIMEOUT=10.0
 PORT=3200
 ANSWERPORT=3201
@@ -435,13 +436,29 @@ class Node(threading.Thread):
         #self.pyroDaemon.requestLoop()
 
     #data acces
+    #for children
     def GetDataToMyParent(self):
+        self.manager.start_journal()
+        senderth=Thread(target=self.SenDataWhenNeeded)
+        senderth.daemon=True
+        senderth.start()
         return [x for x in self.manager.extract_database_data()]
 
 
+    def SenDataWhenNeeded(self):
+        while True:
+            time.sleep(1)
+            print("Trying to send data")
+            if len(self.manager.operation_list)!=0:
+                self.parent.TakeChanges(self.manager.operation_list)
+                self.manager.operation_list=[]
+                print("data sent")
+
+    #for parent nodes
     def TakeInitialData(self):
         self.manager.push_into_database(self.childAdrr, self.child.GetDataToMyParent())
 
+
     #self.connect.parent.TakeChanges(list)
-    def TakeChanges(self,list):
-        pass
+    def TakeChanges(self,changes):
+        self.manager.process_changes_from(self.childAdrr,changes)

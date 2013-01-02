@@ -26,7 +26,16 @@
       <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="263" column="20" selection-start="11614" selection-end="11614" vertical-scroll-proportion="0.0">
+            <state line="258" column="0" selection-start="11304" selection-end="11304" vertical-scroll-proportion="-4.08">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searcher_prog.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="81" column="0" selection-start="3138" selection-end="3138" vertical-scroll-proportion="0.33333334">
               <folding />
             </state>
           </provider>
@@ -35,25 +44,18 @@
       <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="438" column="43" selection-start="14298" selection-end="14298" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="92" column="0" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#22#34#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python32/Lib/site-packages/Pyro4-4.15-py3.2.egg/Pyro4/core.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="923" column="22" selection-start="38980" selection-end="38980" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.pyw" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.pyw" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.74927956">
+            <state line="45" column="10" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -82,9 +84,9 @@
         <option value="$PROJECT_DIR$/ui_prog/global_options_prog.py" />
         <option value="$PROJECT_DIR$/ui_prog/searcher_prog.py" />
         <option value="$PROJECT_DIR$/references.py" />
-        <option value="$PROJECT_DIR$/data/db_module.py" />
-        <option value="$PROJECT_DIR$/network/Node.py" />
         <option value="$PROJECT_DIR$/app.pyw" />
+        <option value="$PROJECT_DIR$/network/Node.py" />
+        <option value="$PROJECT_DIR$/data/db_module.py" />
       </list>
     </option>
   </component>
@@ -343,17 +345,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1032" height="748" extended-state="1" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21267894" sideWeight="0.640599" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31780365" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21267894" sideWeight="0.8003328" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47420964" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.50071734" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.359401" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.359401" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -416,27 +418,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/ui_prog/searcher_prog.py</url>
-          <line>81</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>442</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="15" />
+      <option name="time" value="19" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/designer_generated_ui/local_options.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6" selection-start="368" selection-end="387" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/designer_generated_ui/global_options.pyw">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="8" selection-start="2448" selection-end="2467" vertical-scroll-proportion="0.0" />
@@ -481,13 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="3212" selection-end="3212" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/references.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="28" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0">
@@ -516,30 +494,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
+    <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="263" column="20" selection-start="11614" selection-end="11614" vertical-scroll-proportion="0.0">
+        <state line="45" column="10" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python32/Lib/logging/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1218" column="0" selection-start="41817" selection-end="41817" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/site-packages/Pyro4-4.15-py3.2.egg/Pyro4/core.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="923" column="22" selection-start="38980" selection-end="38980" vertical-scroll-proportion="0.0">
+        <state line="920" column="0" selection-start="38767" selection-end="38767" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="438" column="43" selection-start="14298" selection-end="14298" vertical-scroll-proportion="0.0">
+        <state line="92" column="0" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#22#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/db_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="258" column="0" selection-start="11304" selection-end="11304" vertical-scroll-proportion="-4.08">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.pyw">
+    <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.74927956">
+        <state line="81" column="0" selection-start="3138" selection-end="3138" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
