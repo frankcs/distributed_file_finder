@@ -5,12 +5,18 @@ class db_manager:
     COLUMNS="(path,base_name,is_directory)"
     def __init__(self,db_path):
         self.db_path=db_path
+        #para enterarme de los cambios que han ocurrido con mi base de datos
+        #va a guardar tuplas función, parámetros
+        self.operation_list=[]
+        self.keep_journal=False
 
     def create_database(self):
         file=open(self.db_path,mode='w')
         file.close()
 
     def reset_database(self):
+        if self.keep_journal:
+            self.operation_list.append(("delete_everything_from",))
         self.create_database()
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
@@ -68,12 +74,19 @@ class db_manager:
 
 
     def db_paths_insert(self,cursor,path, machine_id='localhost'):
+        if self.keep_journal:
+            self.operation_list.append(("db_paths_insert",path))
         return cursor.execute('INSERT INTO paths (path, machine_id) VALUES (?,?)',(path,machine_id))
     def db_files_insert(self,cursor, path_id, base_name, isdir, md5):
+        if self.keep_journal:
+            path= cursor.execute('SELECT path FROM paths WHERE path_id=?'(path_id,))
+            self.operation_list.append(("db_files_insert", path, base_name,isdir,md5))
         cursor.execute('INSERT INTO files (path,base_name,is_directory,md5) VALUES (?,?,?,?)'
             ,(path_id,base_name,isdir,md5))
 
-    def delete_all_within_path(self, deletion_path):
+    def delete_all_within_path(self, deletion_path,machine_id='localhost'):
+        if self.keep_journal:
+            self.operation_list.append(("delete_all_within_path",deletion_path))
         connection=sqlite3.connect(self.db_path)
         cursor=connection.cursor()
         #dividir el camino que me dan para hacer las respectivas consultas
@@ -84,9 +97,8 @@ class db_manager:
                                INNER JOIN files\
                                ON paths.path_id = files.path\
                                WHERE paths.path=?\
-                               AND files.base_name=?',(parent_directory,base_name))
-        # setear lo de directorio siempre en true por el problema de que
-        #las watchs no están registradas en la DB
+                               AND files.base_name=?\
+                               AND paths.machine_id=?',(parent_directory,base_name,machine_id))
         is_directory=True
 
         tmp=result.fetchone()
@@ -110,20 +122,22 @@ class db_manager:
             cursor.execute('DELETE FROM paths WHERE path LIKE ?',(deletion_path+'%',))
         connection.commit()
 
-    def update_paths_on_moved(self, old_path, new_path):
+    def update_paths_on_moved(self, old_path, new_path, machine_id='localhost'):
+        if self.keep_journal:
+            self.operation_list.append(("update_paths_on_moved",old_path,new_path))
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
         #dividir el camino que me dan para hacer las respectivas consultas
         old_parent_directory, old_base_name =os.path.split(old_path)
         new_parent_directory, new_base_name =os.path.split(new_path)
         #si fue el nombre de un directorio buscar todos los que tengan el sufijo viejo y cambiarlo por el nuevo
-        cursor.execute('SELECT path FROM paths WHERE path LIKE ?',(old_path+"%",))
+        cursor.execute('SELECT path FROM paths WHERE path LIKE ? AND machine_id=?',(old_path+"%",machine_id))
         result=[row for row in cursor]
         for row in result:
             #copio el nombre y le aplico replace
             new_full_path=row[0][:].replace(old_path,new_path)
-            cursor.execute('UPDATE paths SET path=? WHERE path = ?',
-            (new_full_path,row[0]))
+            cursor.execute('UPDATE paths SET path=? WHERE path = ? AND machine_id=?',
+            (new_full_path,row[0],machine_id))
         #cambiar las entradas en la tabla files
         cursor.execute('UPDATE files\
                         SET base_name=?\
@@ -131,7 +145,8 @@ class db_manager:
                         AND path =(\
                         SELECT path_id\
                         FROM paths\
-                        WHERE path =?)',(new_base_name,old_base_name,new_parent_directory))
+                        WHERE path =?\
+                        AND machine_id=?)',(new_base_name,old_base_name,new_parent_directory,machine_id))
         connection.commit()
 
     def insert_new_created_entries(self, path, isdir):
@@ -188,22 +203,41 @@ class db_manager:
         connection.commit()
 
     def delete_all_file_data(self):
+        if self.keep_journal:
+            self.operation_list.append(("delete_everything_from",))
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
         cursor.execute('DELETE FROM files')
         cursor.execute('DELETE FROM paths')
         connection.commit()
 
-    #para dar servicio a la red
-    def push_into_database(self, pusher_id, data):
+    #de aquí en adelante son para dar servicio a la red
+
+    def start_journal(self):
+        self.keep_journal=True
+
+    def stop_journal(self):
+        self.keep_journal=False
+        self.operation_list=[]
+
+    def push_into_database(self, machine_id, data):
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
         path_id= None
         for item in data:
-            self.db_paths_insert(cursor,item[0],pusher_id)
+            self.db_paths_insert(cursor,item[0],machine_id)
             path_id=cursor.lastrowid
             for entry in item[1]:
                 self.db_files_insert(cursor, path_id, entry[0], entry[1], entry[2])
+        connection.commit()
+
+    def delete_everything_from(self, machine_id):
+        connection=sqlite3.connect(self.db_path)
+        cursor= connection.cursor()
+        paths= [x for x in cursor.execute('SELECT path_id, path FROM paths WHERE machine_id=?',(machine_id,))]
+        for path in paths:
+           cursor.execute('DELETE FROM files WHERE path=?',(path[0],))
+        cursor.execute('DELETE FROM paths WHERE machine_id=?',(machine_id,))
         connection.commit()
 
     def extract_database_data(self):
@@ -217,14 +251,28 @@ class db_manager:
             if not stop:
                 stop=yield (path[1], files_entries)
 
+    def process_changes_from(self,machine_id,changes):
+        connection=sqlite3.connect(self.db_path)
+        cursor= connection.cursor()
+        for changes in changes:
+            if changes[0]=="delete_everything_from":
+                self.delete_everything_from(machine_id)
+            elif changes[0]=="db_paths_insert":
+                self.db_paths_insert(cursor,changes[1],machine_id)
+            elif changes[0]=="db_files_insert":
+                pathid= cursor.execute('SELECT path_id FROM paths WHERE path=? AND machine_id=?',(changes[1],machine_id))
+                self.db_files_insert(cursor,pathid,changes[2],changes[3],changes[4])
+            elif changes[0]== "delete_all_within_path":
+                self.delete_all_within_path(changes[1],machine_id)
+        connection.commit()
 
 
-
-#my_db=db_manager('./files_db.db')
+my_db=db_manager('./files_db.db')
 #my_db.populate_database()
 #input()
 ##my_db.delete_all_within_path("D:\Work\SISTDIST\Sentry\Test\\3")
 #my_db.update_paths_on_moved("D:\Work\SISTDIST\Sentry\Test\\3","D:")
 #my_db.insert_new_created_entries("D:\Work\SISTDIST\Sentry\Test\\3\gacana.txt",0)
 #print(my_db.search_result(sys.argv[1],int(sys.argv[2])))
-#my_db.push_into_database('10.6.129.1',my_db.extract_database_data())
+my_db.push_into_database('10.6.129.1',my_db.extract_database_data())
+#my_db.delete_everything_from('10.6.129.1')
