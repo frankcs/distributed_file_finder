@@ -173,7 +173,7 @@ class db_manager:
             final_pattern="%"+pattern
 
         print(final_pattern)
-        cursor.execute('SELECT paths.path, files.base_name, files.is_directory \
+        cursor.execute('SELECT paths.path, files.base_name, files.is_directory, paths.machine_id \
                         FROM files \
                         INNER JOIN paths \
                         ON files.path = paths.path_id \
@@ -181,7 +181,7 @@ class db_manager:
         stop=False
         for item in cursor:
             if not stop:
-                stop=yield (item[0],item[1],item[2])
+                stop=yield (item[0],item[1],item[2], item[3])
 
     def persist_watches(self, watches):
         connection=sqlite3.connect(self.db_path)
