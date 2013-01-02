@@ -127,7 +127,7 @@ class Node(threading.Thread):
         else: return []
 
     def LocalSearch(self,pattern, matchoption, child= False):
-        return self.manager.search_result( pattern, matchoption)#fix this
+        return [x for x in self.manager.search_result(pattern, matchoption)]#fix this]
 
     def Search(self, pattern, matchoption, amount= 400):
         result=[]
@@ -140,6 +140,7 @@ class Node(threading.Thread):
                 result=[]
         if child:
             for item in self.parent.LocalSearch(pattern,matchoption,child):
+                item[3]=self.parentAdrr
                 result.append(item)
                 if len(result)>=amount:
                     yield result

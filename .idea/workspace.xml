@@ -26,16 +26,7 @@
       <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="59" selection-start="8507" selection-end="8507" vertical-scroll-proportion="-12.24">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="searcher_prog.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="33" selection-start="3309" selection-end="3309" vertical-scroll-proportion="0.41210374">
+            <state line="183" column="61" selection-start="8509" selection-end="8509" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -44,10 +35,8 @@
       <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="0" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#22#34#0" expanded="true" />
-              </folding>
+            <state line="142" column="39" selection-start="3673" selection-end="3673" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -56,6 +45,24 @@
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
             <state line="45" column="10" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="installer.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/packages/installer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="59" selection-start="99" selection-end="99" vertical-scroll-proportion="0.14166667">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searcher_prog.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="90" column="44" selection-start="3584" selection-end="3584" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,7 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/get_md5.py" />
         <option value="$PROJECT_DIR$/sentry.py" />
         <option value="$PROJECT_DIR$/qt_references.py" />
         <option value="$PROJECT_DIR$/db_module.py" />
@@ -84,9 +90,10 @@
         <option value="$PROJECT_DIR$/ui_prog/global_options_prog.py" />
         <option value="$PROJECT_DIR$/references.py" />
         <option value="$PROJECT_DIR$/app.pyw" />
+        <option value="$PROJECT_DIR$/ui_prog/searcher_prog.py" />
         <option value="$PROJECT_DIR$/network/Node.py" />
         <option value="$PROJECT_DIR$/data/db_module.py" />
-        <option value="$PROJECT_DIR$/ui_prog/searcher_prog.py" />
+        <option value="$PROJECT_DIR$/packages/installer.py" />
       </list>
     </option>
   </component>
@@ -165,6 +172,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SISTDIST" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="network" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -190,10 +211,10 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="editing.templates" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="recentsLimit" value="5" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -208,7 +229,7 @@
       <recent name="C:\Users\Frank\Desktop\UI\network" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app.pyw">
+  <component name="RunManager" selected="Python.installer">
     <configuration default="false" name="app.pyw" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -266,6 +287,23 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
+    <configuration default="false" name="installer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/packages" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="SISTDIST" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/packages/installer.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -318,15 +356,17 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.app.pyw" />
       <item index="1" class="java.lang.String" itemvalue="Python.get_md5" />
       <item index="2" class="java.lang.String" itemvalue="Python.db_module" />
+      <item index="3" class="java.lang.String" itemvalue="Python.installer" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.app.pyw" />
-        <item index="1" class="java.lang.String" itemvalue="Python.db_module" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.installer" />
+        <item index="1" class="java.lang.String" itemvalue="Python.app.pyw" />
+        <item index="2" class="java.lang.String" itemvalue="Python.db_module" />
       </list>
     </recent_temporary>
   </component>
@@ -365,7 +405,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21267894" sideWeight="0.640599" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21676892" sideWeight="0.640599" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12479201" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.50071734" order="7" side_tool="true" content_ui="tabs" />
@@ -436,11 +476,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/designer_generated_ui/global_options.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="8" selection-start="2448" selection-end="2467" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui_prog/global_options_prog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="149" selection-start="2256" selection-end="2385" vertical-scroll-proportion="0.0" />
@@ -448,9 +483,7 @@
     </entry>
     <entry file="file://C:/Python32/Lib/os.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="0" selection-start="9880" selection-end="9880" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="295" column="0" selection-start="9880" selection-end="9880" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/observers/api.py">
@@ -475,9 +508,7 @@
     </entry>
     <entry file="file://C:/Python32/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="688" column="0" selection-start="22189" selection-end="22189" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="688" column="0" selection-start="22189" selection-end="22189" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/references.py">
@@ -489,45 +520,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/sentry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6" column="0" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.63176894">
-          <folding />
-        </state>
+        <state line="36" column="0" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.63176894" />
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/logging/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1218" column="0" selection-start="41817" selection-end="41817" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="1218" column="0" selection-start="41817" selection-end="41817" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/site-packages/Pyro4-4.15-py3.2.egg/Pyro4/core.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="920" column="0" selection-start="38767" selection-end="38767" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="920" column="0" selection-start="38767" selection-end="38767" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/Node.py">
+    <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="0" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#22#34#0" expanded="true" />
-          </folding>
+        <state line="90" column="44" selection-start="3584" selection-end="3584" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -538,16 +557,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
+    <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="59" selection-start="8507" selection-end="8507" vertical-scroll-proportion="-12.24">
+        <state line="142" column="39" selection-start="3673" selection-end="3673" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
+    <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="33" selection-start="3309" selection-end="3309" vertical-scroll-proportion="0.41210374">
+        <state line="183" column="61" selection-start="8509" selection-end="8509" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/installer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="59" selection-start="99" selection-end="99" vertical-scroll-proportion="0.14166667">
           <folding />
         </state>
       </provider>

@@ -181,7 +181,7 @@ class db_manager:
         stop=False
         for item in cursor:
             if not stop:
-                stop=yield (item[0],item[1],item[2], item[3])
+                stop=yield [item[0],item[1],item[2], item[3]]
 
     def persist_watches(self, watches):
         connection=sqlite3.connect(self.db_path)
