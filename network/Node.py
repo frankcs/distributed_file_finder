@@ -94,6 +94,7 @@ class Node(threading.Thread):
                 self.child.SetPrevious(self.previous)
                 self.child.SetParentAddress(self.myIp)
                 #data call
+                print("Voy a buscar")
                 self.TakeInitialData()
                 print("CHILD:{0}".format(self.child))
                 t1=threading.Thread(target=self.VerifyParent)
@@ -142,8 +143,8 @@ class Node(threading.Thread):
             return ["este","aquel","el otro"]#Ver Con Frank
         else: return []
 
-    def LocalSearch(self,pattern, matchoption, child= False):
-        return [x for x in self.manager.search_result(pattern, matchoption)]#fix this
+    def LocalSearch(self,pattern, matchoption, block=''):
+        return [x for x in self.manager.search_result(pattern, matchoption,block)]#fix this
 
     def Search(self, pattern, matchoption, amount= 400):
         result=[]
@@ -155,7 +156,7 @@ class Node(threading.Thread):
                 yield result
                 result=[]
         if child:
-            for item in self.parent.LocalSearch(pattern,matchoption,child):
+            for item in self.parent.LocalSearch(pattern,matchoption,self.myIp):
                 item[3]=self.parentAdrr
                 result.append(item)
                 if len(result)>=amount:

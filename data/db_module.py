@@ -163,7 +163,7 @@ class db_manager:
         self.db_files_insert(cursor,path_id,base_name, isdir,'')
         connection.commit()
 
-    def search_result(self, pattern, option):
+    def search_result(self, pattern, option, block=''):
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
         final_pattern="%"+pattern+"%"
@@ -177,7 +177,8 @@ class db_manager:
                         FROM files \
                         INNER JOIN paths \
                         ON files.path = paths.path_id \
-                        WHERE files.base_name LIKE ?',(final_pattern,))
+                        WHERE files.base_name LIKE ? \
+                        AND NOT (paths.machine_id= ?)',(final_pattern,block))
         stop=False
         for item in cursor:
             if not stop:
@@ -283,3 +284,7 @@ class db_manager:
 #my_db.delete_everything_from('10.6.129.1')
 #my_db.process_changes_from('10.6.129.1',my_db.operation_list)
 #my_db.delete_everything_from('10.6.129.1')
+#for x in my_db.search_result('estopa', 0):
+    #print(x)
+#for x in my_db.search_result('estopa', 0, block="10.6.129.1"):
+    #print(x)
