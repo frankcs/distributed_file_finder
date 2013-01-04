@@ -26,8 +26,10 @@
       <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="229" column="52" selection-start="10120" selection-end="10120" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="180" column="32" selection-start="8520" selection-end="8520" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -35,21 +37,20 @@
       <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="544" column="39" selection-start="18734" selection-end="18734" vertical-scroll-proportion="-3.0062113">
+            <state line="577" column="20" selection-start="19796" selection-end="19796" vertical-scroll-proportion="0.61490685">
               <folding>
                 <element signature="e#226#256#1" expanded="false" />
                 <element signature="e#300#335#1" expanded="false" />
-                <element signature="e#857#970#0" expanded="false" />
-                <element signature="e#857#904#1" expanded="false" />
-                <element signature="e#11514#11877#0" expanded="false" />
-                <element signature="e#11514#11625#1" expanded="false" />
-                <element signature="e#11911#11965#1" expanded="false" />
-                <element signature="e#16420#16865#0" expanded="false" />
-                <element signature="e#16420#16498#1" expanded="false" />
-                <element signature="e#16903#16990#0" expanded="false" />
-                <element signature="e#17019#17517#0" expanded="false" />
-                <element signature="e#17019#17058#1" expanded="false" />
-                <element signature="e#17555#17843#0" expanded="false" />
+                <element signature="e#1007#1182#0" expanded="false" />
+                <element signature="e#1007#1062#1" expanded="false" />
+                <element signature="e#11588#11951#0" expanded="false" />
+                <element signature="e#11588#11699#1" expanded="false" />
+                <element signature="e#11985#12039#1" expanded="false" />
+                <element signature="e#16494#16572#1" expanded="false" />
+                <element signature="e#16974#17061#0" expanded="false" />
+                <element signature="e#17090#17588#0" expanded="false" />
+                <element signature="e#17090#17129#1" expanded="false" />
+                <element signature="e#17626#17914#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,7 +59,7 @@
       <file leaf-file-name="app.pyw" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="16" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
+            <state line="44" column="47" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -97,8 +98,8 @@
         <option value="$PROJECT_DIR$/app.pyw" />
         <option value="$PROJECT_DIR$/ui_prog/searcher_prog.py" />
         <option value="$PROJECT_DIR$/packages/installer.py" />
-        <option value="$PROJECT_DIR$/data/db_module.py" />
         <option value="$PROJECT_DIR$/network/Node.py" />
+        <option value="$PROJECT_DIR$/data/db_module.py" />
       </list>
     </option>
   </component>
@@ -411,8 +412,8 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327787" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2208589" sideWeight="0.640599" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12479201" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2208589" sideWeight="0.640599" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39767054" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.50071734" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.359401" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
@@ -477,7 +478,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <option name="time" value="25" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -509,11 +510,6 @@
           <Categories />
           <SCOPE>All</SCOPE>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python32/Lib/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="688" column="0" selection-start="22189" selection-end="22189" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/references.py">
@@ -548,13 +544,6 @@
         <state line="920" column="0" selection-start="38767" selection-end="38767" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="16" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="90" column="44" selection-start="3584" selection-end="3584" vertical-scroll-proportion="0.0">
@@ -562,30 +551,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.pyw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="47" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python32/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="688" column="0" selection-start="22189" selection-end="22189" vertical-scroll-proportion="0.3323442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="229" column="52" selection-start="10120" selection-end="10120" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="180" column="32" selection-start="8520" selection-end="8520" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="544" column="39" selection-start="18734" selection-end="18734" vertical-scroll-proportion="-3.0062113">
+        <state line="577" column="20" selection-start="19796" selection-end="19796" vertical-scroll-proportion="0.61490685">
           <folding>
             <element signature="e#226#256#1" expanded="false" />
             <element signature="e#300#335#1" expanded="false" />
-            <element signature="e#857#970#0" expanded="false" />
-            <element signature="e#857#904#1" expanded="false" />
-            <element signature="e#11514#11877#0" expanded="false" />
-            <element signature="e#11514#11625#1" expanded="false" />
-            <element signature="e#11911#11965#1" expanded="false" />
-            <element signature="e#16420#16865#0" expanded="false" />
-            <element signature="e#16420#16498#1" expanded="false" />
-            <element signature="e#16903#16990#0" expanded="false" />
-            <element signature="e#17019#17517#0" expanded="false" />
-            <element signature="e#17019#17058#1" expanded="false" />
-            <element signature="e#17555#17843#0" expanded="false" />
+            <element signature="e#1007#1182#0" expanded="false" />
+            <element signature="e#1007#1062#1" expanded="false" />
+            <element signature="e#11588#11951#0" expanded="false" />
+            <element signature="e#11588#11699#1" expanded="false" />
+            <element signature="e#11985#12039#1" expanded="false" />
+            <element signature="e#16494#16572#1" expanded="false" />
+            <element signature="e#16974#17061#0" expanded="false" />
+            <element signature="e#17090#17588#0" expanded="false" />
+            <element signature="e#17090#17129#1" expanded="false" />
+            <element signature="e#17626#17914#0" expanded="false" />
           </folding>
         </state>
       </provider>

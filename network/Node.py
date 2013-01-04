@@ -39,7 +39,6 @@ class Node(threading.Thread):
         self.fail=False
         self.mySocket=None
 
-
     def GetId(self):
         """
         Get the ID of the Node.
@@ -141,6 +140,10 @@ class Node(threading.Thread):
     def GetUri(self):
         return self.uri
 
+    def ImInRing(self):
+        self.imInRing=True
+        self.GiveEveryoneInRingMyDB()
+
     def ExternalSearch(self,path):
         """
         Search used for external Nodes to find something in my info.
@@ -203,7 +206,7 @@ class Node(threading.Thread):
                 index.SetPrevious(self)
                 self.next=index
                 self.previous=index
-                self.imInRing=True
+                self.ImInRing()
                 print("2 Nodes")
                 break
             if index.GetId() < self.id and self.id < nextIndex.GetId():#Case 2: Find your position by id
@@ -211,7 +214,7 @@ class Node(threading.Thread):
                 self.previous=index
                 index.SetNext(self)
                 nextIndex.SetPrevious(self)
-                self.imInRing=True
+                self.ImInRing()
                 print("Case 2")
                 break
             if index.GetId() < self.id and self.id > nextIndex.GetId():#Case 3: At the end of the ring
@@ -219,7 +222,7 @@ class Node(threading.Thread):
                 self.previous=index
                 index.SetNext(self)
                 nextIndex.SetPrevious(self)
-                self.imInRing=True
+                self.ImInRing()
                 print("Case 3")
                 break
 
@@ -314,7 +317,7 @@ class Node(threading.Thread):
                         self.next.SetPrevious(self)
                         self.previous.SetNext(self)
                         print("nexts updated.!!!")
-                        self.imInRing=True
+                        self.ImInRing()
                         self.child=None
                         self.childAdrr=None
 
@@ -324,7 +327,7 @@ class Node(threading.Thread):
                     self.parentAdrr=None
                     self.child=None
                     self.childAdrr=None
-                    self.imInRing=True
+                    self.ImInRing()
                     #self.fail=True
                     #Timer(1.0,self.SendUriOnFails).start()
                 print("my father is dead and im in ring")
@@ -479,7 +482,7 @@ class Node(threading.Thread):
         """
         print("Im in ring")
         if not self.imInRing:
-            self.imInRing=True
+            self.ImInRing()
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
             msg = str(self.uri)
@@ -532,14 +535,16 @@ class Node(threading.Thread):
             print("Looking for data to send")
             op=self.manager.get_operation_list()
             if len(op)!=0:
-                self.parent.TakeChanges(self.myip,op)
+                self.parent.TakeChanges(self.myIp,op)
                 print("data sent")
             else:
                 print("nothing to send")
 
     #for parent nodes
     def TakeInitialData(self):
+        self.StopJournal()
         self.manager.push_into_database(self.childAdrr, self.child.GetDataToMyParent())
+        self.StartJournal()
 
     def TakeInitialDataFromIndex(self, index_addr, data):
         self.manager.push_into_database(index_addr,data)
@@ -568,7 +573,7 @@ class Node(threading.Thread):
                 while True:
                     all.append(elem)
                     elem=elem.GetNext()
-                    if elem == self or elem is None:
+                    if elem.GetIpAddress() == self.myIp or elem is None:
                         return all
             except :
                 return None
@@ -585,18 +590,20 @@ class Node(threading.Thread):
         first_adress=None
         lock= threading.Lock()
         with lock:
-            for index in self.RingWithoutMe():
-                if first:
-                    everyones_db=index.ExposeDataBase()
-                    first_adress=index.GetIpAddress()
-                    first=False
-                #paro la recolección del historial dado que esto se va a realizar en todos los nodos
-                index.StopJournal()
-                #actualizo la base de datos
-                index.TakeInitialDataFromIndex(self.myIp,self.ExposeDataBase())
-                #ejecuto de nuevo el historial
-                index.StartJournal()
-            self.TakeChanges(first_adress,everyones_db)
+            ring= self.RingWithoutMe()
+            if ring:
+                for index in ring:
+                    if first:
+                        everyones_db=index.ExposeDataBase()
+                        first_adress=index.GetIpAddress()
+                        first=False
+                    #paro la recolección del historial dado que esto se va a realizar en todos los nodos
+                    index.StopJournal()
+                    #actualizo la base de datos
+                    index.TakeInitialDataFromIndex(self.myIp,self.ExposeDataBase())
+                    #ejecuto de nuevo el historial
+                    index.StartJournal()
+                self.TakeInitialDataFromIndex(first_adress,everyones_db)
         senderth= threading.Thread(target=self.SendDataToRing)
         senderth.daemon=True
         senderth.start()
@@ -619,9 +626,9 @@ class Node(threading.Thread):
             if len(op)!=0:
                 lock= threading.Lock()
                 with lock:
-                    for index in self.RingWithoutMe():
-                        index.StopJournal()
-                        index.TakeChanges(self.myIp,op)
-                        index.StartJournal()
+                    ring= self.RingWithoutMe()
+                    if ring:
+                        for index in ring:
+                            index.TakeChanges(self.myIp,op)
         self.StopJournal()
 
