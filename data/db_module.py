@@ -226,9 +226,10 @@ class db_manager:
         cursor= connection.cursor()
         path_id= None
         for item in data:
-            self.db_paths_insert(cursor,item[0],machine_id)
+            m_id=machine_id if item[1]=='localhost' else item[1]
+            self.db_paths_insert(cursor,item[0],m_id)
             path_id=cursor.lastrowid
-            for entry in item[1]:
+            for entry in item[2]:
                 self.db_files_insert(cursor, path_id, entry[0], entry[1], entry[2])
         connection.commit()
 
@@ -244,13 +245,13 @@ class db_manager:
     def extract_database_data(self):
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
-        paths= [x for x in cursor.execute('SELECT path_id, path FROM paths')]
+        paths= [x for x in cursor.execute('SELECT path_id, path, machine_id FROM paths')]
         #para poder parar
         stop=False
         for path in paths:
             files_entries=[x for x in cursor.execute('SELECT base_name, is_directory, md5 FROM files where path = ?',(path[0],))]
             if not stop:
-                stop=yield (path[1], files_entries)
+                stop=yield (path[1],path[2], files_entries)
 
     def process_changes_from(self,machine_id,changes):
         connection=sqlite3.connect(self.db_path)
@@ -270,6 +271,10 @@ class db_manager:
                 self.update_paths_on_moved(changes[1],changes[2],machine_id)
         connection.commit()
 
+    def get_operation_list(self):
+        result= self.operation_list[:]# esto tambien copia
+        self.operation_list=[]
+        return result
 
 #my_db=db_manager('./files_db.db')
 #my_db.populate_database()

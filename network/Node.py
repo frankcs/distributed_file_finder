@@ -8,6 +8,8 @@ import random
 import time
 
 TIMEOUT=5.0
+TIMECOMMCHILD=2
+TIMECHECKSYNC=2
 PORT=3200
 ANSWERPORT=3201
 
@@ -51,6 +53,8 @@ class Node(threading.Thread):
         """
         print("SetNext")
         self.next=next
+        if self.child is not None:
+            self.child.SetNext(next)
 
     def GetNext(self):
         """
@@ -65,6 +69,8 @@ class Node(threading.Thread):
         """
         print("SetPrevious")
         self.previous=previous
+        if self.child is not None:
+            self.child.SetPrevious(previous)
 
     def GetPrevious(self):
         """
@@ -157,21 +163,22 @@ class Node(threading.Thread):
                 result=[]
         if child:
             for item in self.parent.LocalSearch(pattern,matchoption,self.myIp):
-                item[3]=self.parentAdrr
+                #si te llega algo que diga localhost ponle que es de tu padre
+                item[3]=self.parentAdrr if item[3]=='localhost' else item[3]
                 result.append(item)
                 if len(result)>=amount:
                     yield result
                     result=[]
-        else:
-            comparer= self.parent if child else self
-            next= self.next
-            while next is not comparer and next is not None:
-                for item in next.LocalSearch(pattern,matchoption):
-                    result.append(item)
-                    if len(result)>=amount:
-                        yield result
-                        result=[]
-                next=next.GetNext()
+        #else:
+            #comparer= self.parent if child else self
+            #next= self.next
+            #while next is not comparer and next is not None:
+                #for item in next.LocalSearch(pattern,matchoption):
+                    #result.append(item)
+                    #if len(result)>=amount:
+                        #yield result
+                        #result=[]
+                #next=next.GetNext()
         yield result# por si te quedo algo o nunca llegaste al amount
 
     def SearchInRing(self,info,path):
@@ -179,7 +186,7 @@ class Node(threading.Thread):
         Make a search
         """
         nextneig=self.next
-        while nextneig!= None and nextneig._pyroUri != self.uri:
+        while nextneig != None and nextneig._pyroUri != self.uri:
             info+=nextneig.ExternalSearch(path)
             nextneig=nextneig.GetNext()
         return info
@@ -310,7 +317,9 @@ class Node(threading.Thread):
                         self.imInRing=True
                         self.child=None
                         self.childAdrr=None
+
                 else:
+                    print("mis nexts are None")
                     self.parent=None
                     self.parentAdrr=None
                     self.child=None
@@ -441,7 +450,8 @@ class Node(threading.Thread):
             #respondio un nodo que no tiene hijo y se tratara de poner como hijo de el.
             elif str(sms).__contains__("PYRO") and not self.imInRing:# and  (not self.imInRing):
                 print("respondio un nodo que no tiene hijo y se tratara de poner como hijo de el.")
-                if self.parent == None:
+                if self.parent is None:
+                    print("no tengo padre")
                     par=Pyro4.Proxy(sms)
                     try:
                         res=par.SetChild(self)
@@ -458,6 +468,8 @@ class Node(threading.Thread):
                     except :
                         self.parent=None
                         self.parentAdrr=None
+                else:
+                    print("ya tengo padre no atiendo este llamado.")
                 print("PASO")
             self.print_resume()
 
@@ -503,30 +515,113 @@ class Node(threading.Thread):
         resume="############################\nRESUME:\nNEXT:{}\nPREVIOUS:{}\nInRING:{}\nPARENT:{}\nPARENTAdrr:{}\nCHILD:{}\nCHILDAdrr:{}\n############################".format(self.next,self.previous,self.imInRing,self.parent,self.parentAdrr,self.child,self.childAdrr)
         print(resume)
 
+
     #data acces
     #for children
     def GetDataToMyParent(self):
-        self.manager.start_journal()
-        senderth=threading.Thread(target=self.SenDataWhenNeeded)
+        self.StartJournal()
+        senderth=threading.Thread(target=self.SenDataToMyParent)
         senderth.daemon=True
         senderth.start()
         return [x for x in self.manager.extract_database_data()]
 
 
-    def SenDataWhenNeeded(self):
-        while True:
-            time.sleep(1)
-            print("Trying to send data")
-            if len(self.manager.operation_list)!=0:
-                self.parent.TakeChanges(self.manager.operation_list)
-                self.manager.operation_list=[]
+    def SenDataToMyParent(self):
+        while not self.imInRing:
+            time.sleep(TIMECOMMCHILD)
+            print("Looking for data to send")
+            op=self.manager.get_operation_list()
+            if len(op)!=0:
+                self.parent.TakeChanges(self.myip,op)
                 print("data sent")
+            else:
+                print("nothing to send")
 
     #for parent nodes
     def TakeInitialData(self):
         self.manager.push_into_database(self.childAdrr, self.child.GetDataToMyParent())
 
+    def TakeInitialDataFromIndex(self, index_addr, data):
+        self.manager.push_into_database(index_addr,data)
+        print("Data inserted from {} index".format(index_addr))
 
     #self.connect.parent.TakeChanges(list)
-    def TakeChanges(self,changes):
-        self.manager.process_changes_from(self.childAdrr,changes)
+    def TakeChanges(self,from_who,changes):
+        self.manager.process_changes_from(from_who,changes)
+        print("Changes taken from {} index".format(from_who))
+
+    def ExposeDataBase(self):
+        return [x for x in self.manager.extract_database_data()]
+
+    def RingWithoutMe(self):
+        """
+        Me da acceso a todas los piro objects del anillo
+        """
+        if not self.imInRing:
+            return None
+        else:
+            try:
+                all=[]
+                elem=self.next
+                if elem is None:
+                    return None
+                while True:
+                    all.append(elem)
+                    elem=elem.GetNext()
+                    if elem == self or elem is None:
+                        return all
+            except :
+                return None
+
+    def GiveEveryoneInRingMyDB(self):
+        """
+        Dar la base de datos inicialmente a la gente en el anillo
+        Recibir la base de datos de uno, supuestamente actualizada
+        Iniciar el paso de datos de los cambios(SendDataToRIng)
+        Recordar guardar el resultado de get_operation_list porque se resetea la lista
+        """
+        first=True
+        everyones_db=None
+        first_adress=None
+        lock= threading.Lock()
+        with lock:
+            for index in self.RingWithoutMe():
+                if first:
+                    everyones_db=index.ExposeDataBase()
+                    first_adress=index.GetIpAddress()
+                    first=False
+                #paro la recolección del historial dado que esto se va a realizar en todos los nodos
+                index.StopJournal()
+                #actualizo la base de datos
+                index.TakeInitialDataFromIndex(self.myIp,self.ExposeDataBase())
+                #ejecuto de nuevo el historial
+                index.StartJournal()
+            self.TakeChanges(first_adress,everyones_db)
+        senderth= threading.Thread(target=self.SendDataToRing)
+        senderth.daemon=True
+        senderth.start()
+
+    def StartJournal(self):
+        self.manager.start_journal()
+
+    def StopJournal(self):
+        self.manager.stop_journal()
+
+    def SendDataToRing(self):
+        """
+        Enviar periódicamente, si es necesario mis operaciones
+        Cuando termine de enviar estos datos
+        """
+        self.StartJournal()
+        while self.imInRing and self.next and self.previous:
+            time.sleep(TIMECHECKSYNC)
+            op= self.manager.get_operation_list()
+            if len(op)!=0:
+                lock= threading.Lock()
+                with lock:
+                    for index in self.RingWithoutMe():
+                        index.StopJournal()
+                        index.TakeChanges(self.myIp,op)
+                        index.StartJournal()
+        self.StopJournal()
+
