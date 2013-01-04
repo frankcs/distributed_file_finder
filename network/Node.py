@@ -12,6 +12,8 @@ TIMECOMMCHILD=2
 TIMECHECKSYNC=2
 PORT=3200
 ANSWERPORT=3201
+NEXTPORT=3202
+PREVIOUSPORT=3203
 
 class Node(threading.Thread):
     """
@@ -38,6 +40,16 @@ class Node(threading.Thread):
         self.daemon=True
         self.fail=False
         self.mySocket=None
+        self.timerNext=None
+        self.socketNext=None
+        self.timerPrevious=None
+        self.socketPrevious=None
+        self.failNext=False
+        self.failPrevious=False
+        self.nextAdrr=None
+        self.previousAdrr=None
+        self.failNext=False
+        self.failPrevious=False
 
     def GetId(self):
         """
@@ -243,7 +255,6 @@ class Node(threading.Thread):
             #    break
             nextHelper=nextHelper.GetNext()
 
-
     def IsAlive(self):
         return True
 
@@ -394,7 +405,22 @@ class Node(threading.Thread):
             if self.myIp == str(address[0]):
                 print("evitando escuchar mis propios msg.")
                 continue
-
+            elif sms.__contains__("ALERT"):
+                list=str(sms).split(':')
+                sender=list[1]
+                broke=list[2]
+                if self.nextAdrris is not None and str(self.nextAdrr)== broke:
+                    pass
+                if self.previousAdrr is not None and str(self.previousAdrr)== broke:
+                    pass
+            elif sms=="NEXT?" or sms=="PREVIOUS?":
+                print("Se recibe un mensaje de vida de:{}".format(sms))
+                sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                msgo="HERE"
+                print(msgo)
+                sock_out.sendto(msgo.encode(), (address[0], ANSWERPORT))
+                sock_out.close()
+                print("{} response send!!!".format(sms))
             elif sms == "Are you there?":
                 if self.imInRing:
                     print("se recibe un mensaje de vida de su hijo.")
@@ -493,6 +519,69 @@ class Node(threading.Thread):
         self.CallMe()
         #print("Verifiying")
         Timer(7.0,self.VerifyParent).start()
+
+    def SendAdvice(self,sender,broke):
+        sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+        msg = "ALERT:{}:{}".format(sender,broke)
+        sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
+        sock_out.close()
+
+    def Next_death(self):
+        self.socketNext.close()
+        self.failNext=True
+        self.SendAdvice(self.uri,self.nextAdrr)
+
+    def VerifyNext(self):
+        if self.failNext:
+            self.failNext=False
+            return False
+        else:
+            Timer(5.0,self.VerifyNext).start()
+        if self.next is not None:
+            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            msg = "NEXT?"
+            sock_out.sendto(msg.encode(), (self.nextAdrr, NEXTPORT))
+            sock_out.close()
+            print("Message NEXT? send!!!")
+            self.socketNext = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            self.socketNext.bind((self.myIp,PORT))
+            self.timerNext=Timer(3.0,self.Next_death)
+            self.timerNext.start()
+            (msg, address) =  self.socketNext.recvfrom(65536)
+            self.timerNext.cancel()
+            if address[0] == self.nextAdrr and msg.decode() == "HERE":
+                print("NEXT respond HERE!!!")
+                self.socketNext.close()
+                return True
+
+    def Previous_death(self):
+        self.socketPrevious.close()
+        self.failPrevious=True
+        self.SendAdvice(self.uri,self.nextAdrr)
+
+    def VerifyPrevious(self):
+        if self.failPrevious:
+            self.failPrevious=False
+            return False
+        else:
+            Timer(5.0,self.VerifyPrevious).start()
+        if self.previous is not None:
+            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            msg = "PREVIOUS?"
+            sock_out.sendto(msg.encode(), (self.previousAdrr, PREVIOUSPORT))
+            sock_out.close()
+            print("Message PREVIOUS? send!!!")
+            self.socketPrevious = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            self.socketPrevious.bind((self.myIp,PORT))
+            self.timerPrevious=Timer(3.0,self.Next_death)
+            self.timerPrevious.start()
+            (msg, address) =  self.socketPrevious.recvfrom(65536)
+            self.timerPrevious.cancel()
+            if address[0] == self.previousAdrr and msg.decode() == "HERE":
+                print("PREVIOUS respond HERE!!!")
+                self.socketPrevious.close()
+                return True
 
     def run(self):
         """
