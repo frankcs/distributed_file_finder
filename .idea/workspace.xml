@@ -32,11 +32,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="39" selection-start="3673" selection-end="3673" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="158" column="39" selection-start="4201" selection-end="4201" vertical-scroll-proportion="0.5590778">
+              <folding>
+                <element signature="e#194#224#1" expanded="false" />
+                <element signature="e#268#793#0" expanded="false" />
+                <element signature="e#268#303#1" expanded="false" />
+                <element signature="e#825#938#0" expanded="false" />
+                <element signature="e#825#872#1" expanded="false" />
+                <element signature="e#976#1079#0" expanded="false" />
+                <element signature="e#976#1031#1" expanded="false" />
+                <element signature="e#1112#1217#0" expanded="false" />
+                <element signature="e#1112#1167#1" expanded="false" />
+                <element signature="e#1263#1382#0" expanded="false" />
+                <element signature="e#1263#1322#1" expanded="false" />
+                <element signature="e#1419#1536#0" expanded="false" />
+                <element signature="e#1419#1478#1" expanded="false" />
+                <element signature="e#1582#1634#0" expanded="false" />
+                <element signature="e#1681#1735#0" expanded="false" />
+                <element signature="e#1775#2483#0" expanded="false" />
+                <element signature="e#1775#1818#1" expanded="false" />
+                <element signature="e#2525#3184#0" expanded="false" />
+                <element signature="e#2525#2569#1" expanded="false" />
+                <element signature="e#3222#3262#0" expanded="false" />
+                <element signature="e#3296#3321#0" expanded="false" />
+                <element signature="e#3353#3368#0" expanded="false" />
+                <element signature="e#3413#3607#0" expanded="false" />
+                <element signature="e#3413#3497#1" expanded="false" />
+                <element signature="e#4872#5109#0" expanded="false" />
+                <element signature="e#4872#4909#1" expanded="false" />
+                <element signature="e#5158#6304#0" expanded="false" />
+                <element signature="e#5158#5223#1" expanded="false" />
+                <element signature="e#6953#7607#0" expanded="false" />
+                <element signature="e#7645#8297#0" expanded="false" />
+                <element signature="e#8329#8429#0" expanded="false" />
+                <element signature="e#8466#10492#0" expanded="false" />
+                <element signature="e#10533#10661#0" expanded="false" />
+                <element signature="e#10701#11077#0" expanded="false" />
+                <element signature="e#11111#11474#0" expanded="false" />
+                <element signature="e#11111#11222#1" expanded="false" />
+                <element signature="e#11508#15848#0" expanded="false" />
+                <element signature="e#11508#11562#1" expanded="false" />
+                <element signature="e#15882#16327#0" expanded="false" />
+                <element signature="e#15882#15960#1" expanded="false" />
+                <element signature="e#16365#16452#0" expanded="false" />
+                <element signature="e#16481#16979#0" expanded="false" />
+                <element signature="e#16481#16520#1" expanded="false" />
+                <element signature="e#17017#17304#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,16 +89,7 @@
       <file leaf-file-name="app.pyw" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="10" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="installer.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/packages/installer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="59" selection-start="99" selection-end="99" vertical-scroll-proportion="0.14166667">
+            <state line="53" column="58" selection-start="2048" selection-end="2048" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -91,9 +127,9 @@
         <option value="$PROJECT_DIR$/references.py" />
         <option value="$PROJECT_DIR$/app.pyw" />
         <option value="$PROJECT_DIR$/ui_prog/searcher_prog.py" />
-        <option value="$PROJECT_DIR$/network/Node.py" />
         <option value="$PROJECT_DIR$/data/db_module.py" />
         <option value="$PROJECT_DIR$/packages/installer.py" />
+        <option value="$PROJECT_DIR$/network/Node.py" />
       </list>
     </option>
   </component>
@@ -129,7 +165,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -206,15 +241,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="editing.templates" />
     <property name="recentsLimit" value="5" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="editing.templates" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -229,7 +265,7 @@
       <recent name="C:\Users\Frank\Desktop\UI\network" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.installer">
+  <component name="RunManager" selected="Python.app.pyw">
     <configuration default="false" name="app.pyw" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -364,8 +400,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.installer" />
-        <item index="1" class="java.lang.String" itemvalue="Python.app.pyw" />
+        <item index="0" class="java.lang.String" itemvalue="Python.app.pyw" />
+        <item index="1" class="java.lang.String" itemvalue="Python.installer" />
         <item index="2" class="java.lang.String" itemvalue="Python.db_module" />
       </list>
     </recent_temporary>
@@ -405,7 +441,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21676892" sideWeight="0.640599" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2208589" sideWeight="0.640599" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12479201" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.50071734" order="7" side_tool="true" content_ui="tabs" />
@@ -550,20 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="10" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/Node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="39" selection-start="3673" selection-end="3673" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="183" column="61" selection-start="8509" selection-end="8509" vertical-scroll-proportion="0.0">
@@ -571,10 +593,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/installer.py">
+    <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="59" selection-start="99" selection-end="99" vertical-scroll-proportion="0.14166667">
+        <state line="53" column="58" selection-start="2048" selection-end="2048" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="39" selection-start="4201" selection-end="4201" vertical-scroll-proportion="0.5590778">
+          <folding>
+            <element signature="e#194#224#1" expanded="false" />
+            <element signature="e#268#793#0" expanded="false" />
+            <element signature="e#268#303#1" expanded="false" />
+            <element signature="e#825#938#0" expanded="false" />
+            <element signature="e#825#872#1" expanded="false" />
+            <element signature="e#976#1079#0" expanded="false" />
+            <element signature="e#976#1031#1" expanded="false" />
+            <element signature="e#1112#1217#0" expanded="false" />
+            <element signature="e#1112#1167#1" expanded="false" />
+            <element signature="e#1263#1382#0" expanded="false" />
+            <element signature="e#1263#1322#1" expanded="false" />
+            <element signature="e#1419#1536#0" expanded="false" />
+            <element signature="e#1419#1478#1" expanded="false" />
+            <element signature="e#1582#1634#0" expanded="false" />
+            <element signature="e#1681#1735#0" expanded="false" />
+            <element signature="e#1775#2483#0" expanded="false" />
+            <element signature="e#1775#1818#1" expanded="false" />
+            <element signature="e#2525#3184#0" expanded="false" />
+            <element signature="e#2525#2569#1" expanded="false" />
+            <element signature="e#3222#3262#0" expanded="false" />
+            <element signature="e#3296#3321#0" expanded="false" />
+            <element signature="e#3353#3368#0" expanded="false" />
+            <element signature="e#3413#3607#0" expanded="false" />
+            <element signature="e#3413#3497#1" expanded="false" />
+            <element signature="e#4872#5109#0" expanded="false" />
+            <element signature="e#4872#4909#1" expanded="false" />
+            <element signature="e#5158#6304#0" expanded="false" />
+            <element signature="e#5158#5223#1" expanded="false" />
+            <element signature="e#6953#7607#0" expanded="false" />
+            <element signature="e#7645#8297#0" expanded="false" />
+            <element signature="e#8329#8429#0" expanded="false" />
+            <element signature="e#8466#10492#0" expanded="false" />
+            <element signature="e#10533#10661#0" expanded="false" />
+            <element signature="e#10701#11077#0" expanded="false" />
+            <element signature="e#11111#11474#0" expanded="false" />
+            <element signature="e#11111#11222#1" expanded="false" />
+            <element signature="e#11508#15848#0" expanded="false" />
+            <element signature="e#11508#11562#1" expanded="false" />
+            <element signature="e#15882#16327#0" expanded="false" />
+            <element signature="e#15882#15960#1" expanded="false" />
+            <element signature="e#16365#16452#0" expanded="false" />
+            <element signature="e#16481#16979#0" expanded="false" />
+            <element signature="e#16481#16520#1" expanded="false" />
+            <element signature="e#17017#17304#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

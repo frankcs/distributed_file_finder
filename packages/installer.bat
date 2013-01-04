@@ -16,6 +16,8 @@ cd "../my fixes to watchdog-0.6.0"
 python setup.py install
 cd "../Pyro4-4.15"
 python setup.py install
+cd "../PyQT"
+start PyQt-Py3.2-x86-gpl-4.9-1.exe
 echo.
-echo All done run app.pyw from a console
+echo If you succesfully installed PyQT it's all done
 pause

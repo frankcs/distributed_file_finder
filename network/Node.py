@@ -4,9 +4,10 @@ import Pyro4
 import threading
 import socket
 from threading import Timer
-from threading import Thread
+import random
 import time
-TIMEOUT=10.0
+
+TIMEOUT=5.0
 PORT=3200
 ANSWERPORT=3201
 
@@ -73,9 +74,11 @@ class Node(threading.Thread):
         return self.previous
 
     def SetChildAddress(self,addr):
+        print("SetChildAddress")
         self.childAdrr=addr
 
     def SetParentAddress(self,addr):
+        print("SetParentAddress")
         self.parentAdrr=addr
 
     def SetChild(self,child):
@@ -83,31 +86,44 @@ class Node(threading.Thread):
         Set the Child Node.
         """
         print("SetChild")
-        if self.child is None:
-            self.child=child
-            self.childAdrr=self.child.GetIpAddress()
-            self.child.SetNext(self.next)
-            self.child.SetPrevious(self.previous)
-            self.child.SetParentAddress(self.GetIpAddress())
-            #data calls
-            self.TakeInitialData()
-            print("CHILD:{0}".format(self.child))
-            return True
-        else:return False
+        try:
+            if self.child is None:
+                self.child=child
+                self.childAdrr=self.child.GetIpAddress()
+                self.child.SetNext(self.next)
+                self.child.SetPrevious(self.previous)
+                self.child.SetParentAddress(self.myIp)
+                #data call
+                self.TakeInitialData()
+                print("CHILD:{0}".format(self.child))
+                t1=threading.Thread(target=self.VerifyParent)
+                t1.daemon=True
+                t1.start()
+                return "True"
+            else:return "False"
+        except :
+            return "False"
 
     def SetParent(self,parent):
         """
         Set the Parent Node.
         """
         print("SetParent")
-        if self.parent is None:
-            self.parent=parent
-            self.parentAdrr=self.parent.GetIpAddress()
-            self.next=self.parent.GetNext()
-            self.previous=self.parent.GetPrevious()
-            self.parent.SetChildAddress(self.GetIpAddress())
-            return True
-        else:return False
+        try:
+            if self.parent is None:
+                self.parent=parent
+                self.parentAdrr=self.parent.GetIpAddress()
+                self.next=self.parent.GetNext()
+                self.previous=self.parent.GetPrevious()
+                self.parent.SetChildAddress(self.GetIpAddress())
+                print("PARENT:{0}".format(self.parent))
+                t1=threading.Thread(target=self.VerifyParent)
+                t1.daemon=True
+                t1.start()
+                return True
+            else:return False
+        except :
+            return False
 
     def GetIpAddress(self):
         return Pyro4.socketutil.getMyIpAddress()
@@ -127,7 +143,7 @@ class Node(threading.Thread):
         else: return []
 
     def LocalSearch(self,pattern, matchoption, child= False):
-        return [x for x in self.manager.search_result(pattern, matchoption)]#fix this]
+        return [x for x in self.manager.search_result(pattern, matchoption)]#fix this
 
     def Search(self, pattern, matchoption, amount= 400):
         result=[]
@@ -216,6 +232,7 @@ class Node(threading.Thread):
             #    break
             nextHelper=nextHelper.GetNext()
 
+
     def IsAlive(self):
         return True
 
@@ -227,7 +244,7 @@ class Node(threading.Thread):
             sock_out.sendto(msg.encode(), (str(self.parentAdrr), PORT))
             self.mySocket =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             self.mySocket.bind((str(self.myIp),ANSWERPORT))
-            self.timer=Timer(5.0,self.print_death)
+            self.timer=Timer(3.0,self.print_death)
             self.timer.start()
             (msg, address) = self.mySocket.recvfrom(65536)
             self.timer.cancel()
@@ -243,7 +260,7 @@ class Node(threading.Thread):
             sock_out.sendto(msg.encode(), (str(self.childAdrr), PORT))
             self.mySocket =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             self.mySocket.bind((str(self.myIp),ANSWERPORT))
-            self.timer=Timer(5.0,self.print_death)
+            self.timer=Timer(3.0,self.print_death)
             self.timer.start()
             (msg, address) = self.mySocket.recvfrom(65536)
             self.timer.cancel()
@@ -258,7 +275,7 @@ class Node(threading.Thread):
             self.CallForChild()
 
     def print_death(self):
-        self.mySocket.close()
+        #self.mySocket.close()
         print("some death")
         if self.imInRing:
             try:
@@ -273,7 +290,6 @@ class Node(threading.Thread):
                     print("My son is dead")
             except:
                 self.imInRing=False
-                self.child=None
                 self.childAdrr=None
                 self.next=None
                 self.previous=None
@@ -298,24 +314,34 @@ class Node(threading.Thread):
                     self.parentAdrr=None
                     self.child=None
                     self.childAdrr=None
-                    self.fail=True
-                    Timer(1.0,self.SayHelloOnFails).start()
+                    self.imInRing=True
+                    #self.fail=True
+                    #Timer(1.0,self.SendUriOnFails).start()
                 print("my father is dead and im in ring")
             except:
                 self.parent=None
                 self.parentAdrr=None
                 self.next=None
                 self.previous=None
+                self.fail=True
+                Timer(1.0,self.SayHelloOnFails).start()
                 print("im a dead son")
-
 
     def SayHelloOnFails(self):
         if self.fail:
             print("Saying Hello")
             self.SayHello()
-            Timer(1.0,self.SayHelloOnFails).start()
+            Timer(10.0,self.SayHelloOnFails).start()
 
-
+    def SendUriOnFails(self):
+        if self.fail:
+            print("Sendind Uri")
+            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+            msg = str(self.uri)
+            sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
+            sock_out.close()
+            Timer(10.0,self.SendUriOnFails).start()
 
     def SayHello(self):
         """
@@ -325,6 +351,7 @@ class Node(threading.Thread):
         sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         msg = "hello"
         sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
+        sock_out.close()
 
     def ImListen(self):
         """
@@ -332,37 +359,48 @@ class Node(threading.Thread):
         """
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.bind(("0.0.0.0",PORT))
-        #s.bind(("0.0.0.0",PORT))
+        self.print_resume()
         t=None
         while True:
-            print("RESUME:")
-            print("\nparent:{}\nchild:{}\nInRIng:{}".format(self.parent,self.child,self.imInRing))
 
-
-            if not self.imInRing and self.parent == None:
-                t=Timer(TIMEOUT,self.ImTheOne)
+            if not self.imInRing and self.parent is None:
+                number= random.randint(0,7)
+                print(number)
+                t=Timer(TIMEOUT+number,self.ImTheOne)
                 t.start()
             (msg, address) = s.recvfrom(65536)
-            #if not self.imInRing:
-            if t != None:
+
+            if t is not None:
                 t.cancel()
 
             print("tengo info {0}".format(address))
             sms=msg.decode()
 
             print("MSG:{0}".format(sms))
-            if sms == str(self.uri):#evitando escuchar mis propios msg.
+
+            if self.myIp == str(address[0]):
+                print("evitando escuchar mis propios msg.")
                 continue
+
             elif sms == "Are you there?":
+                if self.imInRing:
+                    print("se recibe un mensaje de vida de su hijo.")
+                else:
+                    print("se recibe un mensaje de vida de su padre.")
+
                 sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                 msg="YES"
                 print(msg)
                 sock_out.sendto(msg.encode(), (address[0], ANSWERPORT))
+
                 if self.imInRing:
                     print("child response send!!!.")
                 else:
                     print("parent response send!!!.")
+                sock_out.close()
+
             elif sms=="hello": #and self.imInRing:
+                print("se recibe un mensaje hello de algun nodo que busca padre")
                 sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                 if self.imInRing:
                     if self.child == None:
@@ -371,52 +409,74 @@ class Node(threading.Thread):
                         msg="Full House.{0}".format(self.uri)
                     print(msg)
                     sock_out.sendto(msg.encode(), (address[0], PORT))
+                    sock_out.close()
                     print("info send!!!.")
                 else:
                     if self.parent is None:
+                        sock_out.close()
+                        print("se ignora ya que no tengo padre y no estoy en el anillo.")
                         continue
                     msg="Full House.{0}".format(self.parent.GetUri())
                     print(msg)
                     sock_out.sendto(msg.encode(), (address[0], PORT))
+                    sock_out.close()
                     print("info send!!!.")
 
 
             elif str(sms).__contains__("Full House") and not self.imInRing:
+                print("respondio algun nodo que ya tenia hijo y le permite entonces entrar al anillo mediante el.")
                 if self.fail:
                     self.fail=False
                     Timer(3.0,self.VerifyParent).start()
                 substr=str(sms)#implementar logica de esperar mas respuestas por posibles anfitriones
                 sim=str(substr[11:])
-                print("URI FULL HOUSE:{0}".format(sim))
+                print("URI FULL HOUSE:{}".format(sim))
                 #entrar al anillo y buscar quien no tenga hijos.
                 self.SearchForParent(sim)
+                if self.fail:
+                    self.fail=False
+                if self.parent is not None:
+                    self.VerifyParent()
+            #respondio un nodo que no tiene hijo y se tratara de poner como hijo de el.
             elif str(sms).__contains__("PYRO") and not self.imInRing:# and  (not self.imInRing):
+                print("respondio un nodo que no tiene hijo y se tratara de poner como hijo de el.")
                 if self.parent == None:
-                    self.parent=Pyro4.Proxy(sms)
-                    if self.parent.SetChild(self):
-                        if self.fail:
-                            self.fail=False
-                            Timer(3.0,self.VerifyParent).start()
-                        continue
-                    else:self.parent=None
+                    par=Pyro4.Proxy(sms)
+                    try:
+                        res=par.SetChild(self)
+                        print(res)
+                        if res == "True":
+                            print("ya tengo padre")
+                            self.parent=par
+                            #self.parent.VerifyParent()
+                            if self.fail:
+                                self.fail=False
+                            #self.VerifyParent()
+                            continue
+                        else:self.parent=None
+                    except :
+                        self.parent=None
+                        self.parentAdrr=None
+                print("PASO")
+            self.print_resume()
 
     def ImTheOne(self):
         """
         Invoke this method when no receive answer of any node.
         """
         print("Im in ring")
-        self.imInRing=True
-
-    def dale(self):
-        """
-        to make pruebas
-        """
-        self.run()
+        if not self.imInRing:
+            self.imInRing=True
+            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+            msg = str(self.uri)
+            sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
+            sock_out.close()
 
     def VerifyParent(self):
         self.CallMe()
         #print("Verifiying")
-        Timer(3.0,self.VerifyParent).start()
+        Timer(7.0,self.VerifyParent).start()
 
     def run(self):
         """
@@ -428,7 +488,9 @@ class Node(threading.Thread):
         t.start()
         self.uri=self.pyroDaemon.register(self,self.id)
         print(self.uri)
-        Timer(3.0,self.VerifyParent).start()
+        t1=threading.Thread(target=self.VerifyParent)
+        t1.daemon=True
+        t1.start()
 
         self.SayHello()
         self.ImListen()
@@ -436,11 +498,15 @@ class Node(threading.Thread):
         # t.start()
         #self.pyroDaemon.requestLoop()
 
+    def print_resume(self):
+        resume="############################\nRESUME:\nNEXT:{}\nPREVIOUS:{}\nInRING:{}\nPARENT:{}\nPARENTAdrr:{}\nCHILD:{}\nCHILDAdrr:{}\n############################".format(self.next,self.previous,self.imInRing,self.parent,self.parentAdrr,self.child,self.childAdrr)
+        print(resume)
+
     #data acces
     #for children
     def GetDataToMyParent(self):
         self.manager.start_journal()
-        senderth=Thread(target=self.SenDataWhenNeeded)
+        senderth=threading.Thread(target=self.SenDataWhenNeeded)
         senderth.daemon=True
         senderth.start()
         return [x for x in self.manager.extract_database_data()]
