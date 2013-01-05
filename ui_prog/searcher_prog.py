@@ -87,13 +87,23 @@ class Form(QMainWindow,Ui_MainWindow):
                     t1.setFlags(Qt.ItemIsSelectable)
                     t1.setTextColor(QColor('Black'))
                     t1.setBackgroundColor (QColor('whitesmoke'))
-                    t2=QTableWidgetItem(x[0])
+                    dir="SI" if x[2] else "NO"
+                    t2=QTableWidgetItem(dir)
                     t2.setFlags(Qt.ItemIsSelectable)
                     t2.setTextColor(QColor('Black'))
+                    t3=QTableWidgetItem(x[3])
+                    t3.setFlags(Qt.ItemIsSelectable)
+                    t3.setTextColor(QColor('Black'))
+                    t4=QTableWidgetItem(x[0])
+                    t4.setFlags(Qt.ItemIsSelectable)
+                    t4.setTextColor(QColor('Black'))
 
                     self.tableWidget_result.insertRow(self.current_pos)
                     self.tableWidget_result.setItem(self.current_pos,0,t1)
                     self.tableWidget_result.setItem(self.current_pos,1,t2)
+                    self.tableWidget_result.setItem(self.current_pos,2,t3)
+                    self.tableWidget_result.setItem(self.current_pos,3,t4)
+
                     self.current_pos+=1
                     if self.current_pos%200==0:
                         self.setWindowTitle('Resultados para "{}": más de {}'.format(self.text,self.current_pos))

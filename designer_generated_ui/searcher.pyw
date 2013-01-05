@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'octopus.ui'
+# Form implementation generated from reading ui file 'octopusupd.ui'
 #
-# Created: Sat Oct  6 22:50:42 2012
+# Created: Wed Jan  2 15:57:58 2013
 #      by: PyQt4 UI code generator 4.9
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(428, 332)
+        MainWindow.resize(565, 324)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -55,13 +55,17 @@ class Ui_MainWindow(object):
         self.line.setObjectName(_fromUtf8("line"))
         self.verticalLayout.addWidget(self.line)
         self.tableWidget_result = QtGui.QTableWidget(self.centralwidget)
-        self.tableWidget_result.setColumnCount(2)
+        self.tableWidget_result.setColumnCount(4)
         self.tableWidget_result.setObjectName(_fromUtf8("tableWidget_result"))
         self.tableWidget_result.setRowCount(0)
         item = QtGui.QTableWidgetItem()
         self.tableWidget_result.setHorizontalHeaderItem(0, item)
         item = QtGui.QTableWidgetItem()
         self.tableWidget_result.setHorizontalHeaderItem(1, item)
+        item = QtGui.QTableWidgetItem()
+        self.tableWidget_result.setHorizontalHeaderItem(2, item)
+        item = QtGui.QTableWidgetItem()
+        self.tableWidget_result.setHorizontalHeaderItem(3, item)
         self.tableWidget_result.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_result.verticalHeader().setVisible(False)
         self.tableWidget_result.verticalHeader().setHighlightSections(False)
@@ -81,7 +85,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addLayout(self.verticalLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 428, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 565, 18))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menu_search = QtGui.QMenu(self.menubar)
         self.menu_search.setObjectName(_fromUtf8("menu_search"))
@@ -121,8 +125,12 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Octopus", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_search.setText(QtGui.QApplication.translate("MainWindow", "Buscar", None, QtGui.QApplication.UnicodeUTF8))
         item = self.tableWidget_result.horizontalHeaderItem(0)
-        item.setText(QtGui.QApplication.translate("MainWindow", "Fichero", None, QtGui.QApplication.UnicodeUTF8))
+        item.setText(QtGui.QApplication.translate("MainWindow", "Nombre", None, QtGui.QApplication.UnicodeUTF8))
         item = self.tableWidget_result.horizontalHeaderItem(1)
+        item.setText(QtGui.QApplication.translate("MainWindow", "Directorio", None, QtGui.QApplication.UnicodeUTF8))
+        item = self.tableWidget_result.horizontalHeaderItem(2)
+        item.setText(QtGui.QApplication.translate("MainWindow", "Origen", None, QtGui.QApplication.UnicodeUTF8))
+        item = self.tableWidget_result.horizontalHeaderItem(3)
         item.setText(QtGui.QApplication.translate("MainWindow", "Camino", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_download.setText(QtGui.QApplication.translate("MainWindow", "Descargar", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_copy_route.setText(QtGui.QApplication.translate("MainWindow", "Copiar Ruta", None, QtGui.QApplication.UnicodeUTF8))

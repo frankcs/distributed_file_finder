@@ -26,7 +26,7 @@
       <file leaf-file-name="app.pyw" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.0">
+            <state line="4" column="0" selection-start="154" selection-end="167" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -36,15 +36,6 @@
         <entry file="file://$PROJECT_DIR$/references.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="21" column="28" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="global_options_prog.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui_prog/global_options_prog.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="149" selection-start="2256" selection-end="2385" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,22 +62,17 @@
       <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="216" column="4" selection-start="6263" selection-end="6263" vertical-scroll-proportion="0.2902439">
-              <folding>
-                <element signature="e#22#34#0" expanded="true" />
-                <element signature="e#3000#3065#0" expanded="false" />
-                <element signature="e#3132#4093#0" expanded="false" />
-                <element signature="e#4141#4378#0" expanded="false" />
-                <element signature="e#5622#6144#0" expanded="false" />
-                <element signature="e#6223#6257#0" expanded="false" />
-                <element signature="e#6311#6384#0" expanded="false" />
-                <element signature="e#6430#6479#0" expanded="false" />
-                <element signature="e#7854#7954#0" expanded="false" />
-                <element signature="e#7991#8010#0" expanded="false" />
-                <element signature="e#8044#8382#0" expanded="false" />
-                <element signature="e#11177#11310#0" expanded="false" />
-                <element signature="e#11340#11398#0" expanded="false" />
-              </folding>
+            <state line="168" column="21" selection-start="4557" selection-end="4557" vertical-scroll-proportion="1.8947369">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python32/Lib/site-packages/Pyro4/core.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="920" column="0" selection-start="38767" selection-end="38767" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,7 +80,7 @@
       <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="45" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0">
+            <state line="35" column="45" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -112,7 +98,7 @@
       <file leaf-file-name="threading.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://C:/Python32/Lib/threading.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="688" column="0" selection-start="22189" selection-end="22189" vertical-scroll-proportion="0.0">
+            <state line="941" column="0" selection-start="32178" selection-end="32178" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -121,7 +107,7 @@
       <file leaf-file-name="searcher_prog.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="0" selection-start="3212" selection-end="3212" vertical-scroll-proportion="0.0">
+            <state line="92" column="0" selection-start="3638" selection-end="3638" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -133,6 +119,11 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
+    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
+    <option name="LINE_SEPARATORS_CONVERSION" value="ASK" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -159,8 +150,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -274,6 +265,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.pyw" />
       <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonCover" />
       <RunnerSettings RunnerId="PythonRunner" />
@@ -295,8 +287,27 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="D:\Work\SISTDIST\UI\data\get_md5.py" />
       <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Node" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/network" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="SISTDIST" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/network/Node.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -312,6 +323,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -351,15 +363,11 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.app.pyw" />
       <item index="1" class="java.lang.String" itemvalue="Python.get_md5" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Node" />
     </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.app.pyw" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
@@ -389,24 +397,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20014347" sideWeight="0.6703911" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22989377" sideWeight="0.30375427" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63993174" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22765364" sideWeight="0.50071734" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960895" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.69624573" sideWeight="0.49426112" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327787" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -434,6 +442,7 @@
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
@@ -443,10 +452,8 @@
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="false" />
+    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -462,28 +469,9 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/ui_prog/searcher_prog.py</url>
-          <line>81</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/app.pyw</url>
-          <line>34</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="5" />
-    </breakpoint-manager>
+    <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Python32/Lib/ntpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="0" selection-start="9427" selection-end="9427" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/designer_generated_ui/options.pyw">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="6" selection-start="362" selection-end="371" vertical-scroll-proportion="0.0" />
@@ -506,100 +494,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui_prog/global_options_prog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="149" selection-start="2256" selection-end="2385" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="51" column="149" selection-start="2256" selection-end="2385" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.pyw">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="154" selection-end="167" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/references.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="28" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/os.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="0" selection-start="9880" selection-end="9880" vertical-scroll-proportion="0.0">
+        <state line="295" column="0" selection-start="9880" selection-end="9880" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python32/Lib/site-packages/Pyro4/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="920" column="0" selection-start="38767" selection-end="38767" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/db_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="45" selection-start="1158" selection-end="1158" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/site-packages/watchdog-0.6.0-py3.2.egg/watchdog/observers/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="334" column="0" selection-start="8829" selection-end="8829" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://AlchemyModelDependency/#SISTDIST">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>AlchemyModelDependency</ID>
-          <OriginalElement>#SISTDIST</OriginalElement>
-          <nodes />
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="328.0" y="145.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-        </state>
+        <state line="334" column="0" selection-start="8829" selection-end="8829" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="688" column="0" selection-start="22189" selection-end="22189" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="941" column="0" selection-start="32178" selection-end="32178" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui_prog/searcher_prog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="3212" selection-end="3212" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="45" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/references.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="28" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="92" column="0" selection-start="3638" selection-end="3638" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="4" selection-start="6263" selection-end="6263" vertical-scroll-proportion="0.2902439">
-          <folding>
-            <element signature="e#22#34#0" expanded="true" />
-            <element signature="e#3000#3065#0" expanded="false" />
-            <element signature="e#3132#4093#0" expanded="false" />
-            <element signature="e#4141#4378#0" expanded="false" />
-            <element signature="e#5622#6144#0" expanded="false" />
-            <element signature="e#6223#6257#0" expanded="false" />
-            <element signature="e#6311#6384#0" expanded="false" />
-            <element signature="e#6430#6479#0" expanded="false" />
-            <element signature="e#7854#7954#0" expanded="false" />
-            <element signature="e#7991#8010#0" expanded="false" />
-            <element signature="e#8044#8382#0" expanded="false" />
-            <element signature="e#11177#11310#0" expanded="false" />
-            <element signature="e#11340#11398#0" expanded="false" />
-          </folding>
+        <state line="168" column="21" selection-start="4557" selection-end="4557" vertical-scroll-proportion="1.8947369">
+          <folding />
         </state>
       </provider>
     </entry>
