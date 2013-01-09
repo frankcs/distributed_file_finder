@@ -269,12 +269,12 @@ class Node(threading.Thread):
             #self.timer=Timer(3.0,self.print_death)
             #self.timer.start()
             try:
-                (msg, address) = self.mySocket.recvfrom(65536)
+                (msg1, address) = self.mySocket.recvfrom(65536)
             except :
                 self.print_death()
             #self.timer.cancel()
             self.mySocket.close()
-            if str(msg).decode() == "YES":
+            if msg1.decode() == "YES":
                return True
 
     def CallForChild(self):
@@ -289,12 +289,12 @@ class Node(threading.Thread):
             #self.timer=Timer(3.0,self.print_death)
             #self.timer.start()
             try:
-                (msg, address) = self.mySocket.recvfrom(65536)
+                (msg1, address) = self.mySocket.recvfrom(65536)
             except :
                 self.print_death()
             #self.timer.cancel()
             self.mySocket.close()
-            if msg.decode() == "YES":
+            if msg1.decode() == "YES":
                 return True
 
     def CallMe(self):
