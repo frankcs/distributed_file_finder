@@ -133,7 +133,7 @@ class Sys_Tray(QDialog):
         self.db_search_manager.persist_watches(self.watches)
 
     def search(self,pattern, match_option):
-        return self.connection.Search(pattern,match_option)
+        return self.connection.network_data_manager.Search(pattern,match_option)
         #return self.db_search_manager.search_result(pattern, match_option)
 
     def showMessage(self):

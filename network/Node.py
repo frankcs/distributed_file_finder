@@ -5,11 +5,9 @@ import threading
 import socket
 from threading import Timer
 import random
-import time
+from network.network_data_manager import network_data_manager
 
 TIMEOUT=5.0
-TIMECOMMCHILD=2
-TIMECHECKSYNC=2
 PORT=3200
 ANSWERPORT=3201
 NEXTPORT=3203
@@ -35,7 +33,6 @@ class Node(threading.Thread):
         self.childAdrr=None
         self.parent=None
         self.parentAdrr=None
-        self.manager=manager
         self.timer=None
         self.daemon=True
         self.fail=False
@@ -50,6 +47,8 @@ class Node(threading.Thread):
         self.previousAdrr=None
         self.failNext=False
         self.failPrevious=False
+        self.network_data_manager= network_data_manager(self,manager)
+
 
     def GetId(self):
         """
@@ -124,7 +123,7 @@ class Node(threading.Thread):
                 self.child.SetParentAddress(self.myIp)
                 #data call
                 print("Voy a buscar")
-                self.TakeInitialData()
+                self.network_data_manager.TakeInitialData()
                 print("CHILD:{0}".format(self.child))
                 t1=threading.Thread(target=self.VerifyParent)
                 t1.daemon=True
@@ -171,47 +170,7 @@ class Node(threading.Thread):
 
     def ImInRing(self):
         self.imInRing=True
-        self.GiveEveryoneInRingMyDB()
-
-    def ExternalSearch(self,path):
-        """
-        Search used for external Nodes to find something in my info.
-        """
-        if self.imInRing:
-            return ["este","aquel","el otro"]#Ver Con Frank
-        else: return []
-
-    def LocalSearch(self,pattern, matchoption, block=''):
-        return [x for x in self.manager.search_result(pattern, matchoption,block)]#fix this
-
-    def Search(self, pattern, matchoption, amount= 400):
-        result=[]
-        child= True if not self.imInRing else False
-
-        for item in self.LocalSearch(pattern,matchoption):
-            result.append(item)
-            if len(result)>=amount:
-                yield result
-                result=[]
-        if child:
-            for item in self.parent.LocalSearch(pattern,matchoption,self.myIp):
-                #si te llega algo que diga localhost ponle que es de tu padre
-                item[3]=self.parentAdrr if item[3]=='localhost' else item[3]
-                result.append(item)
-                if len(result)>=amount:
-                    yield result
-                    result=[]
-        #else:
-            #comparer= self.parent if child else self
-            #next= self.next
-            #while next is not comparer and next is not None:
-                #for item in next.LocalSearch(pattern,matchoption):
-                    #result.append(item)
-                    #if len(result)>=amount:
-                        #yield result
-                        #result=[]
-                #next=next.GetNext()
-        yield result# por si te quedo algo o nunca llegaste al amount
+        self.network_data_manager.GiveEveryoneInRingMyDB()
 
     def SearchInRing(self,info,path):
         """
@@ -451,7 +410,7 @@ class Node(threading.Thread):
                 list=str(sms).split(':')
                 sender=list[1]
                 broke=list[2]
-                if self.nextAdrris is not None and str(self.nextAdrr)== broke:
+                if self.nextAdrr is not None and str(self.nextAdrr)== broke:
                     pass
                 if self.previousAdrr is not None and str(self.previousAdrr)== broke:
                     pass
@@ -649,44 +608,6 @@ class Node(threading.Thread):
         resume="############################\nRESUME:\nNEXT:{}\nNEXTAdrr:{}\nPREVIOUS:{}\nPREVIOUSAdrr:{}\nInRING:{}\nPARENT:{}\nPARENTAdrr:{}\nCHILD:{}\nCHILDAdrr:{}\n############################".format(self.next,self.nextAdrr,self.previous,self.previousAdrr,self.imInRing,self.parent,self.parentAdrr,self.child,self.childAdrr)
         print(resume)
 
-
-    #data acces
-    #for children
-    def GetDataToMyParent(self):
-        self.StartJournal()
-        senderth=threading.Thread(target=self.SenDataToMyParent)
-        senderth.daemon=True
-        senderth.start()
-        return [x for x in self.manager.extract_database_data()]
-
-
-    def SenDataToMyParent(self):
-        while not self.imInRing:
-            time.sleep(TIMECOMMCHILD)
-            print("Looking for data to send")
-            op=self.manager.get_operation_list()
-            if len(op)!=0:
-                self.parent.TakeChanges(self.myIp,op)
-                print("data sent")
-            else:
-                print("nothing to send")
-
-    #for parent nodes
-    def TakeInitialData(self):
-        self.manager.push_into_database(self.childAdrr, self.child.GetDataToMyParent())
-
-    def TakeInitialDataFromIndex(self, index_addr, data):
-        self.manager.push_into_database(index_addr,data)
-        print("Data inserted from {} index".format(index_addr))
-
-    #self.connect.parent.TakeChanges(list)
-    def TakeChanges(self,from_who,changes):
-        self.manager.process_changes_from(from_who,changes)
-        print("Changes taken from {} index".format(from_who))
-
-    def ExposeDataBase(self):
-        return [x for x in self.manager.extract_database_data()]
-
     def RingWithoutMe(self):
         """
         Me da acceso a todas los piro objects del anillo
@@ -706,58 +627,4 @@ class Node(threading.Thread):
                         return all
             except :
                 return None
-
-    def GiveEveryoneInRingMyDB(self):
-        """
-        Dar la base de datos inicialmente a la gente en el anillo
-        Recibir la base de datos de uno, supuestamente actualizada
-        Iniciar el paso de datos de los cambios(SendDataToRIng)
-        Recordar guardar el resultado de get_operation_list porque se resetea la lista
-        """
-        first=True
-        everyones_db=None
-        first_adress=None
-        lock= threading.Lock()
-        with lock:
-            ring= self.RingWithoutMe()
-            if ring:
-                for index in ring:
-                    if first:
-                        everyones_db=index.ExposeDataBase()
-                        first_adress=index.GetIpAddress()
-                        first=False
-                    #paro la recolección del historial dado que esto se va a realizar en todos los nodos
-                    index.StopJournal()
-                    #actualizo la base de datos
-                    index.TakeInitialDataFromIndex(self.myIp,self.ExposeDataBase())
-                    #ejecuto de nuevo el historial
-                    index.StartJournal()
-                self.TakeInitialDataFromIndex(first_adress,everyones_db)
-        senderth= threading.Thread(target=self.SendDataToRing)
-        senderth.daemon=True
-        senderth.start()
-
-    def StartJournal(self):
-        self.manager.start_journal()
-
-    def StopJournal(self):
-        self.manager.stop_journal()
-
-    def SendDataToRing(self):
-        """
-        Enviar periódicamente, si es necesario mis operaciones
-        Cuando termine de enviar estos datos
-        """
-        self.StartJournal()
-        while self.imInRing and self.next and self.previous:
-            time.sleep(TIMECHECKSYNC)
-            op= self.manager.get_operation_list()
-            if len(op)!=0:
-                lock= threading.Lock()
-                with lock:
-                    ring= self.RingWithoutMe()
-                    if ring:
-                        for index in ring:
-                            index.TakeChanges(self.myIp,op)
-        self.StopJournal()
 
