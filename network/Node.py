@@ -273,6 +273,7 @@ class Node(threading.Thread):
                 (msg1, address) = self.mySocket.recvfrom(65536)
             except :
                 self.print_death()
+                return False
             #self.timer.cancel()
             self.mySocket.close()
             if msg1.decode() == "YES":
@@ -286,6 +287,7 @@ class Node(threading.Thread):
             sock_out.sendto(msg.encode(), (str(self.childAdrr), PORT))
             self.mySocket =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             self.mySocket.settimeout(3.0)
+            print("bind")
             self.mySocket.bind((str(self.myIp),ANSWERPORT))
             #self.timer=Timer(3.0,self.print_death)
             #self.timer.start()
@@ -294,6 +296,7 @@ class Node(threading.Thread):
                 (msg1, address) = self.mySocket.recvfrom(65536)
             except :
                 self.print_death()
+                return False
             #self.timer.cancel()
             self.mySocket.close()
             if msg1.decode() == "YES":
