@@ -268,6 +268,7 @@ class Node(threading.Thread):
             self.mySocket.bind((str(self.myIp),ANSWERPORT))
             #self.timer=Timer(3.0,self.print_death)
             #self.timer.start()
+            msg1=None
             try:
                 (msg1, address) = self.mySocket.recvfrom(65536)
             except :
@@ -288,6 +289,7 @@ class Node(threading.Thread):
             self.mySocket.bind((str(self.myIp),ANSWERPORT))
             #self.timer=Timer(3.0,self.print_death)
             #self.timer.start()
+            msg1=None
             try:
                 (msg1, address) = self.mySocket.recvfrom(65536)
             except :
