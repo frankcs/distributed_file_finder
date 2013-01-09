@@ -12,8 +12,8 @@ TIMECOMMCHILD=2
 TIMECHECKSYNC=2
 PORT=3200
 ANSWERPORT=3201
-NEXTPORT=3202
-PREVIOUSPORT=3203
+NEXTPORT=3203
+PREVIOUSPORT=3205
 
 class Node(threading.Thread):
     """
@@ -63,9 +63,14 @@ class Node(threading.Thread):
         Set the Next Node in the chord.
         """
         print("SetNext")
-        self.next=next
-        if self.child is not None:
-            self.child.SetNext(next)
+        if next is not None:
+            self.next=next
+            self.nextAdrr=next.GetIpAddress()
+            t=threading.Thread(target=self.VerifyNext)
+            t.daemon=True
+            t.start()
+            if self.child is not None:
+                self.child.SetNext(next)
 
     def GetNext(self):
         """
@@ -78,10 +83,15 @@ class Node(threading.Thread):
         """
         Set the Previous Node in the chord.
         """
-        print("SetPrevious")
-        self.previous=previous
-        if self.child is not None:
-            self.child.SetPrevious(previous)
+        if previous is not None:
+            print("SetPrevious")
+            self.previous=previous
+            self.previousAdrr=previous.GetIpAddress()
+            t=threading.Thread(target=self.VerifyPrevious)
+            t.daemon=True
+            t.start()
+            if self.child is not None:
+                self.child.SetPrevious(previous)
 
     def GetPrevious(self):
         """
@@ -103,10 +113,12 @@ class Node(threading.Thread):
         Set the Child Node.
         """
         print("SetChild")
+
         try:
             if self.child is None:
                 self.child=child
                 self.childAdrr=self.child.GetIpAddress()
+                print("CHILD:{0}".format(self.child))
                 self.child.SetNext(self.next)
                 self.child.SetPrevious(self.previous)
                 self.child.SetParentAddress(self.myIp)
@@ -119,7 +131,8 @@ class Node(threading.Thread):
                 t1.start()
                 return "True"
             else:return "False"
-        except :
+        except Exception as inst:
+            print(inst)
             return "False"
 
     def SetParent(self,parent):
@@ -127,12 +140,16 @@ class Node(threading.Thread):
         Set the Parent Node.
         """
         print("SetParent")
+        if parent is None:
+            return
         try:
             if self.parent is None:
                 self.parent=parent
                 self.parentAdrr=self.parent.GetIpAddress()
                 self.next=self.parent.GetNext()
+                self.nextAdrr=self.next.GetIpAddress()
                 self.previous=self.parent.GetPrevious()
+                self.previousAdrr=self.previous.GetIpAddress()
                 self.parent.SetChildAddress(self.GetIpAddress())
                 print("PARENT:{0}".format(self.parent))
                 t1=threading.Thread(target=self.VerifyParent)
@@ -217,13 +234,29 @@ class Node(threading.Thread):
                 index.SetNext(self)
                 index.SetPrevious(self)
                 self.next=index
+                self.nextAdrr=index.GetIpAddress()
+                t=threading.Thread(target=self.VerifyNext)
+                t.daemon=True
+                t.start()
                 self.previous=index
+                self.previousAdrr=index.GetIpAddress()
+                t1=threading.Thread(target=self.VerifyPrevious)
+                t1.daemon=True
+                t1.start()
                 self.ImInRing()
                 print("2 Nodes")
                 break
             if index.GetId() < self.id and self.id < nextIndex.GetId():#Case 2: Find your position by id
                 self.next=nextIndex
+                self.nextAdrr=nextIndex.GetIpAddress()
+                t=threading.Thread(target=self.VerifyNext)
+                t.daemon=True
+                t.start()
                 self.previous=index
+                self.previousAdrr=index.GetIpAddress()
+                t1=threading.Thread(target=self.VerifyNext)
+                t1.daemon=True
+                t1.start()
                 index.SetNext(self)
                 nextIndex.SetPrevious(self)
                 self.ImInRing()
@@ -231,7 +264,15 @@ class Node(threading.Thread):
                 break
             if index.GetId() < self.id and self.id > nextIndex.GetId():#Case 3: At the end of the ring
                 self.next=nextIndex
+                self.nextAdrr=nextIndex.GetIpAddress()
+                t=threading.Thread(target=self.VerifyNext)
+                t.daemon=True
+                t.start()
                 self.previous=index
+                self.previousAdrr=index.GetIpAddress()
+                t1=threading.Thread(target=self.VerifyNext)
+                t1.daemon=True
+                t1.start()
                 index.SetNext(self)
                 nextIndex.SetPrevious(self)
                 self.ImInRing()
@@ -250,9 +291,6 @@ class Node(threading.Thread):
             if not nextHelper.HasChild():
                 if nextHelper.SetChild(self):
                     self.parent=nextHelper
-            #if nextHelper.GetId() == self.id:#mojon
-            #    self.SearchPosition(uriRing)
-            #    break
             nextHelper=nextHelper.GetNext()
 
     def IsAlive(self):
@@ -314,7 +352,9 @@ class Node(threading.Thread):
                 self.imInRing=False
                 self.childAdrr=None
                 self.next=None
+                self.nextAdrr=None
                 self.previous=None
+                self.previousAdrr=None
                 self.parent=None
                 self.parentAdrr=None
                 self.SayHello()
@@ -346,7 +386,9 @@ class Node(threading.Thread):
                 self.parent=None
                 self.parentAdrr=None
                 self.next=None
+                self.nextAdrr=None
                 self.previous=None
+                self.previousAdrr=None
                 self.fail=True
                 Timer(1.0,self.SayHelloOnFails).start()
                 print("im a dead son")
@@ -418,7 +460,7 @@ class Node(threading.Thread):
                 sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                 msgo="HERE"
                 print(msgo)
-                sock_out.sendto(msgo.encode(), (address[0], ANSWERPORT))
+                sock_out.sendto(msgo.encode(), (address[0], NEXTPORT if sms=="NEXT?" else PREVIOUSPORT ))
                 sock_out.close()
                 print("{} response send!!!".format(sms))
             elif sms == "Are you there?":
@@ -545,7 +587,7 @@ class Node(threading.Thread):
             sock_out.close()
             print("Message NEXT? send!!!")
             self.socketNext = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.socketNext.bind((self.myIp,PORT))
+            self.socketNext.bind((self.myIp,NEXTPORT))
             self.timerNext=Timer(3.0,self.Next_death)
             self.timerNext.start()
             (msg, address) =  self.socketNext.recvfrom(65536)
@@ -573,8 +615,8 @@ class Node(threading.Thread):
             sock_out.close()
             print("Message PREVIOUS? send!!!")
             self.socketPrevious = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.socketPrevious.bind((self.myIp,PORT))
-            self.timerPrevious=Timer(3.0,self.Next_death)
+            self.socketPrevious.bind((self.myIp,PREVIOUSPORT))
+            self.timerPrevious=Timer(3.0,self.Previous_death)
             self.timerPrevious.start()
             (msg, address) =  self.socketPrevious.recvfrom(65536)
             self.timerPrevious.cancel()
@@ -604,7 +646,7 @@ class Node(threading.Thread):
         #self.pyroDaemon.requestLoop()
 
     def print_resume(self):
-        resume="############################\nRESUME:\nNEXT:{}\nPREVIOUS:{}\nInRING:{}\nPARENT:{}\nPARENTAdrr:{}\nCHILD:{}\nCHILDAdrr:{}\n############################".format(self.next,self.previous,self.imInRing,self.parent,self.parentAdrr,self.child,self.childAdrr)
+        resume="############################\nRESUME:\nNEXT:{}\nNEXTAdrr:{}\nPREVIOUS:{}\nPREVIOUSAdrr:{}\nInRING:{}\nPARENT:{}\nPARENTAdrr:{}\nCHILD:{}\nCHILDAdrr:{}\n############################".format(self.next,self.nextAdrr,self.previous,self.previousAdrr,self.imInRing,self.parent,self.parentAdrr,self.child,self.childAdrr)
         print(resume)
 
 
@@ -631,9 +673,7 @@ class Node(threading.Thread):
 
     #for parent nodes
     def TakeInitialData(self):
-        self.StopJournal()
         self.manager.push_into_database(self.childAdrr, self.child.GetDataToMyParent())
-        self.StartJournal()
 
     def TakeInitialDataFromIndex(self, index_addr, data):
         self.manager.push_into_database(index_addr,data)
