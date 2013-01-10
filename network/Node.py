@@ -344,11 +344,14 @@ class Node(threading.Thread):
             try:
                 if self.next is not None and self.previous is not None:
                     if self.next.IsAlive() and self.previous.IsAlive():
-                        self.DeleteEverythingFrom(self.parentAdrr)
+                        self.fail=True
+                        #self.DeleteEverythingFrom(self.parentAdrr)
+                        self.next.SetPrevious(self)
+                        self.next.DeleteEverythingFrom(self.parentAdrr)
+                        self.previous.SetNext(self)
+                        #self.previous.DeleteEverythingFrom(self.parentAdrr)
                         self.parent=None
                         self.parentAdrr=None
-                        self.next.SetPrevious(self)
-                        self.previous.SetNext(self)
                         print("nexts updated.!!!")
                         self.ImInRing(True)
                         self.child=None
@@ -356,23 +359,23 @@ class Node(threading.Thread):
 
                 else:
                     print("mis nexts are None")
-                    self.DeleteEverythingFrom(self.parentAdrr)
+                    self.fail=True
+                    #self.DeleteEverythingFrom(self.parentAdrr)
                     self.parent=None
                     self.parentAdrr=None
                     self.child=None
                     self.childAdrr=None
                     self.ImInRing(True)
-                    #self.fail=True
                     #Timer(1.0,self.SendUriOnFails).start()
                 print("my father is dead and im in ring")
             except:
+                self.fail=True
                 self.parent=None
                 self.parentAdrr=None
                 self.next=None
                 self.nextAdrr=None
                 self.previous=None
                 self.previousAdrr=None
-                self.fail=True
                 Timer(1.0,self.SayHelloOnFails).start()
                 print("im a dead son")
 
@@ -553,8 +556,11 @@ class Node(threading.Thread):
             sock_out.close()
 
     def VerifyParent(self):
-        Timer(7.0,self.VerifyParent).start()
-        self.CallMe()
+        if self.fail:
+            self.fail=False
+        else:
+            Timer(7.0,self.VerifyParent).start()
+            self.CallMe()
         #print("Verifiying")
 
 
