@@ -596,16 +596,16 @@ class Node(threading.Thread):
             sock_out.close()
             print("Message NEXT? send!!!")
             self.socketNext = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            #self.socketNext.settimeout(3.0)
+            self.socketNext.settimeout(3.0)
             self.socketNext.bind((self.myIp,NEXTPORT))
-            self.timerNext=Timer(3.0,self.Next_death)
-            self.timerNext.start()
-            #try:
-            (msg, address) =  self.socketNext.recvfrom(65536)
-            #except :
-            #    self.Next_death()
-            #    return False
-            self.timerNext.cancel()
+            #self.timerNext=Timer(3.0,self.Next_death)
+            #self.timerNext.start()
+            try:
+                (msg, address) =  self.socketNext.recvfrom(65536)
+            except :
+                self.Next_death()
+                return False
+            #self.timerNext.cancel()
             print("MSG:{}".format(msg.decode()))
             if address[0] == self.nextAdrr and msg.decode() == "HERE":
                 print("NEXT respond HERE!!!")
@@ -639,16 +639,16 @@ class Node(threading.Thread):
             sock_out.close()
             print("Message PREVIOUS? send!!!")
             self.socketPrevious = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            #self.socketPrevious.settimeout(3.0)
+            self.socketPrevious.settimeout(3.0)
             self.socketPrevious.bind((self.myIp,PREVIOUSPORT))
-            self.timerPrevious=Timer(3.0,self.Previous_death)
-            self.timerPrevious.start()
-            #try:
-            (msg, address) =  self.socketPrevious.recvfrom(65536)
-            #except :
-            #    self.Previous_death()
-            #    return False
-            self.timerPrevious.cancel()
+            #self.timerPrevious=Timer(3.0,self.Previous_death)
+            #self.timerPrevious.start()
+            try:
+                (msg, address) =  self.socketPrevious.recvfrom(65536)
+            except :
+                self.Previous_death()
+                return False
+            #self.timerPrevious.cancel()
             print("MSG:{}".format(msg.decode()))
             if address[0] == self.previousAdrr and msg.decode() == "HERE":
                 print("PREVIOUS respond HERE!!!")
