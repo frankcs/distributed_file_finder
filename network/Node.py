@@ -6,6 +6,7 @@ import socket
 from threading import Timer
 import random
 import time
+from hashlib import md5
 
 TIMEOUT=5.0
 PORT=3200
@@ -421,9 +422,11 @@ class Node(threading.Thread):
                 print("evitando escuchar mis propios msg.")
                 continue
             elif sms.__contains__("ALERT"):
-                list=str(sms).split(':')
+                list=str(sms).split('>>')
                 sender=list[1]
                 broke=list[2]
+                if str(broke) == str(self.myIp):
+                    continue
                 if self.nextAdrr is not None and str(self.nextAdrr)== broke:
                     self.nextAdrr=None
                     self.next=None
@@ -547,7 +550,7 @@ class Node(threading.Thread):
     def SendAdvice(self,sender,broke):
         sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        msg = "ALERT:{}:{}".format(sender,broke)
+        msg = "ALERT>>{}>>{}".format(sender,broke)
         sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
         sock_out.close()
 
@@ -709,9 +712,9 @@ class Node(threading.Thread):
     #for parent nodes
     def TakeInitialData(self):
         print(self.childAdrr)
-        obj=self.child.GetDataToMyParent()
+        obj= self.child.GetDataToMyParent()
         print(obj)
-        self.manager.push_into_database(self.childAdrr, obj)
+        self.manager.push_into_database(self.childAdrr,obj)
 
 
     def TakeInitialDataFromIndex(self, index_addr, data):
@@ -786,5 +789,23 @@ class Node(threading.Thread):
 
     def DeleteEverythingFrom(self, machine_id):
         self.manager.delete_everything_from(machine_id)
+
+    def Download(self,file,to_who):
+        return self.SendFileTo(file,to_who)
+
+    def SendFileTo(self,path,to_who):
+        try:
+            file=open(path,rmode)
+        except IOError as msg:
+            print("Error:{} for file{}".format(msg,path))
+
+        m = md5()
+        while 1:
+            data = file.read(bufsize)
+            if not data:
+                break
+            m.update(data)
+        result.append(m.hexdigest())
+
 
 
