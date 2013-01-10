@@ -655,4 +655,6 @@ class Node(threading.Thread):
                         return all
             except :
                 return None
+    def GetDataToMyParent(self):
+        return self.network_data_manager.GetDataToMyParent()
 
