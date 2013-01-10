@@ -559,6 +559,7 @@ class Node(threading.Thread):
         sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         msg = "ALERT>>{}>>{}".format(sender,broke)
         sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
+        sock_out.shutdown(socket.SHUT_RDWR)
         sock_out.close()
 
     #ver si poner o no en NONE.
@@ -592,10 +593,16 @@ class Node(threading.Thread):
             #    self.Next_death()
             #    return False
             self.timerNext.cancel()
+            print("MSG:{}".format(msg.decode()))
             if address[0] == self.nextAdrr and msg.decode() == "HERE":
                 print("NEXT respond HERE!!!")
+                self.socketNext.shutdown(socket.SHUT_RDWR)
                 self.socketNext.close()
                 return True
+            else:
+                self.socketPrevious.shutdown(socket.SHUT_RDWR)
+                self.socketPrevious.close()
+                return False
 
     def Previous_death(self):
         print("Previous_death")
@@ -630,6 +637,10 @@ class Node(threading.Thread):
                 print("PREVIOUS respond HERE!!!")
                 self.socketPrevious.close()
                 return True
+            else:
+                self.socketPrevious.shutdown(socket.SHUT_RDWR)
+                self.socketPrevious.close()
+                return False
 
     def run(self):
         """
