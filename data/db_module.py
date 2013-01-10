@@ -2,6 +2,8 @@ import sqlite3
 import os
 import threading
 
+TIMEOUT=10
+
 class db_manager:
     COLUMNS="(path,base_name,is_directory)"
     def __init__(self,db_path):
@@ -20,7 +22,7 @@ class db_manager:
         if self.keep_journal:
             self.operation_list.append(("delete_everything_from",))
         self.create_database()
-        connection=sqlite3.connect(self.db_path)
+        connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
         cursor= connection.cursor()
         try:
             cursor.execute('DROP TABLE "paths";')
@@ -50,7 +52,7 @@ class db_manager:
 
     def insert_everything_under_path(self,path):
         with self.lock:
-            connection=sqlite3.connect(self.db_path)
+            connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             for directory in os.walk(path,topdown=True):
                 self.db_paths_insert(cursor,directory[0])
@@ -65,7 +67,7 @@ class db_manager:
 
     # se usa para crear la entrada en files antes de proceder a revisar lo nuevo
     def insert_on_move(self, path):
-        connection=sqlite3.connect(self.db_path)
+        connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
         cursor= connection.cursor()
         parent_directory, base_name =os.path.split(path)
         cursor.execute('SELECT path_id FROM paths WHERE path=?',(parent_directory,))
@@ -93,7 +95,7 @@ class db_manager:
         with self.lock:
             if self.keep_journal:
                 self.operation_list.append(("delete_all_within_path",machine_id,deletion_path))
-            connection=sqlite3.connect(self.db_path)
+            connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor=connection.cursor()
             #dividir el camino que me dan para hacer las respectivas consultas
             parent_directory, base_name =os.path.split(deletion_path)
@@ -133,7 +135,7 @@ class db_manager:
         with self.lock:
             if self.keep_journal:
                 self.operation_list.append(("update_paths_on_moved",machine_id,old_path,new_path))
-            connection=sqlite3.connect(self.db_path)
+            connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             #dividir el camino que me dan para hacer las respectivas consultas
             old_parent_directory, old_base_name =os.path.split(old_path)
@@ -159,7 +161,7 @@ class db_manager:
             connection.close()
 
     def insert_new_created_entries(self, path, isdir):
-        connection=sqlite3.connect(self.db_path)
+        connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
         cursor= connection.cursor()
         #Si es directorio va generar un nuevo camino
         if isdir:
@@ -174,7 +176,7 @@ class db_manager:
         connection.close()
 
     def search_result(self, pattern, option, block=''):
-        connection=sqlite3.connect(self.db_path)
+        connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
         cursor= connection.cursor()
         final_pattern="%"+pattern+"%"
         if option==1:
@@ -197,7 +199,7 @@ class db_manager:
 
     def persist_watches(self, watches):
         with self.lock:
-            connection=sqlite3.connect(self.db_path)
+            connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             cursor.execute('DELETE FROM watches')
             for watch in watches:
@@ -207,7 +209,7 @@ class db_manager:
 
     def retrieve_watches(self):
         with self.lock:
-            connection=sqlite3.connect(self.db_path)
+            connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             result= [x[0] for x in cursor.execute('SELECT watch FROM watches')]
             connection.close()
@@ -216,7 +218,7 @@ class db_manager:
 
     def delete_watch(self, watch):
         with self.lock:
-            connection=sqlite3.connect(self.db_path)
+            connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             cursor.execute('DELETE FROM watches WHERE watch=?',(watch,))
             connection.commit()
@@ -224,7 +226,7 @@ class db_manager:
 
     def delete_all_file_data(self):
         with self.lock:
-            connection=sqlite3.connect(self.db_path)
+            connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             cursor.execute('DELETE FROM files')
             cursor.execute('DELETE FROM paths')
@@ -241,7 +243,7 @@ class db_manager:
 
 
     def push_into_database(self, machine_id, data):
-        connection=sqlite3.connect(self.db_path)
+        connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
         cursor= connection.cursor()
         path_id= None
         for item in data:
@@ -257,7 +259,7 @@ class db_manager:
         with self.lock:
             if self.keep_journal:
                 self.operation_list.append(("delete_everything_from",machine_id))
-            connection=sqlite3.connect(self.db_path)
+            connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             paths= [x for x in cursor.execute('SELECT path_id, path FROM paths WHERE machine_id=?',(machine_id,))]
             for path in paths:
@@ -268,7 +270,7 @@ class db_manager:
 
     def extract_database_data(self):
         with self.lock:
-            connection=sqlite3.connect(self.db_path)
+            connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             paths= [x for x in cursor.execute('SELECT path_id, path, machine_id FROM paths')]
             #para poder parar
@@ -280,7 +282,7 @@ class db_manager:
             connection.close()
 
     def process_changes_from(self,machine_id,changes):
-        connection=sqlite3.connect(self.db_path)
+        connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
         cursor= connection.cursor()
         for change in changes:
             id=machine_id if change[1]=='localhost' else change[1]
