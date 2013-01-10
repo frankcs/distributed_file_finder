@@ -74,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/network/network_data_manager.py">
 >>>>>>> b8cfd5bf768f2697d50e7ed501e34054505293df
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="55" selection-start="4856" selection-end="4856" vertical-scroll-proportion="0.9">
+            <state line="54" column="0" selection-start="1853" selection-end="1853" vertical-scroll-proportion="-0.8">
               <folding>
                 <element signature="e#21#37#0" expanded="true" />
               </folding>
@@ -85,7 +85,7 @@
       <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="257" column="8" selection-start="11236" selection-end="11258" vertical-scroll-proportion="0.0">
+            <state line="314" column="8" selection-start="13845" selection-end="13845" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -115,9 +115,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app.pyw" />
-        <option value="$PROJECT_DIR$/data/db_module.py" />
         <option value="$PROJECT_DIR$/network/Node.py" />
         <option value="$PROJECT_DIR$/network/network_data_manager.py" />
+        <option value="$PROJECT_DIR$/data/db_module.py" />
       </list>
     </option>
   </component>
@@ -288,13 +288,18 @@
     <editor active="true" />
 =======
     <frame x="-4" y="-4" width="1032" height="748" extended-state="1" />
+<<<<<<< HEAD
     <editor active="false" />
 >>>>>>> b8cfd5bf768f2697d50e7ed501e34054505293df
+=======
+    <editor active="true" />
+>>>>>>> a936ee5370e3ddc8d62e53078ff9a662920593eb
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2336874" sideWeight="0.7389079" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63993174" sideWeight="0.49426112" order="3" side_tool="false" content_ui="tabs" />
@@ -304,10 +309,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
 =======
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24948876" sideWeight="0.6705491" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24948876" sideWeight="0.6705491" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> a936ee5370e3ddc8d62e53078ff9a662920593eb
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.4969325" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294509" sideWeight="0.49591002" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
 >>>>>>> b8cfd5bf768f2697d50e7ed501e34054505293df
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -409,7 +417,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="8" selection-start="11236" selection-end="11258" vertical-scroll-proportion="0.0">
+        <state line="314" column="8" selection-start="13845" selection-end="13845" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -418,6 +426,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/network_data_manager.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state line="355" column="35" selection-start="11488" selection-end="11488" vertical-scroll-proportion="-15.956185">
           <folding>
@@ -450,6 +459,9 @@
             <element signature="e#27641#27669#0" expanded="false" />
 =======
         <state line="129" column="55" selection-start="4856" selection-end="4856" vertical-scroll-proportion="0.9">
+=======
+        <state line="54" column="0" selection-start="1853" selection-end="1853" vertical-scroll-proportion="-0.8">
+>>>>>>> a936ee5370e3ddc8d62e53078ff9a662920593eb
           <folding>
             <element signature="e#21#37#0" expanded="true" />
 >>>>>>> b8cfd5bf768f2697d50e7ed501e34054505293df
