@@ -51,6 +51,7 @@ class Node(threading.Thread):
         self.failNext=False
         self.failPrevious=False
         self.manager=manager
+        self.filesize=None
 
 
     def GetId(self):
@@ -276,6 +277,7 @@ class Node(threading.Thread):
                 self.print_death()
                 return False
             #self.timer.cancel()
+            self.mySocket.shutdown(socket.SHUT_RDWR)
             self.mySocket.close()
             if msg1.decode() == "YES":
                return True
@@ -299,6 +301,7 @@ class Node(threading.Thread):
                 self.print_death()
                 return False
             #self.timer.cancel()
+            self.mySocket.shutdown(socket.SHUT_RDWR)
             self.mySocket.close()
             if msg1.decode() == "YES":
                 return True
@@ -571,7 +574,7 @@ class Node(threading.Thread):
             self.failNext=False
             return False
         else:
-            Timer(5.0,self.VerifyNext).start()
+            Timer(15.0,self.VerifyNext).start()
         if self.next is not None:
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg = "NEXT?"
@@ -605,7 +608,7 @@ class Node(threading.Thread):
             self.failPrevious=False
             return False
         else:
-            Timer(5.0,self.VerifyPrevious).start()
+            Timer(15.0,self.VerifyPrevious).start()
         if self.previous is not None:
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg = "PREVIOUS?"
@@ -802,19 +805,20 @@ class Node(threading.Thread):
     def Download(self,file,to_who):
         return self.SendFileTo(file,to_who)
 
+    def SetFileSizeDownload(self, fs):
+        self.filesize=fs
+
     def SendFileTo(self,path,to_who):
         try:
-            file=open(path,rmode)
+            file=open(path,'rb')
         except IOError as msg:
             print("Error:{} for file{}".format(msg,path))
 
-        m = md5()
-        while 1:
+        while True:
             data = file.read(bufsize)
             if not data:
                 break
-            m.update(data)
-        result.append(m.hexdigest())
+
 
 
 
