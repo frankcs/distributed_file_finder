@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="731" column="25" selection-start="25985" selection-end="25985" vertical-scroll-proportion="0.0">
+            <state line="706" column="45" selection-start="25124" selection-end="25124" vertical-scroll-proportion="0.031021899">
               <folding />
             </state>
           </provider>
@@ -41,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db_module.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="286" column="30" selection-start="12827" selection-end="12827" vertical-scroll-proportion="0.030303031">
+            <state line="286" column="30" selection-start="12827" selection-end="12827" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -66,8 +66,8 @@
       <list>
         <option value="$PROJECT_DIR$/app.pyw" />
         <option value="$PROJECT_DIR$/network/network_data_manager.py" />
-        <option value="$PROJECT_DIR$/network/Node.py" />
         <option value="$PROJECT_DIR$/data/db_module.py" />
+        <option value="$PROJECT_DIR$/network/Node.py" />
       </list>
     </option>
   </component>
@@ -103,6 +103,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -137,7 +138,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,7 +276,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -441,13 +441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/Node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="731" column="25" selection-start="25985" selection-end="25985" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
         <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.0">
@@ -457,7 +450,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="286" column="30" selection-start="12827" selection-end="12827" vertical-scroll-proportion="0.030303031">
+        <state line="286" column="30" selection-start="12827" selection-end="12827" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/Node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="706" column="45" selection-start="25124" selection-end="25124" vertical-scroll-proportion="0.031021899">
           <folding />
         </state>
       </provider>
