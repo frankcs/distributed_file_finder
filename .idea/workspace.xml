@@ -26,7 +26,7 @@
       <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="296" column="19" selection-start="9244" selection-end="9244" vertical-scroll-proportion="0.8797654">
+            <state line="289" column="31" selection-start="9020" selection-end="9020" vertical-scroll-proportion="0.53079176">
               <folding>
                 <element signature="e#22#34#0" expanded="true" />
               </folding>
@@ -404,7 +404,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="296" column="19" selection-start="9244" selection-end="9244" vertical-scroll-proportion="0.8797654">
+        <state line="289" column="31" selection-start="9020" selection-end="9020" vertical-scroll-proportion="0.53079176">
           <folding>
             <element signature="e#22#34#0" expanded="true" />
           </folding>
