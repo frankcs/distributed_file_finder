@@ -428,7 +428,6 @@ class Node(threading.Thread):
         self.print_resume()
         t=None
         while True:
-
             if not self.imInRing and self.parent is None:
                 number= random.randint(0,7)
                 print(number)
@@ -452,9 +451,13 @@ class Node(threading.Thread):
                 sender=list[1]
                 broke=list[2]
                 if self.nextAdrris is not None and str(self.nextAdrr)== broke:
-                    pass
+                    user=Pyro4.Proxy(str(sender))
+                    if user.SetNext(self) == "True":
+                        self.SetPrevious(user)
                 if self.previousAdrr is not None and str(self.previousAdrr)== broke:
-                    pass
+                    user=Pyro4.Proxy(str(sender))
+                    if user.SetPrevious(self) == "True":
+                        self.SetNext(user)
             elif sms=="NEXT?" or sms=="PREVIOUS?":
                 print("Se recibe un mensaje de vida de:{}".format(sms))
                 sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
