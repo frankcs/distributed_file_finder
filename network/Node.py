@@ -573,9 +573,10 @@ class Node(threading.Thread):
             sock_out.close()
 
     def VerifyParent(self):
+        Timer(7.0,self.VerifyParent).start()
         self.CallMe()
         #print("Verifiying")
-        Timer(7.0,self.VerifyParent).start()
+
 
     def SendAdvice(self,sender,broke):
         sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
