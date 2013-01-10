@@ -316,17 +316,17 @@ class Node(threading.Thread):
             try:
                 if self.next is not None and self.previous is not None:
                     if self.next.IsAlive() and self.previous.IsAlive():
-                        self.ChilDisposal(self.childAdrr)
+                        self.ChildDisposal(self.childAdrr)
                         self.child=None
                         self.childAdrr=None
                         print("my son is dead and my nexts alive")
                 else:
-                    self.ChilDisposal(self.childAdrr)
+                    self.ChildDisposal(self.childAdrr)
                     self.child=None
                     self.childAdrr=None
                     print("My son is dead")
             except:
-                self.ChilDisposal(self.childAdrr)
+                self.ChildDisposal(self.childAdrr)
                 self.imInRing=False
                 self.childAdrr=None
                 self.next=None
