@@ -344,6 +344,7 @@ class Node(threading.Thread):
             try:
                 if self.next is not None and self.previous is not None:
                     if self.next.IsAlive() and self.previous.IsAlive():
+                        self.DeleteEverythingFrom(self.parentAdrr)
                         self.parent=None
                         self.parentAdrr=None
                         self.next.SetPrevious(self)
@@ -355,6 +356,7 @@ class Node(threading.Thread):
 
                 else:
                     print("mis nexts are None")
+                    self.DeleteEverythingFrom(self.parentAdrr)
                     self.parent=None
                     self.parentAdrr=None
                     self.child=None
