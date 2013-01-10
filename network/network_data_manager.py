@@ -130,6 +130,3 @@ class network_data_manager():
 
     def DeleteEverythingFrom(self, machine_id):
         self.manager.delete_everything_from(machine_id)
-
-    def GetNetworkManager(self):
-        return self
