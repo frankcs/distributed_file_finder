@@ -23,13 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="283" column="15" selection-start="8665" selection-end="8668" vertical-scroll-proportion="-1.12">
-              <folding>
-                <element signature="e#22#34#0" expanded="true" />
-              </folding>
+            <state line="298" column="28" selection-start="9285" selection-end="9285" vertical-scroll-proportion="1.1360294">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,19 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="network_data_manager.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/network_data_manager.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.pyw" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.pyw" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.33333334">
+            <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -114,7 +103,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -149,6 +137,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -164,12 +153,12 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="73" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="729" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="742" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="729" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="69" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="63" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
   </component>
   <component name="RunManager" selected="Python.app.pyw">
@@ -276,18 +265,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13581184" sideWeight="0.30375427" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13808802" sideWeight="0.52901024" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5010225" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.69624573" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47098976" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67886853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -354,15 +343,6 @@
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="767" column="15" selection-start="27570" selection-end="27570" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#22#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/network_data_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -388,25 +368,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/network_data_manager.py">
+    <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0">
+        <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="283" column="15" selection-start="8665" selection-end="8668" vertical-scroll-proportion="-1.12">
-          <folding>
-            <element signature="e#22#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.pyw">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.33333334">
+        <state line="298" column="28" selection-start="9285" selection-end="9285" vertical-scroll-proportion="1.1360294">
           <folding />
         </state>
       </provider>
