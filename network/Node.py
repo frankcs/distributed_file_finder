@@ -52,7 +52,6 @@ class Node(threading.Thread):
         self.failNext=False
         self.failPrevious=False
         self.manager=manager
-        self.filesize=None
 
 
     def GetId(self):
@@ -345,6 +344,7 @@ class Node(threading.Thread):
             try:
                 if self.next is not None and self.previous is not None:
                     if self.next.IsAlive() and self.previous.IsAlive():
+                        self.DeleteEverythingFrom(self.parentAdrr)
                         self.parent=None
                         self.parentAdrr=None
                         self.next.SetPrevious(self)
@@ -356,6 +356,7 @@ class Node(threading.Thread):
 
                 else:
                     print("mis nexts are None")
+                    self.DeleteEverythingFrom(self.parentAdrr)
                     self.parent=None
                     self.parentAdrr=None
                     self.child=None
@@ -732,7 +733,7 @@ class Node(threading.Thread):
             time.sleep(TIMECOMMCHILD)
             print("Looking for data to send")
             op=self.manager.get_operation_list()
-            if len(op)!=0:
+            if len(op)!=0 and self.parent is not None:
                 self.parent.TakeChangesFromChild(self.myIp,op)
                 print("Data sent to my parent: \n{} ".format(op))
             else:
@@ -822,20 +823,19 @@ class Node(threading.Thread):
     def Download(self,file,to_who):
         return self.SendFileTo(file,to_who)
 
-    def SetFileSizeDownload(self, fs):
-        self.filesize=fs
-
     def SendFileTo(self,path,to_who):
         try:
-            file=open(path,'rb')
+            file=open(path,rmode)
         except IOError as msg:
             print("Error:{} for file{}".format(msg,path))
 
-        while True:
+        m = md5()
+        while 1:
             data = file.read(bufsize)
             if not data:
                 break
-
+            m.update(data)
+        result.append(m.hexdigest())
 
 
 
