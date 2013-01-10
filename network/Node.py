@@ -573,15 +573,17 @@ class Node(threading.Thread):
         self.failNext=True
         #ver si poner o no en NONE.
         self.SendAdvice(self.uri,self.nextAdrr)
+        self.next=None
+        self.nextAdrr=None
 
     def VerifyNext(self):
         print("VerifyNext")
         if self.failNext:
             self.failNext=False
             return False
-        else:
-            Timer(TIMERNEXTS,self.VerifyNext).start()
+
         if self.next is not None:
+            Timer(TIMERNEXTS,self.VerifyNext).start()
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg = "NEXT?"
             sock_out.sendto(msg.encode(), (self.nextAdrr, PORT))
@@ -614,15 +616,17 @@ class Node(threading.Thread):
         #self.socketPrevious.close()
         self.failPrevious=True
         self.SendAdvice(self.uri,self.previousAdrr)
+        self.previous=None
+        self.previousAdrr=None
 
     def VerifyPrevious(self):
         print("VerifyPrevious")
         if self.failPrevious:
             self.failPrevious=False
             return False
-        else:
-            Timer(TIMERNEXTS,self.VerifyPrevious).start()
+
         if self.previous is not None:
+            Timer(TIMERNEXTS,self.VerifyPrevious).start()
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg = "PREVIOUS?"
             sock_out.sendto(msg.encode(), (self.previousAdrr, PORT))
