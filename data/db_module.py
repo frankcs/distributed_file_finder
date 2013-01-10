@@ -242,11 +242,13 @@ class db_manager:
         self.keep_journal=False
 
 
-    def push_into_database(self, machine_id, data):
+    def push_into_database(self, machine_id, local_id, data):
         connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
         cursor= connection.cursor()
         path_id= None
         for item in data:
+            if item[1]==local_id:
+                continue
             m_id=machine_id if item[1]=='localhost' else item[1]
             self.db_paths_insert(cursor,item[0],m_id)
             path_id=cursor.lastrowid
