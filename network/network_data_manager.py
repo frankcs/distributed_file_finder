@@ -1,6 +1,7 @@
 __author__ = 'Frank'
 import threading
 import time
+import Pyro4
 
 TIMECOMMCHILD=2
 TIMECHECKSYNC=2
