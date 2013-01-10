@@ -708,7 +708,10 @@ class Node(threading.Thread):
 
     #for parent nodes
     def TakeInitialData(self):
-        self.manager.push_into_database(self.childAdrr, self.child.GetDataToMyParent())
+        print(self.childAdrr)
+        obj=self.child.GetDataToMyParent()
+        print(obj)
+        self.manager.push_into_database(self.childAdrr, obj)
 
 
     def TakeInitialDataFromIndex(self, index_addr, data):
@@ -717,6 +720,7 @@ class Node(threading.Thread):
 
     #self.connect.parent.TakeChanges(list)
     def TakeChangesFromChild(self,from_who,changes):
+        self.StartJournal()
         self.manager.process_changes_from(from_who,changes)
         print("Changes taken from {} index".format(from_who))
 
@@ -768,7 +772,7 @@ class Node(threading.Thread):
         Cuando termine de enviar estos datos
         """
         self.StartJournal()
-        while self.imInRing and self.next and self.previous:
+        while self.imInRing: #and self.next and self.previous:
             time.sleep(TIMECHECKSYNC)
             op= self.manager.get_operation_list()
             if len(op)!=0:

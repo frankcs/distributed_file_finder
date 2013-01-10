@@ -84,7 +84,7 @@ class db_manager:
         return cursor.execute('INSERT INTO paths (path, machine_id) VALUES (?,?)',(path,machine_id))
     def db_files_insert(self,cursor, path_id, base_name, isdir, md5, machine_id='localhost'):
         if self.keep_journal:
-            path= cursor.execute('SELECT path FROM paths WHERE path_id=? AND machine_id=?',(path_id,machine_id)).fetchone()[0]
+            path= cursor.execute('SELECT path FROM paths WHERE path_id=?',(path_id,)).fetchone()[0]
             self.operation_list.append(("db_files_insert", machine_id,path, base_name,isdir,md5))
         cursor.execute('INSERT INTO files (path,base_name,is_directory,md5) VALUES (?,?,?,?)'
             ,(path_id,base_name,isdir,md5))
