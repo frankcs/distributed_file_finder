@@ -436,12 +436,14 @@ class Node(threading.Thread):
                     print("continueeee")
                     continue
                 if self.nextAdrr is not None and str(self.nextAdrr)== broke:
+                    self.DeleteEverythingFrom(self.nextAdrr)
                     self.nextAdrr=None
                     self.next=None
                     user=Pyro4.Proxy(str(sender))
                     if user.SetNext(self) == "True":
                         self.SetPrevious(user)
                 if self.previousAdrr is not None and str(self.previousAdrr)== broke:
+                    self.DeleteEverythingFrom(self.previousAdrr)
                     self.previousAdrr=None
                     self.previous=None
                     user=Pyro4.Proxy(str(sender))
