@@ -276,6 +276,7 @@ class Node(threading.Thread):
                 self.print_death()
                 return False
             #self.timer.cancel()
+            self.mySocket.shutdown(socket.SHUT_RDWR)
             self.mySocket.close()
             if msg1.decode() == "YES":
                return True
@@ -299,6 +300,7 @@ class Node(threading.Thread):
                 self.print_death()
                 return False
             #self.timer.cancel()
+            self.mySocket.shutdown(socket.SHUT_RDWR)
             self.mySocket.close()
             if msg1.decode() == "YES":
                 return True
