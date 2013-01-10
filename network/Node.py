@@ -450,11 +450,15 @@ class Node(threading.Thread):
                 list=str(sms).split(':')
                 sender=list[1]
                 broke=list[2]
-                if self.nextAdrris is not None and str(self.nextAdrr)== broke:
+                if self.nextAdrr is not None and str(self.nextAdrr)== broke:
+                    self.nextAdrr=None
+                    self.next=None
                     user=Pyro4.Proxy(str(sender))
                     if user.SetNext(self) == "True":
                         self.SetPrevious(user)
                 if self.previousAdrr is not None and str(self.previousAdrr)== broke:
+                    self.previousAdrr=None
+                    self.previous=None
                     user=Pyro4.Proxy(str(sender))
                     if user.SetPrevious(self) == "True":
                         self.SetNext(user)
@@ -572,9 +576,11 @@ class Node(threading.Thread):
         sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
         sock_out.close()
 
+    #ver si poner o no en NONE.
     def Next_death(self):
         self.socketNext.close()
         self.failNext=True
+        #ver si poner o no en NONE.
         self.SendAdvice(self.uri,self.nextAdrr)
 
     def VerifyNext(self):
