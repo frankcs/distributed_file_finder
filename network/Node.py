@@ -15,6 +15,7 @@ NEXTPORT=3203
 PREVIOUSPORT=3205
 TIMECOMMCHILD=2
 TIMECHECKSYNC=2
+TIMERNEXTS=5.0
 
 class Node(threading.Thread):
     """
@@ -421,7 +422,7 @@ class Node(threading.Thread):
             print("tengo info {0}".format(address))
             sms=msg.decode()
 
-            print("MSG:{0}".format(sms))
+            print("MSG IMLISTEN:{0}".format(sms))
 
             if self.myIp == str(address[0]):
                 print("evitando escuchar mis propios msg.")
@@ -570,15 +571,16 @@ class Node(threading.Thread):
         self.SendAdvice(self.uri,self.nextAdrr)
 
     def VerifyNext(self):
+        print("VerifyNext")
         if self.failNext:
             self.failNext=False
             return False
         else:
-            Timer(15.0,self.VerifyNext).start()
+            Timer(TIMERNEXTS,self.VerifyNext).start()
         if self.next is not None:
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg = "NEXT?"
-            sock_out.sendto(msg.encode(), (self.nextAdrr, NEXTPORT))
+            sock_out.sendto(msg.encode(), (self.nextAdrr, PORT))
             sock_out.close()
             print("Message NEXT? send!!!")
             self.socketNext = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -610,15 +612,16 @@ class Node(threading.Thread):
         self.SendAdvice(self.uri,self.previousAdrr)
 
     def VerifyPrevious(self):
+        print("VerifyPrevious")
         if self.failPrevious:
             self.failPrevious=False
             return False
         else:
-            Timer(15.0,self.VerifyPrevious).start()
+            Timer(TIMERNEXTS,self.VerifyPrevious).start()
         if self.previous is not None:
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg = "PREVIOUS?"
-            sock_out.sendto(msg.encode(), (self.previousAdrr, PREVIOUSPORT))
+            sock_out.sendto(msg.encode(), (self.previousAdrr, PORT))
             sock_out.close()
             print("Message PREVIOUS? send!!!")
             self.socketPrevious = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -632,6 +635,7 @@ class Node(threading.Thread):
             #    self.Previous_death()
             #    return False
             self.timerPrevious.cancel()
+            print("MSG:{}".format(msg.decode()))
             if address[0] == self.previousAdrr and msg.decode() == "HERE":
                 print("PREVIOUS respond HERE!!!")
                 self.socketPrevious.close()
