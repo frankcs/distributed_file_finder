@@ -287,6 +287,7 @@ class db_manager:
         connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
         cursor= connection.cursor()
         for change in changes:
+            print(change)
             id=machine_id if change[1]=='localhost' else change[1]
             if change[0]=="delete_everything_from":
                 self.delete_everything_from(id)
@@ -300,6 +301,7 @@ class db_manager:
                 self.delete_all_within_path(change[2],id)
             elif change[0]== "update_paths_on_moved":
                 self.update_paths_on_moved(change[2],change[3],id)
+        print("about to commit")
         connection.commit()
         connection.close()
 
