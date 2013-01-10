@@ -422,9 +422,11 @@ class Node(threading.Thread):
                 print("evitando escuchar mis propios msg.")
                 continue
             elif sms.__contains__("ALERT"):
-                list=str(sms).split(':')
+                list=str(sms).split('>>')
                 sender=list[1]
                 broke=list[2]
+                if str(broke) == str(self.myIp):
+                    continue
                 if self.nextAdrr is not None and str(self.nextAdrr)== broke:
                     self.nextAdrr=None
                     self.next=None
@@ -548,7 +550,7 @@ class Node(threading.Thread):
     def SendAdvice(self,sender,broke):
         sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        msg = "ALERT:{}:{}".format(sender,broke)
+        msg = "ALERT>>{}>>{}".format(sender,broke)
         sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
         sock_out.close()
 
@@ -709,7 +711,10 @@ class Node(threading.Thread):
 
     #for parent nodes
     def TakeInitialData(self):
-        self.manager.push_into_database(self.childAdrr, self.child.GetDataToMyParent())
+        print(self.childAdrr)
+        obj= self.child.GetDataToMyParent()
+        print(obj)
+        self.manager.push_into_database(self.childAdrr,obj)
 
 
     def TakeInitialDataFromIndex(self, index_addr, data):
@@ -770,7 +775,7 @@ class Node(threading.Thread):
         Cuando termine de enviar estos datos
         """
         self.StartJournal()
-        while self.imInRing and self.next and self.previous:
+        while self.imInRing: #and self.next and self.previous:
             time.sleep(TIMECHECKSYNC)
             op= self.manager.get_operation_list()
             if len(op)!=0:
