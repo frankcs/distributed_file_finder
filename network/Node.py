@@ -274,6 +274,8 @@ class Node(threading.Thread):
             try:
                 (msg1, address) = self.mySocket.recvfrom(65536)
             except :
+                self.mySocket.shutdown(socket.SHUT_RDWR)
+                self.mySocket.close()
                 self.print_death()
                 return False
             #self.timer.cancel()
@@ -298,6 +300,8 @@ class Node(threading.Thread):
             try:
                 (msg1, address) = self.mySocket.recvfrom(65536)
             except :
+                self.mySocket.shutdown(socket.SHUT_RDWR)
+                self.mySocket.close()
                 self.print_death()
                 return False
             #self.timer.cancel()
