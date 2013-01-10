@@ -80,19 +80,19 @@ class db_manager:
 
     def db_paths_insert(self,cursor,path, machine_id='localhost'):
         if self.keep_journal:
-            self.operation_list.append(("db_paths_insert",path))
+            self.operation_list.append(("db_paths_insert", machine_id, path))
         return cursor.execute('INSERT INTO paths (path, machine_id) VALUES (?,?)',(path,machine_id))
-    def db_files_insert(self,cursor, path_id, base_name, isdir, md5):
+    def db_files_insert(self,cursor, path_id, base_name, isdir, md5, machine_id='localhost'):
         if self.keep_journal:
-            path= cursor.execute('SELECT path FROM paths WHERE path_id=? AND machine_id="localhost"',(path_id,)).fetchone()[0]
-            self.operation_list.append(("db_files_insert", path, base_name,isdir,md5))
+            path= cursor.execute('SELECT path FROM paths WHERE path_id=? AND machine_id=?',(path_id,machine_id)).fetchone()[0]
+            self.operation_list.append(("db_files_insert", machine_id,path, base_name,isdir,md5))
         cursor.execute('INSERT INTO files (path,base_name,is_directory,md5) VALUES (?,?,?,?)'
             ,(path_id,base_name,isdir,md5))
 
     def delete_all_within_path(self, deletion_path,machine_id='localhost'):
         with self.lock:
             if self.keep_journal:
-                self.operation_list.append(("delete_all_within_path",deletion_path))
+                self.operation_list.append(("delete_all_within_path",machine_id,deletion_path))
             connection=sqlite3.connect(self.db_path)
             cursor=connection.cursor()
             #dividir el camino que me dan para hacer las respectivas consultas
@@ -132,7 +132,7 @@ class db_manager:
     def update_paths_on_moved(self, old_path, new_path, machine_id='localhost'):
         with self.lock:
             if self.keep_journal:
-                self.operation_list.append(("update_paths_on_moved",old_path,new_path))
+                self.operation_list.append(("update_paths_on_moved",machine_id,old_path,new_path))
             connection=sqlite3.connect(self.db_path)
             cursor= connection.cursor()
             #dividir el camino que me dan para hacer las respectivas consultas
@@ -224,8 +224,6 @@ class db_manager:
 
     def delete_all_file_data(self):
         with self.lock:
-            if self.keep_journal:
-                self.operation_list.append(("delete_everything_from",))
             connection=sqlite3.connect(self.db_path)
             cursor= connection.cursor()
             cursor.execute('DELETE FROM files')
@@ -257,6 +255,8 @@ class db_manager:
 
     def delete_everything_from(self, machine_id):
         with self.lock:
+            if self.keep_journal:
+                self.operation_list.append(("delete_everything_from",machine_id))
             connection=sqlite3.connect(self.db_path)
             cursor= connection.cursor()
             paths= [x for x in cursor.execute('SELECT path_id, path FROM paths WHERE machine_id=?',(machine_id,))]
@@ -282,19 +282,20 @@ class db_manager:
     def process_changes_from(self,machine_id,changes):
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
-        for changes in changes:
-            if changes[0]=="delete_everything_from":
-                self.delete_everything_from(machine_id)
-            elif changes[0]=="db_paths_insert":
-                self.db_paths_insert(cursor,changes[1],machine_id)
-            elif changes[0]=="db_files_insert":
+        for change in changes:
+            id=machine_id if change[1]=='localhost' else change[1]
+            if change[0]=="delete_everything_from":
+                self.delete_everything_from(id)
+            elif change[0]=="db_paths_insert":
+                self.db_paths_insert(cursor,change[2],id)
+            elif change[0]=="db_files_insert":
                 pathid= cursor.execute('SELECT path_id FROM paths WHERE path=? AND machine_id=?',
-                    (changes[1],machine_id)).fetchone()[0]
-                self.db_files_insert(cursor,pathid,changes[2],changes[3],changes[4])
-            elif changes[0]== "delete_all_within_path":
-                self.delete_all_within_path(changes[1],machine_id)
-            elif changes[0]== "update_paths_on_moved":
-                self.update_paths_on_moved(changes[1],changes[2],machine_id)
+                    (change[2],id)).fetchone()[0]
+                self.db_files_insert(cursor,pathid,change[2],change[3],change[4],id)
+            elif change[0]== "delete_all_within_path":
+                self.delete_all_within_path(change[2],id)
+            elif change[0]== "update_paths_on_moved":
+                self.update_paths_on_moved(change[2],change[3],id)
         connection.commit()
         connection.close()
 
