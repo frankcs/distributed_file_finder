@@ -282,7 +282,6 @@ class db_manager:
     def process_changes_from(self,machine_id,changes):
         connection=sqlite3.connect(self.db_path)
         cursor= connection.cursor()
-        self.stop_journal()
         for changes in changes:
             if changes[0]=="delete_everything_from":
                 self.delete_everything_from(machine_id)
@@ -298,7 +297,12 @@ class db_manager:
                 self.update_paths_on_moved(changes[1],changes[2],machine_id)
         connection.commit()
         connection.close()
+
+    def process_changes_from_off_the_record(self,machine_id,changes):
+        self.stop_journal()
+        self.process_changes_from(machine_id,changes)
         self.start_journal()
+
 
     def get_operation_list(self):
         result= self.operation_list[:]# esto tambien copia
