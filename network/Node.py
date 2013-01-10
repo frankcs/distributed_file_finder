@@ -426,6 +426,7 @@ class Node(threading.Thread):
                 sender=list[1]
                 broke=list[2]
                 if str(broke) == str(self.myIp):
+                    print("continueeee")
                     continue
                 if self.nextAdrr is not None and str(self.nextAdrr)== broke:
                     self.nextAdrr=None
@@ -556,6 +557,7 @@ class Node(threading.Thread):
 
     #ver si poner o no en NONE.
     def Next_death(self):
+        print("Next_death")
         self.socketNext.close()
         self.failNext=True
         #ver si poner o no en NONE.
@@ -574,25 +576,26 @@ class Node(threading.Thread):
             sock_out.close()
             print("Message NEXT? send!!!")
             self.socketNext = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.socketNext.settimeout(3.0)
+            #self.socketNext.settimeout(3.0)
             self.socketNext.bind((self.myIp,NEXTPORT))
-            #self.timerNext=Timer(3.0,self.Next_death)
-            #self.timerNext.start()
-            try:
-                (msg, address) =  self.socketNext.recvfrom(65536)
-            except :
-                self.Next_death()
-                return False
-            #self.timerNext.cancel()
+            self.timerNext=Timer(3.0,self.Next_death)
+            self.timerNext.start()
+            #try:
+            (msg, address) =  self.socketNext.recvfrom(65536)
+            #except :
+            #    self.Next_death()
+            #    return False
+            self.timerNext.cancel()
             if address[0] == self.nextAdrr and msg.decode() == "HERE":
                 print("NEXT respond HERE!!!")
                 self.socketNext.close()
                 return True
 
     def Previous_death(self):
+        print("Previous_death")
         self.socketPrevious.close()
         self.failPrevious=True
-        self.SendAdvice(self.uri,self.nextAdrr)
+        self.SendAdvice(self.uri,self.previousAdrr)
 
     def VerifyPrevious(self):
         if self.failPrevious:
@@ -607,16 +610,16 @@ class Node(threading.Thread):
             sock_out.close()
             print("Message PREVIOUS? send!!!")
             self.socketPrevious = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.socketPrevious.settimeout(3.0)
+            #self.socketPrevious.settimeout(3.0)
             self.socketPrevious.bind((self.myIp,PREVIOUSPORT))
-            #self.timerPrevious=Timer(3.0,self.Previous_death)
-            #self.timerPrevious.start()
-            try:
-                (msg, address) =  self.socketPrevious.recvfrom(65536)
-            except :
-                self.Previous_death()
-                return False
-            #self.timerPrevious.cancel()
+            self.timerPrevious=Timer(3.0,self.Previous_death)
+            self.timerPrevious.start()
+            #try:
+            (msg, address) =  self.socketPrevious.recvfrom(65536)
+            #except :
+            #    self.Previous_death()
+            #    return False
+            self.timerPrevious.cancel()
             if address[0] == self.previousAdrr and msg.decode() == "HERE":
                 print("PREVIOUS respond HERE!!!")
                 self.socketPrevious.close()
