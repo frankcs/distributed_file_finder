@@ -733,7 +733,7 @@ class Node(threading.Thread):
             time.sleep(TIMECOMMCHILD)
             print("Looking for data to send")
             op=self.manager.get_operation_list()
-            if len(op)!=0:
+            if len(op)!=0 and self.parent is not None:
                 self.parent.TakeChangesFromChild(self.myIp,op)
                 print("Data sent to my parent: \n{} ".format(op))
             else:
