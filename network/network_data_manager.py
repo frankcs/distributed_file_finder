@@ -56,7 +56,8 @@ class network_data_manager():
 
     #for parent nodes
     def TakeInitialData(self):
-        self.manager.push_into_database(self.node.childAdrr, self.node.child.network_data_manager.GetDataToMyParent())
+        self.manager.push_into_database(self.node.childAdrr, self.node.child.GetNetworkManager().GetDataToMyParent())
+
 
     def TakeInitialDataFromIndex(self, index_addr, data):
         self.manager.push_into_database(index_addr,data)
@@ -129,3 +130,6 @@ class network_data_manager():
 
     def DeleteEverythingFrom(self, machine_id):
         self.manager.delete_everything_from(machine_id)
+
+    def GetNetworkManager(self):
+        return self
