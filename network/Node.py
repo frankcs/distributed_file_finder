@@ -748,7 +748,7 @@ class Node(threading.Thread):
         print(self.childAdrr)
         obj= self.child.GetDataToMyParent()
         print("Data received from Child: \n {}".format(obj))
-        self.manager.push_into_database(self.childAdrr,self.myIpy,obj)
+        self.manager.push_into_database(self.childAdrr,self.myIp,obj)
 
 
     def TakeInitialDataFromIndex(self, index_addr, data):
