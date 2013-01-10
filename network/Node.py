@@ -172,9 +172,9 @@ class Node(threading.Thread):
     def GetUri(self):
         return self.uri
 
-    def ImInRing(self):
+    def ImInRing(self,dont_do=True):
         self.imInRing=True
-        self.GiveEveryoneInRingMyDB()
+        self.GiveEveryoneInRingMyDB(dont_do)
 
     def SearchInRing(self,info,path):
         """
@@ -350,7 +350,7 @@ class Node(threading.Thread):
                         self.next.SetPrevious(self)
                         self.previous.SetNext(self)
                         print("nexts updated.!!!")
-                        self.ImInRing()
+                        self.ImInRing(False)
                         self.child=None
                         self.childAdrr=None
 
@@ -361,7 +361,7 @@ class Node(threading.Thread):
                     self.parentAdrr=None
                     self.child=None
                     self.childAdrr=None
-                    self.ImInRing()
+                    self.ImInRing(False)
                     #self.fail=True
                     #Timer(1.0,self.SendUriOnFails).start()
                 print("my father is dead and im in ring")
@@ -766,7 +766,7 @@ class Node(threading.Thread):
     def ExposeDataBase(self):
         return [x for x in self.manager.extract_database_data()]
 
-    def GiveEveryoneInRingMyDB(self):
+    def GiveEveryoneInRingMyDB(self,dont_do=True):
         """
         Dar la base de datos inicialmente a la gente en el anillo
         Recibir la base de datos de uno, supuestamente actualizada
@@ -786,7 +786,8 @@ class Node(threading.Thread):
                     first=False
                     #paro la recolección del historial dado que esto se va a realizar en todos los nodos
                 #actualizo la base de datos
-                index.TakeInitialDataFromIndex(self.myIp,self.ExposeDataBase())
+                if not dont_do:
+                    index.TakeInitialDataFromIndex(self.myIp,self.ExposeDataBase())
                 #ejecuto de nuevo el historial
             self.TakeInitialDataFromIndex(first_adress,everyones_db)
         senderth= threading.Thread(target=self.SendDataToRing)
