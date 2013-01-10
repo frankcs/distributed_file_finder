@@ -362,7 +362,7 @@ class Node(threading.Thread):
                     self.child=None
                     self.childAdrr=None
                     self.ImInRing(True)
-                    #self.fail=True
+                    self.fail=True
                     #Timer(1.0,self.SendUriOnFails).start()
                 print("my father is dead and im in ring")
             except:
@@ -553,8 +553,11 @@ class Node(threading.Thread):
             sock_out.close()
 
     def VerifyParent(self):
-        Timer(7.0,self.VerifyParent).start()
-        self.CallMe()
+        if self.fail:
+            self.fail=False
+        else:
+            Timer(7.0,self.VerifyParent).start()
+            self.CallMe()
         #print("Verifiying")
 
 
