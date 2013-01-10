@@ -253,7 +253,7 @@ class db_manager:
             self.db_paths_insert(cursor,item[0],m_id)
             path_id=cursor.lastrowid
             for entry in item[2]:
-                self.db_files_insert(cursor, path_id, entry[0], entry[1], entry[2])
+                self.db_files_insert(cursor, path_id, entry[0], entry[1], entry[2],m_id)
         connection.commit()
         connection.close()
 
