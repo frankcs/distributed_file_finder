@@ -426,6 +426,7 @@ class Node(threading.Thread):
                 sender=list[1]
                 broke=list[2]
                 if str(broke) == str(self.myIp):
+                    print("continueeee")
                     continue
                 if self.nextAdrr is not None and str(self.nextAdrr)== broke:
                     self.nextAdrr=None
@@ -556,6 +557,7 @@ class Node(threading.Thread):
 
     #ver si poner o no en NONE.
     def Next_death(self):
+        print("Next_death")
         self.socketNext.close()
         self.failNext=True
         #ver si poner o no en NONE.
@@ -574,25 +576,26 @@ class Node(threading.Thread):
             sock_out.close()
             print("Message NEXT? send!!!")
             self.socketNext = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.socketNext.settimeout(3.0)
+            #self.socketNext.settimeout(3.0)
             self.socketNext.bind((self.myIp,NEXTPORT))
-            #self.timerNext=Timer(3.0,self.Next_death)
-            #self.timerNext.start()
-            try:
-                (msg, address) =  self.socketNext.recvfrom(65536)
-            except :
-                self.Next_death()
-                return False
-            #self.timerNext.cancel()
+            self.timerNext=Timer(3.0,self.Next_death)
+            self.timerNext.start()
+            #try:
+            (msg, address) =  self.socketNext.recvfrom(65536)
+            #except :
+            #    self.Next_death()
+            #    return False
+            self.timerNext.cancel()
             if address[0] == self.nextAdrr and msg.decode() == "HERE":
                 print("NEXT respond HERE!!!")
                 self.socketNext.close()
                 return True
 
     def Previous_death(self):
+        print("Previous_death")
         self.socketPrevious.close()
         self.failPrevious=True
-        self.SendAdvice(self.uri,self.nextAdrr)
+        self.SendAdvice(self.uri,self.previousAdrr)
 
     def VerifyPrevious(self):
         if self.failPrevious:
@@ -607,16 +610,16 @@ class Node(threading.Thread):
             sock_out.close()
             print("Message PREVIOUS? send!!!")
             self.socketPrevious = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.socketPrevious.settimeout(3.0)
+            #self.socketPrevious.settimeout(3.0)
             self.socketPrevious.bind((self.myIp,PREVIOUSPORT))
-            #self.timerPrevious=Timer(3.0,self.Previous_death)
-            #self.timerPrevious.start()
-            try:
-                (msg, address) =  self.socketPrevious.recvfrom(65536)
-            except :
-                self.Previous_death()
-                return False
-            #self.timerPrevious.cancel()
+            self.timerPrevious=Timer(3.0,self.Previous_death)
+            self.timerPrevious.start()
+            #try:
+            (msg, address) =  self.socketPrevious.recvfrom(65536)
+            #except :
+            #    self.Previous_death()
+            #    return False
+            self.timerPrevious.cancel()
             if address[0] == self.previousAdrr and msg.decode() == "HERE":
                 print("PREVIOUS respond HERE!!!")
                 self.socketPrevious.close()
@@ -713,13 +716,15 @@ class Node(threading.Thread):
     def TakeInitialData(self):
         print(self.childAdrr)
         obj= self.child.GetDataToMyParent()
-        print(obj)
+        print("Data received from Child: \n {}".format(obj))
         self.manager.push_into_database(self.childAdrr,obj)
 
 
     def TakeInitialDataFromIndex(self, index_addr, data):
+        self.StopJournal()
         self.manager.push_into_database(index_addr,data)
-        print("Data inserted from {} index".format(index_addr))
+        self.StartJournal()
+        print("Received db from {}".format(index_addr))
 
     #self.connect.parent.TakeChanges(list)
     def TakeChangesFromChild(self,from_who,changes):
@@ -729,6 +734,7 @@ class Node(threading.Thread):
 
     def TakeChangesFromIndex(self,from_who,changes):
         self.manager.process_changes_from_off_the_record(from_who,changes)
+        print("Changes taken from {} index".format(from_who))
 
     def ExposeDataBase(self):
         return [x for x in self.manager.extract_database_data()]
@@ -743,22 +749,19 @@ class Node(threading.Thread):
         first=True
         everyones_db=None
         first_adress=None
-        lock= threading.Lock()
-        with lock:
-            ring= self.RingWithoutMe()
-            if ring:
-                for index in ring:
-                    if first:
-                        everyones_db=index.ExposeDataBase()
-                        first_adress=index.GetIpAddress()
-                        first=False
-                        #paro la recolección del historial dado que esto se va a realizar en todos los nodos
-                    index.StopJournal()
-                    #actualizo la base de datos
-                    index.TakeInitialDataFromIndex(self.myIp,self.ExposeDataBase())
-                    #ejecuto de nuevo el historial
-                    index.StartJournal()
-                self.TakeInitialDataFromIndex(first_adress,everyones_db)
+        print("Got into the ring and passing my data")
+        ring= self.RingWithoutMe()
+        if ring:
+            for index in ring:
+                if first:
+                    everyones_db=index.ExposeDataBase()
+                    first_adress=index.GetIpAddress()
+                    first=False
+                    #paro la recolección del historial dado que esto se va a realizar en todos los nodos
+                #actualizo la base de datos
+                index.TakeInitialDataFromIndex(self.myIp,self.ExposeDataBase())
+                #ejecuto de nuevo el historial
+            self.TakeInitialDataFromIndex(first_adress,everyones_db)
         senderth= threading.Thread(target=self.SendDataToRing)
         senderth.daemon=True
         senderth.start()
@@ -779,15 +782,15 @@ class Node(threading.Thread):
             time.sleep(TIMECHECKSYNC)
             op= self.manager.get_operation_list()
             if len(op)!=0:
-                lock= threading.Lock()
-                with lock:
-                    ring= self.RingWithoutMe()
-                    if ring:
-                        for index in ring:
-                            index.TakeChangesFromIndex(self.myIp,op)
+                print("Data sent to ring: \n {}".format(op))
+                ring= self.RingWithoutMe()
+                if ring:
+                    for index in ring:
+                        index.TakeChangesFromIndex(self.myIp,op)
         self.StopJournal()
 
     def DeleteEverythingFrom(self, machine_id):
+        print("Eliminar todos los datos de {}".format(machine_id))
         self.manager.delete_everything_from(machine_id)
 
     def Download(self,file,to_who):
