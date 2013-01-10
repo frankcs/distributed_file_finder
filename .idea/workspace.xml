@@ -26,7 +26,7 @@
       <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="718" column="59" selection-start="25545" selection-end="25545" vertical-scroll-proportion="0.57758623">
+            <state line="706" column="45" selection-start="25124" selection-end="25124" vertical-scroll-proportion="0.6091954">
               <folding />
             </state>
           </provider>
@@ -44,16 +44,7 @@
       <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="257" column="33" selection-start="11272" selection-end="11272" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ntpath.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python32/Lib/ntpath.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="0" selection-start="9427" selection-end="9427" vertical-scroll-proportion="0.0">
+            <state line="286" column="30" selection-start="12827" selection-end="12827" vertical-scroll-proportion="-6.0">
               <folding />
             </state>
           </provider>
@@ -286,7 +277,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1032" height="748" extended-state="1" />
+    <frame x="-4" y="-4" width="1032" height="748" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -369,13 +360,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="33" selection-start="11272" selection-end="11272" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python32/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -467,16 +451,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python32/Lib/site-packages/Pyro4-4.15-py3.2.egg/Pyro4/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="299" column="71" selection-start="11348" selection-end="11348" vertical-scroll-proportion="1.9731903">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="33" selection-start="11272" selection-end="11272" vertical-scroll-proportion="0.0">
+        <state line="286" column="30" selection-start="12827" selection-end="12827" vertical-scroll-proportion="-6.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="718" column="59" selection-start="25545" selection-end="25545" vertical-scroll-proportion="0.57758623">
+        <state line="706" column="45" selection-start="25124" selection-end="25124" vertical-scroll-proportion="0.6091954">
           <folding />
         </state>
       </provider>

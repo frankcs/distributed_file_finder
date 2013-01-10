@@ -708,7 +708,7 @@ class Node(threading.Thread):
             op=self.manager.get_operation_list()
             if len(op)!=0:
                 self.parent.TakeChangesFromChild(self.myIp,op)
-                print("data sent")
+                print("Data sent to my parent: \n{} ".format(op))
             else:
                 print("nothing to send")
 
