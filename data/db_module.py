@@ -12,7 +12,7 @@ class db_manager:
         #va a guardar tuplas función, parámetros
         self.operation_list=[]
         self.keep_journal=False
-        self.lock=threading.Lock()
+        #self.lock=threading.Lock()
 
     def create_database(self):
         file=open(self.db_path,mode='w')
@@ -51,7 +51,7 @@ class db_manager:
         connection.close()
 
     def insert_everything_under_path(self,path):
-        with self.lock:
+        #with self.lock:
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             for directory in os.walk(path,topdown=True):
@@ -92,7 +92,7 @@ class db_manager:
             ,(path_id,base_name,isdir,md5))
 
     def delete_all_within_path(self, deletion_path,machine_id='localhost'):
-        with self.lock:
+        #with self.lock:
             if self.keep_journal:
                 self.operation_list.append(("delete_all_within_path",machine_id,deletion_path))
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
@@ -132,7 +132,7 @@ class db_manager:
             connection.close()
 
     def update_paths_on_moved(self, old_path, new_path, machine_id='localhost'):
-        with self.lock:
+        #with self.lock:
             if self.keep_journal:
                 self.operation_list.append(("update_paths_on_moved",machine_id,old_path,new_path))
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
@@ -198,7 +198,7 @@ class db_manager:
         connection.close()
 
     def persist_watches(self, watches):
-        with self.lock:
+        #with self.lock:
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             cursor.execute('DELETE FROM watches')
@@ -208,7 +208,7 @@ class db_manager:
             connection.close()
 
     def retrieve_watches(self):
-        with self.lock:
+        #with self.lock:
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             result= [x[0] for x in cursor.execute('SELECT watch FROM watches')]
@@ -217,7 +217,7 @@ class db_manager:
 
 
     def delete_watch(self, watch):
-        with self.lock:
+        #with self.lock:
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             cursor.execute('DELETE FROM watches WHERE watch=?',(watch,))
@@ -225,7 +225,7 @@ class db_manager:
             connection.close()
 
     def delete_all_file_data(self):
-        with self.lock:
+        #with self.lock:
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             cursor.execute('DELETE FROM files')
@@ -258,7 +258,7 @@ class db_manager:
         connection.close()
 
     def delete_everything_from(self, machine_id):
-        with self.lock:
+        #with self.lock:
             if self.keep_journal:
                 self.operation_list.append(("delete_everything_from",machine_id))
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
@@ -271,7 +271,7 @@ class db_manager:
             connection.close()
 
     def extract_database_data(self):
-        with self.lock:
+        #with self.lock:
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
             cursor= connection.cursor()
             paths= [x for x in cursor.execute('SELECT path_id, path, machine_id FROM paths')]
