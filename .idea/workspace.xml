@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="298" column="28" selection-start="9285" selection-end="9285" vertical-scroll-proportion="0.0">
+            <state line="699" column="0" selection-start="24835" selection-end="24835" vertical-scroll-proportion="-0.14241487">
               <folding />
             </state>
           </provider>
@@ -41,10 +41,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db_module.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="db_module.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/db_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="293" column="79" selection-start="13149" selection-end="13149" vertical-scroll-proportion="0.5944272">
+            <state line="138" column="0" selection-start="6472" selection-end="6472" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ntpath.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python32/Lib/ntpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="278" column="0" selection-start="9427" selection-end="9427" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -65,8 +74,8 @@
       <list>
         <option value="$PROJECT_DIR$/app.pyw" />
         <option value="$PROJECT_DIR$/network/network_data_manager.py" />
-        <option value="$PROJECT_DIR$/network/Node.py" />
         <option value="$PROJECT_DIR$/data/db_module.py" />
+        <option value="$PROJECT_DIR$/network/Node.py" />
       </list>
     </option>
   </component>
@@ -288,7 +297,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39933443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5010225" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46921796" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24126455" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67886853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -353,11 +362,27 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/network/Node.py</url>
+          <line>775</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/data/db_module.py</url>
           <line>282</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/data/db_module.py</url>
+          <line>303</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/network/Node.py</url>
+          <line>719</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -410,23 +435,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/db_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="0" selection-start="6472" selection-end="6472" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/Python32/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="290" column="0" selection-start="9820" selection-end="9820" vertical-scroll-proportion="0.0">
+        <state line="278" column="0" selection-start="9427" selection-end="9427" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="298" column="28" selection-start="9285" selection-end="9285" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="293" column="79" selection-start="13149" selection-end="13149" vertical-scroll-proportion="0.5944272">
+        <state line="699" column="0" selection-start="24835" selection-end="24835" vertical-scroll-proportion="-0.14241487">
           <folding />
         </state>
       </provider>

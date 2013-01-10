@@ -717,6 +717,7 @@ class Node(threading.Thread):
 
     #self.connect.parent.TakeChanges(list)
     def TakeChangesFromChild(self,from_who,changes):
+        self.StartJournal()
         self.manager.process_changes_from(from_who,changes)
         print("Changes taken from {} index".format(from_who))
 
