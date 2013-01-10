@@ -291,7 +291,7 @@ class db_manager:
             elif change[0]=="db_files_insert":
                 pathid= cursor.execute('SELECT path_id FROM paths WHERE path=? AND machine_id=?',
                     (change[2],id)).fetchone()[0]
-                self.db_files_insert(cursor,pathid,change[2],change[3],change[4],id)
+                self.db_files_insert(cursor,pathid,change[3],change[4],change[5],id)
             elif change[0]== "delete_all_within_path":
                 self.delete_all_within_path(change[2],id)
             elif change[0]== "update_paths_on_moved":

@@ -6,6 +6,7 @@ import socket
 from threading import Timer
 import random
 import time
+from hashlib import md5
 
 TIMEOUT=5.0
 PORT=3200
@@ -782,5 +783,23 @@ class Node(threading.Thread):
 
     def DeleteEverythingFrom(self, machine_id):
         self.manager.delete_everything_from(machine_id)
+
+    def Download(self,file,to_who):
+        return self.SendFileTo(file,to_who)
+
+    def SendFileTo(self,path,to_who):
+        try:
+            file=open(path,rmode)
+        except IOError as msg:
+            print("Error:{} for file{}".format(msg,path))
+
+        m = md5()
+        while 1:
+            data = file.read(bufsize)
+            if not data:
+                break
+            m.update(data)
+        result.append(m.hexdigest())
+
 
 
