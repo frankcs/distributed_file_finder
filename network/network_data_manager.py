@@ -1,6 +1,7 @@
 __author__ = 'Frank'
 import threading
 import time
+import Pyro4
 
 TIMECOMMCHILD=2
 TIMECHECKSYNC=2
@@ -55,7 +56,7 @@ class network_data_manager():
 
     #for parent nodes
     def TakeInitialData(self):
-        self.manager.push_into_database(self.node.childAdrr, self.node.child.GetDataToMyParent())
+        self.manager.push_into_database(self.node.childAdrr, self.node.child.network_data_manager.GetDataToMyParent())
 
     def TakeInitialDataFromIndex(self, index_addr, data):
         self.manager.push_into_database(index_addr,data)
