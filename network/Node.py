@@ -172,7 +172,7 @@ class Node(threading.Thread):
     def GetUri(self):
         return self.uri
 
-    def ImInRing(self,dont_do=True):
+    def ImInRing(self,dont_do=False):
         self.imInRing=True
         self.GiveEveryoneInRingMyDB(dont_do)
 
@@ -350,7 +350,7 @@ class Node(threading.Thread):
                         self.next.SetPrevious(self)
                         self.previous.SetNext(self)
                         print("nexts updated.!!!")
-                        self.ImInRing(False)
+                        self.ImInRing(True)
                         self.child=None
                         self.childAdrr=None
 
@@ -361,7 +361,7 @@ class Node(threading.Thread):
                     self.parentAdrr=None
                     self.child=None
                     self.childAdrr=None
-                    self.ImInRing(False)
+                    self.ImInRing(True)
                     #self.fail=True
                     #Timer(1.0,self.SendUriOnFails).start()
                 print("my father is dead and im in ring")
@@ -766,7 +766,7 @@ class Node(threading.Thread):
     def ExposeDataBase(self):
         return [x for x in self.manager.extract_database_data()]
 
-    def GiveEveryoneInRingMyDB(self,dont_do=True):
+    def GiveEveryoneInRingMyDB(self,dont_do=False):
         """
         Dar la base de datos inicialmente a la gente en el anillo
         Recibir la base de datos de uno, supuestamente actualizada
