@@ -435,12 +435,14 @@ class Node(threading.Thread):
                     print("continueeee")
                     continue
                 if self.nextAdrr is not None and str(self.nextAdrr)== broke:
+                    self.DeleteEverythingFrom(self.nextAdrr)
                     self.nextAdrr=None
                     self.next=None
                     user=Pyro4.Proxy(str(sender))
                     if user.SetNext(self) == "True":
                         self.SetPrevious(user)
                 if self.previousAdrr is not None and str(self.previousAdrr)== broke:
+                    self.DeleteEverythingFrom(self.previousAdrr)
                     self.previousAdrr=None
                     self.previous=None
                     user=Pyro4.Proxy(str(sender))
@@ -565,7 +567,7 @@ class Node(threading.Thread):
     #ver si poner o no en NONE.
     def Next_death(self):
         print("Next_death")
-        self.socketNext.close()
+        #self.socketNext.close()
         self.failNext=True
         #ver si poner o no en NONE.
         self.SendAdvice(self.uri,self.nextAdrr)
@@ -607,7 +609,7 @@ class Node(threading.Thread):
 
     def Previous_death(self):
         print("Previous_death")
-        self.socketPrevious.close()
+        #self.socketPrevious.close()
         self.failPrevious=True
         self.SendAdvice(self.uri,self.previousAdrr)
 
