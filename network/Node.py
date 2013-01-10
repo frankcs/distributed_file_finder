@@ -345,11 +345,13 @@ class Node(threading.Thread):
                 if self.next is not None and self.previous is not None:
                     if self.next.IsAlive() and self.previous.IsAlive():
                         self.fail=True
-                        self.DeleteEverythingFrom(self.parentAdrr)
+                        #self.DeleteEverythingFrom(self.parentAdrr)
+                        self.next.SetPrevious(self)
+                        self.next.DeleteEverythingFrom(self.parentAdrr)
+                        self.previous.SetNext(self)
+                        #self.previous.DeleteEverythingFrom(self.parentAdrr)
                         self.parent=None
                         self.parentAdrr=None
-                        self.next.SetPrevious(self)
-                        self.previous.SetNext(self)
                         print("nexts updated.!!!")
                         self.ImInRing(True)
                         self.child=None
@@ -358,7 +360,7 @@ class Node(threading.Thread):
                 else:
                     print("mis nexts are None")
                     self.fail=True
-                    self.DeleteEverythingFrom(self.parentAdrr)
+                    #self.DeleteEverythingFrom(self.parentAdrr)
                     self.parent=None
                     self.parentAdrr=None
                     self.child=None
@@ -750,6 +752,10 @@ class Node(threading.Thread):
     #for parent nodes
     def TakeInitialData(self):
         print(self.childAdrr)
+        #si tienes hermanos en algun momento ya diste la base de datos
+        #y tienes que guardar los cambios que te hacen
+        if self.next:
+            self.StartJournal()
         obj= self.child.GetDataToMyParent()
         print("Data received from Child: \n {}".format(obj))
         self.manager.push_into_database(self.childAdrr,self.myIp,obj)
@@ -822,6 +828,7 @@ class Node(threading.Thread):
                 ring= self.RingWithoutMe()
                 if ring:
                     for index in ring:
+                        print(index)
                         index.TakeChangesFromIndex(self.myIp,op)
         self.StopJournal()
 
