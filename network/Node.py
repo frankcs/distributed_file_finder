@@ -344,11 +344,14 @@ class Node(threading.Thread):
             try:
                 if self.next is not None and self.previous is not None:
                     if self.next.IsAlive() and self.previous.IsAlive():
-                        self.DeleteEverythingFrom(self.parentAdrr)
+                        self.fail=True
+                        #self.DeleteEverythingFrom(self.parentAdrr)
+                        self.next.SetPrevious(self)
+                        self.next.DeleteEverythingFrom(self.parentAdrr)
+                        self.previous.SetNext(self)
+                        #self.previous.DeleteEverythingFrom(self.parentAdrr)
                         self.parent=None
                         self.parentAdrr=None
-                        self.next.SetPrevious(self)
-                        self.previous.SetNext(self)
                         print("nexts updated.!!!")
                         self.ImInRing(True)
                         self.child=None
@@ -356,23 +359,23 @@ class Node(threading.Thread):
 
                 else:
                     print("mis nexts are None")
-                    self.DeleteEverythingFrom(self.parentAdrr)
+                    self.fail=True
+                    #self.DeleteEverythingFrom(self.parentAdrr)
                     self.parent=None
                     self.parentAdrr=None
                     self.child=None
                     self.childAdrr=None
                     self.ImInRing(True)
-                    #self.fail=True
                     #Timer(1.0,self.SendUriOnFails).start()
                 print("my father is dead and im in ring")
             except:
+                self.fail=True
                 self.parent=None
                 self.parentAdrr=None
                 self.next=None
                 self.nextAdrr=None
                 self.previous=None
                 self.previousAdrr=None
-                self.fail=True
                 Timer(1.0,self.SayHelloOnFails).start()
                 print("im a dead son")
 
@@ -553,12 +556,17 @@ class Node(threading.Thread):
             sock_out.close()
 
     def VerifyParent(self):
-        Timer(7.0,self.VerifyParent).start()
-        self.CallMe()
+        if self.fail:
+            self.fail=False
+        else:
+            Timer(7.0,self.VerifyParent).start()
+            self.CallMe()
         #print("Verifiying")
 
 
     def SendAdvice(self,sender,broke):
+        if str(sender).__contains__(str(broke)):
+            return
         sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         msg = "ALERT>>{}>>{}".format(sender,broke)
@@ -746,6 +754,8 @@ class Node(threading.Thread):
     #for parent nodes
     def TakeInitialData(self):
         print(self.childAdrr)
+        if self.next:
+            self.StartJournal()
         obj= self.child.GetDataToMyParent()
         print("Data received from Child: \n {}".format(obj))
         self.manager.push_into_database(self.childAdrr,self.myIp,obj)
@@ -818,7 +828,9 @@ class Node(threading.Thread):
                 ring= self.RingWithoutMe()
                 if ring:
                     for index in ring:
+                        print(index)
                         index.TakeChangesFromIndex(self.myIp,op)
+                        print("finish")
         self.StopJournal()
 
     def DeleteEverythingFrom(self, machine_id):
