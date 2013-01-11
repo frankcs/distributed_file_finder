@@ -283,15 +283,18 @@ class Node(threading.Thread):
         try:
             if self.next.IsAlive() and self.previous.IsAlive():
                 self.fail=True
-                #self.DeleteEverythingFrom(self.parentAdrr)
-                self.next.SetPrevious(self)
+                print(self.next)
                 self.previous.SetNext(self)
+                self.next.SetPrevious(self)
+                print(self.previous)
                 self.next.DeleteEverythingFrom(self.parentAdrr)
+                print(self.next)
                 self.parent=None
                 self.parentAdrr=None
                 print("I claim my parent place")
                 print("nexts updated.!!!")
                 self.ImInRing(True)
+                self.CheckNext()
         except : #caso 2 estoy solo en el mundo
             self.fail=True
             self.parent=None
@@ -455,7 +458,7 @@ class Node(threading.Thread):
         else:
             Timer(7.0,self.VerifyParent).start()
             self.CallMe()
-        #print("Verifiying")
+
 
 
     def SendAdvice(self,sender,broke):
@@ -715,7 +718,7 @@ class Node(threading.Thread):
 
     def SendFileTo(self,path,to_who):
         try:
-            file=open(path,rmode)
+            file=open(path,rmode) 
         except IOError as msg:
             print("Error:{} for file{}".format(msg,path))
 
