@@ -127,7 +127,7 @@ class Form(QMainWindow,Ui_MainWindow):
         source=self.tableWidget_result.item(item.row(),2).text()
         path=self.tableWidget_result.item(item.row(),3).text()
         self.selected_touple=(name,is_dir,source,path)
-        if is_dir=='NO' or source=='localhost':
+        if is_dir=='NO' and source !='localhost':
             self.enable_buttons()
 
     def download(self):
@@ -135,11 +135,10 @@ class Form(QMainWindow,Ui_MainWindow):
             "/home",
             QFileDialog.ShowDirsOnly
             | QFileDialog.DontResolveSymlinks)
-        self.lineEdit_input.setText(dir)# just for test
         #now the code for downloading the file
         if destdir:
             info=DownloadInfo()
-            dialog=DownDialog(parent=self,info=info)
+            dialog=DownDialog(parent=self,info= info)
             dialog.show()
             self.broker.connection.Download(os.path.join(self.selected_touple[3],
                 self.selected_touple[0]),

@@ -1,6 +1,7 @@
 from designer_generated_ui.download import Ui_Dialog
 from references import *
-from threading import Timer
+import time
+
 class DownDialog(QDialog,Ui_Dialog):
     def __init__(self, parent=None, name="Download" ,info=None):
         super(DownDialog,self).__init__(parent)
@@ -15,8 +16,9 @@ class DownDialog(QDialog,Ui_Dialog):
         updth.start()
 
     def update(self):
-        Timer(0.5, self.update).start()
-        self.progressBar.setValue(self.info.ratio)
+        while self.info.ratio <= 100:
+            time.sleep(0.5)
+            self.progressBar.setValue(self.info.ratio)
 
     def cancel(self):
         self.info.cancel=True
