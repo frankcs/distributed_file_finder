@@ -340,9 +340,8 @@ class Node(threading.Thread):
                         self.fail=True
                         #self.DeleteEverythingFrom(self.parentAdrr)
                         self.next.SetPrevious(self)
-                        self.next.DeleteEverythingFrom(self.parentAdrr)
                         self.previous.SetNext(self)
-                        #self.previous.DeleteEverythingFrom(self.parentAdrr)
+                        self.next.DeleteEverythingFrom(self.parentAdrr)
                         self.parent=None
                         self.parentAdrr=None
                         print("nexts updated.!!!")
@@ -436,14 +435,12 @@ class Node(threading.Thread):
                     print("continueeee")
                     continue
                 if self.nextAdrr is not None and str(self.nextAdrr)== broke:
-                    self.DeleteEverythingFrom(self.nextAdrr)
                     self.nextAdrr=None
                     self.next=None
                     user=Pyro4.Proxy(str(sender))
                     if user.SetNext(self) == "True":
                         self.SetPrevious(user)
                 if self.previousAdrr is not None and str(self.previousAdrr)== broke:
-                    self.DeleteEverythingFrom(self.previousAdrr)
                     self.previousAdrr=None
                     self.previous=None
                     user=Pyro4.Proxy(str(sender))
@@ -550,6 +547,7 @@ class Node(threading.Thread):
         self.failNext=True
         #ver si poner o no en NONE.
         self.SendAdvice(self.uri,self.nextAdrr)
+        self.DeleteEverythingFrom(self.nextAdrr)
         self.next=None
         self.nextAdrr=None
         if self.child is not None:
@@ -577,11 +575,12 @@ class Node(threading.Thread):
         #self.socketPrevious.close()
         self.failPrevious=True
         self.SendAdvice(self.uri,self.previousAdrr)
+        self.DeleteEverythingFrom(self.previousAdrr)
         self.previous=None
         self.previousAdrr=None
         if self.child is not None:
             self.child.SetPrevious(None)
-            
+
 
     def VerifyPrevious(self):
         print("VerifyPrevious")
@@ -591,7 +590,7 @@ class Node(threading.Thread):
         if self.previous is not None:
             try:
                 if self.previous.IsAlive():
-                    print("Next Alive")
+                    print("Previous Alive")
                     return True
             except :
                 self.Previous_death()
