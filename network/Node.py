@@ -155,7 +155,7 @@ class Node(threading.Thread):
         return Pyro4.socketutil.getMyIpAddress()
 
     def HasChild(self):
-        return self.child is None
+        return self.child is not None
 
     def GetUri(self):
         return self.uri
@@ -586,6 +586,22 @@ class Node(threading.Thread):
         Me da acceso a todas los piro objects del anillo
         """
         try:
+            result=[]
+            start=self
+            if not self.imInRing:
+                result.append(self.parent.GetUri())
+                start=self.parent
+            else:
+                result.append(self.child.GetUri())
+
+            ring = start.RingWithoutMe()
+            if ring:
+                for index in start.RingWithoutMe():
+                    result.append(index.GetUri())
+                    if index.HasChild():
+                        result.append(index.child.GetUri())
+            return result
+            """
             all=[]
             if self.child is not None:
                 all.append(self.child.GetUri())
@@ -603,6 +619,7 @@ class Node(threading.Thread):
                     if elem.HasChild():
                         all.append(elem.GetChild().GetUri())
                     return all
+            """
         except :
             return None
 
@@ -747,9 +764,9 @@ class Node(threading.Thread):
                 if str(elem).__contains__(to_who):
                     boss=elem
                     break
-            def useme(player,fil,to_wh,to_wher,inf):
+            def useme(player,fil,to_wh,to_wher,inf,i):
                 user=Pyro4.Proxy(player)
-                user.SendFileTo(fil,to_wh,to_wher,inf)
+                user.SendFileTo(fil,to_wh,to_wher,inf,i)
             self.infos.append(info)
             threading.Thread(target=useme,args=(boss,file,self.uri,to_where,info,len(self.infos)-1)).start()
 
