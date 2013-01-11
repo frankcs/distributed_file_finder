@@ -143,10 +143,11 @@ class Node(threading.Thread):
             print(inst)
             return "False"
 
+    """
     def SetParent(self,parent):
-        """
+
         Set the Parent Node.
-        """
+
         print("SetParent")
         if parent is None:
             return
@@ -167,6 +168,7 @@ class Node(threading.Thread):
             else:return False
         except :
             return False
+"""
 
     def GetIpAddress(self):
         return Pyro4.socketutil.getMyIpAddress()
@@ -265,55 +267,26 @@ class Node(threading.Thread):
         return True
 
     def CallForParent(self):
-        if self.parentAdrr is not None:
-            print("CallForParent")
-            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            msg="Are you there?"
-            sock_out.sendto(msg.encode(), (str(self.parentAdrr), PORT))
-            self.mySocket =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.mySocket.settimeout(3.0)
-            self.mySocket.bind((str(self.myIp),ANSWERPORT))
-            #self.timer=Timer(3.0,self.print_death)
-            #self.timer.start()
-            msg1=None
+        if self.parent is not None:
             try:
-                (msg1, address) = self.mySocket.recvfrom(65536)
+                if self.parent.IsAlive():
+                    print("Parent is Alive.")
+                    return True
             except :
-                self.mySocket.shutdown(socket.SHUT_RDWR)
-                self.mySocket.close()
+                print("Parent is death.")
                 self.print_death()
                 return False
-            #self.timer.cancel()
-            self.mySocket.shutdown(socket.SHUT_RDWR)
-            self.mySocket.close()
-            if msg1.decode() == "YES":
-               return True
 
     def CallForChild(self):
-        if self.childAdrr is not None:
-            print("CallForChild")
-            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            msg="Are you there?"
-            sock_out.sendto(msg.encode(), (str(self.childAdrr), PORT))
-            self.mySocket =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.mySocket.settimeout(3.0)
-            print("bind")
-            self.mySocket.bind((str(self.myIp),ANSWERPORT))
-            #self.timer=Timer(3.0,self.print_death)
-            #self.timer.start()
-            msg1=None
+        if self.child is not None:
             try:
-                (msg1, address) = self.mySocket.recvfrom(65536)
+                if self.child.IsAlive():
+                    print("Son is Alive.")
+                    return True
             except :
-                self.mySocket.shutdown(socket.SHUT_RDWR)
-                self.mySocket.close()
+                print("Child is death.")
                 self.print_death()
                 return False
-            #self.timer.cancel()
-            self.mySocket.shutdown(socket.SHUT_RDWR)
-            self.mySocket.close()
-            if msg1.decode() == "YES":
-                return True
 
     def CallMe(self):
         if not self.imInRing:
@@ -420,7 +393,7 @@ class Node(threading.Thread):
         """
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.bind(("0.0.0.0",PORT))
-        self.print_resume()
+        #self.print_resume()
         t=None
         while True:
             if not self.imInRing and self.parent is None:
@@ -462,31 +435,6 @@ class Node(threading.Thread):
                     user=Pyro4.Proxy(str(sender))
                     if user.SetPrevious(self) == "True":
                         self.SetNext(user)
-            elif sms=="NEXT?" or sms=="PREVIOUS?":
-                print("Se recibe un mensaje de vida de:{}".format(sms))
-                sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                msgo="HERE"
-                print(msgo)
-                sock_out.sendto(msgo.encode(), (address[0], NEXTPORT if sms=="NEXT?" else PREVIOUSPORT ))
-                sock_out.close()
-                print("{} response send!!!".format(sms))
-            elif sms == "Are you there?":
-                if self.imInRing:
-                    print("se recibe un mensaje de vida de su hijo.")
-                else:
-                    print("se recibe un mensaje de vida de su padre.")
-
-                sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-                msg="YES"
-                print(msg)
-                sock_out.sendto(msg.encode(), (address[0], ANSWERPORT))
-
-                if self.imInRing:
-                    print("child response send!!!.")
-                else:
-                    print("parent response send!!!.")
-                sock_out.close()
-
             elif sms=="hello": #and self.imInRing:
                 print("se recibe un mensaje hello de algun nodo que busca padre")
                 sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -549,7 +497,7 @@ class Node(threading.Thread):
                 else:
                     print("ya tengo padre no atiendo este llamado.")
                 print("PASO")
-            self.print_resume()
+            #self.print_resume()
 
     def ImTheOne(self):
         """
@@ -596,37 +544,15 @@ class Node(threading.Thread):
         if self.failNext:
             self.failNext=False
             return False
-
         if self.next is not None:
-            #Timer(TIMERNEXTS,self.VerifyNext).start()
-            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            msg = "NEXT?"
-            sock_out.sendto(msg.encode(), (self.nextAdrr, PORT))
-            sock_out.close()
-            print("Message NEXT? send!!!")
-            self.socketNext = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.socketNext.settimeout(3.0)
-            self.socketNext.bind((self.myIp,NEXTPORT))
-            #self.timerNext=Timer(3.0,self.Next_death)
-            #self.timerNext.start()
             try:
-                (msg, address) =  self.socketNext.recvfrom(65536)
+                if self.next.IsAlive():
+                    print("Next Alive")
+                    return True
             except :
-                self.socketNext.shutdown(socket.SHUT_RDWR)
-                self.socketNext.close()
                 self.Next_death()
                 return False
-            #self.timerNext.cancel()
-            print("MSG:{}".format(msg.decode()))
-            if address[0] == self.nextAdrr and msg.decode() == "HERE":
-                print("NEXT respond HERE!!!")
-                self.socketNext.shutdown(socket.SHUT_RDWR)
-                self.socketNext.close()
-                return True
-            else:
-                self.socketPrevious.shutdown(socket.SHUT_RDWR)
-                self.socketPrevious.close()
-                return False
+
 
     def Previous_death(self):
         print("Previous_death")
@@ -641,36 +567,15 @@ class Node(threading.Thread):
         if self.failPrevious:
             self.failPrevious=False
             return False
-
         if self.previous is not None:
-            #Timer(TIMERNEXTS,self.VerifyPrevious).start()
-            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            msg = "PREVIOUS?"
-            sock_out.sendto(msg.encode(), (self.previousAdrr, PORT))
-            sock_out.close()
-            print("Message PREVIOUS? send!!!")
-            self.socketPrevious = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            self.socketPrevious.settimeout(3.0)
-            self.socketPrevious.bind((self.myIp,PREVIOUSPORT))
-            #self.timerPrevious=Timer(3.0,self.Previous_death)
-            #self.timerPrevious.start()
             try:
-                (msg, address) =  self.socketPrevious.recvfrom(65536)
+                if self.previous.IsAlive():
+                    print("Next Alive")
+                    return True
             except :
-                self.socketPrevious.shutdown(socket.SHUT_RDWR)
-                self.socketPrevious.close()
                 self.Previous_death()
                 return False
-            #self.timerPrevious.cancel()
-            print("MSG:{}".format(msg.decode()))
-            if address[0] == self.previousAdrr and msg.decode() == "HERE":
-                print("PREVIOUS respond HERE!!!")
-                self.socketPrevious.close()
-                return True
-            else:
-                self.socketPrevious.shutdown(socket.SHUT_RDWR)
-                self.socketPrevious.close()
-                return False
+
 
     def CheckNext(self):
         self.verifying=True
@@ -701,6 +606,7 @@ class Node(threading.Thread):
         #self.pyroDaemon.requestLoop()
 
     def print_resume(self):
+        Timer(5.0,self.print_resume()).start()
         resume="############################\nRESUME:\nNEXT:{}\nNEXTAdrr:{}\nPREVIOUS:{}\nPREVIOUSAdrr:{}\nInRING:{}\nPARENT:{}\nPARENTAdrr:{}\nCHILD:{}\nCHILDAdrr:{}\n############################".format(self.next,self.nextAdrr,self.previous,self.previousAdrr,self.imInRing,self.parent,self.parentAdrr,self.child,self.childAdrr)
         print(resume)
 

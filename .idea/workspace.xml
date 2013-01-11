@@ -26,7 +26,7 @@
       <file leaf-file-name="threading.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://C:/Python32/Lib/threading.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="735" column="0" selection-start="24160" selection-end="24160" vertical-scroll-proportion="0.0">
+            <state line="582" column="8" selection-start="18807" selection-end="18807" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,36 @@
       <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="653" column="0" selection-start="23484" selection-end="23484" vertical-scroll-proportion="0.030195381">
+            <state line="499" column="13" selection-start="17287" selection-end="17287" vertical-scroll-proportion="0.33333334">
+              <folding>
+                <element signature="e#297#327#1" expanded="false" />
+                <element signature="e#371#1225#0" expanded="false" />
+                <element signature="e#371#406#1" expanded="false" />
+                <element signature="e#1257#1370#0" expanded="false" />
+                <element signature="e#1408#1855#0" expanded="false" />
+                <element signature="e#1888#1993#0" expanded="false" />
+                <element signature="e#2039#2526#0" expanded="false" />
+                <element signature="e#2563#2680#0" expanded="false" />
+                <element signature="e#2563#2622#1" expanded="false" />
+                <element signature="e#2726#2778#0" expanded="false" />
+                <element signature="e#2825#2879#0" expanded="false" />
+                <element signature="e#2919#3761#0" expanded="false" />
+                <element signature="e#4654#4694#0" expanded="false" />
+                <element signature="e#4728#4753#0" expanded="false" />
+                <element signature="e#4785#4800#0" expanded="false" />
+                <element signature="e#4848#4911#0" expanded="false" />
+                <element signature="e#4959#5197#0" expanded="false" />
+                <element signature="e#5246#7418#0" expanded="false" />
+                <element signature="e#7894#7905#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python32/Lib/site-packages/Pyro4-4.15-py3.2.egg/Pyro4/core.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="188" column="0" selection-start="6612" selection-end="6612" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -111,7 +140,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -132,6 +160,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -273,21 +302,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1032" height="748" extended-state="1" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17586912" sideWeight="0.58402663" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.77303755" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17586912" sideWeight="0.5141431" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4858569" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5010225" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41533548" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.70216304" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67886853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="149" y="75" width="1182" height="544" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -350,43 +379,25 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>356</line>
+          <line>703</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>371</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>451</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>797</line>
+          <line>252</line>
         </line-breakpoint>
       </breakpoints>
+      <option name="time" value="1" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/network/Node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="362" column="21" selection-start="11753" selection-end="11753" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="270" column="0" selection-start="12071" selection-end="12071" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="270" column="0" selection-start="12071" selection-end="12071" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/ntpath.py">
@@ -396,16 +407,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="33" selection-start="11272" selection-end="11272" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="257" column="33" selection-start="11272" selection-end="11272" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/ntpath.py">
@@ -415,35 +422,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="314" column="8" selection-start="13845" selection-end="13845" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="314" column="8" selection-start="13845" selection-end="13845" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="135" column="0" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="314" column="8" selection-start="13845" selection-end="13845" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="314" column="8" selection-start="13845" selection-end="13845" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.pyw">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="6" selection-start="5289" selection-end="5289" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="123" column="6" selection-start="5289" selection-end="5289" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://C:/Python32/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="278" column="0" selection-start="9427" selection-end="9427" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python32/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="582" column="8" selection-start="18807" selection-end="18807" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.pyw">
@@ -460,17 +466,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python32/Lib/threading.py">
+    <entry file="file://C:/Python32/Lib/site-packages/Pyro4-4.15-py3.2.egg/Pyro4/core.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="735" column="0" selection-start="24160" selection-end="24160" vertical-scroll-proportion="0.0">
+        <state line="188" column="0" selection-start="6612" selection-end="6612" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="653" column="0" selection-start="23484" selection-end="23484" vertical-scroll-proportion="0.030195381">
-          <folding />
+        <state line="499" column="13" selection-start="17287" selection-end="17287" vertical-scroll-proportion="0.33333334">
+          <folding>
+            <element signature="e#297#327#1" expanded="false" />
+            <element signature="e#371#1225#0" expanded="false" />
+            <element signature="e#371#406#1" expanded="false" />
+            <element signature="e#1257#1370#0" expanded="false" />
+            <element signature="e#1408#1855#0" expanded="false" />
+            <element signature="e#1888#1993#0" expanded="false" />
+            <element signature="e#2039#2526#0" expanded="false" />
+            <element signature="e#2563#2680#0" expanded="false" />
+            <element signature="e#2563#2622#1" expanded="false" />
+            <element signature="e#2726#2778#0" expanded="false" />
+            <element signature="e#2825#2879#0" expanded="false" />
+            <element signature="e#2919#3761#0" expanded="false" />
+            <element signature="e#4654#4694#0" expanded="false" />
+            <element signature="e#4728#4753#0" expanded="false" />
+            <element signature="e#4785#4800#0" expanded="false" />
+            <element signature="e#4848#4911#0" expanded="false" />
+            <element signature="e#4959#5197#0" expanded="false" />
+            <element signature="e#5246#7418#0" expanded="false" />
+            <element signature="e#7894#7905#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
