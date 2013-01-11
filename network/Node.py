@@ -8,7 +8,7 @@ import random
 import time
 from hashlib import md5
 
-TIMEOUT=5.0
+TIMEOUT=3.0
 PORT=3200
 ANSWERPORT=3201
 NEXTPORT=3203
@@ -397,7 +397,7 @@ class Node(threading.Thread):
         t=None
         while True:
             if not self.imInRing and self.parent is None:
-                number= random.randint(0,7)
+                number= random.randint(0,3)
                 print(number)
                 t=Timer(TIMEOUT+number,self.ImTheOne)
                 t.start()
@@ -409,13 +409,13 @@ class Node(threading.Thread):
             print("tengo info {0}".format(address))
             sms=msg.decode()
 
-            print("MSG IMLISTEN:{0}".format(sms)) 
+            print("MSG IMLISTEN:{0}".format(sms))
 
             if self.myIp == str(address[0]):
                 print("evitando escuchar mis propios msg.")
                 continue
             elif sms.__contains__("ALERT"):
-                if self.myIp == str(self.parentAdrr):
+                if str(address[0]) == str(self.parentAdrr):
                     print("evitando escuchar los msg broadcast de mi padre.")
                     continue
                 list=str(sms).split('>>')
