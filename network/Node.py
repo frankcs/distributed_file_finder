@@ -723,14 +723,17 @@ class Node(threading.Thread):
     def SendFileTo(self,path,to_who,to_where,info):
         try:
             file=open(path,rmode)
+            print("file opened!!!")
         except IOError as msg:
             print("Error:{} for file{}".format(msg,path))
         destination=Pyro4.Proxy(str(to_who))
         destination.InitCopy(str(to_where))
         size=os.path.getsize(path)
+        print("the file size:{}".format(size))
         cant=0
         while not info.cancel:
             data = file.read(bufsize)
+            print("downloading...")
             cant+=bufsize
             info.ratio=cant/size*100
             if not data:
