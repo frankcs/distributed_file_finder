@@ -46,6 +46,7 @@ class Node(threading.Thread):
         self.manager=manager
         self.verifying=False
         self.file=None
+        self.infos=[]
 
 
     def GetId(self):
@@ -749,9 +750,10 @@ class Node(threading.Thread):
             def useme(player,fil,to_wh,to_wher,inf):
                 user=Pyro4.Proxy(player)
                 user.SendFileTo(fil,to_wh,to_wher,inf)
-            threading.Thread(target=useme,args=(boss,file,self.uri,to_where,info)).start()
+            self.infos.append(info)
+            threading.Thread(target=useme,args=(boss,file,self.uri,to_where,info,len(self.infos)-1)).start()
 
-    def SendFileTo(self,path,to_who,to_where,info):
+    def SendFileTo(self,path,to_who,to_where,info,i):
         try:
             file=open(path,rmode)
             print("file opened!!!")
@@ -771,20 +773,24 @@ class Node(threading.Thread):
             if not data:
                 break
             else:
-                destination.TakeFile(data,size)
-        destination.FinishCopy()
+               if destination.TakeFile(data,info.ratio,i):
+                   break
+        destination.FinishCopy(i)
 
     def InitCopy(self,path):
         self.file=open(path,'wb')
 
 
-    def TakeFile(self,data,size):
+    def TakeFile(self,data,index,i):
         self.file.write(data)
+        self.infos[i].ratio=index
+        return self.infos[i].cancel
         #hacer algo con el size
 
 
-    def FinishCopy(self):
+    def FinishCopy(self,i):
         self.file.close()
+        del self.infos[i]
 
 
 
