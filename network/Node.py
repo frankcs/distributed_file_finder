@@ -710,8 +710,15 @@ class Node(threading.Thread):
         self.manager.delete_everything_from(machine_id)
 
     def Download(self,file,to_who,to_where,info):
-        t=threading.Thread(target=self.SendFileTo,args=(file,to_who,to_where,info))
-        t.start()
+        nodes=self.RingWithoutMe()
+        if nodes:
+            boss=None
+            for elem in nodes:
+                if str(elem).__contains__(to_who):
+                    boss=elem
+                    break
+            t=threading.Thread(target=self.SendFileTo,args=(file,boss,to_where,info))
+            t.start()
 
     def SendFileTo(self,path,to_who,to_where,info):
         try:
