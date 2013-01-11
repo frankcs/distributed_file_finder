@@ -393,7 +393,7 @@ class Node(threading.Thread):
         """
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.bind(("0.0.0.0",PORT))
-        self.print_resume()
+        #self.print_resume()
         t=None
         while True:
             if not self.imInRing and self.parent is None:
@@ -497,7 +497,7 @@ class Node(threading.Thread):
                 else:
                     print("ya tengo padre no atiendo este llamado.")
                 print("PASO")
-            self.print_resume()
+            #self.print_resume()
 
     def ImTheOne(self):
         """
@@ -578,12 +578,13 @@ class Node(threading.Thread):
 
 
     def CheckNext(self):
-        self.verifying=True
-        Timer(TIMERNEXTS,self.CheckNext).start()
-        if self.next is not None:
-            self.VerifyNext()
-        if self.previous is not None:
-            self.VerifyPrevious()
+        if self.imInRing:
+            self.verifying=True
+            Timer(TIMERNEXTS,self.CheckNext).start()
+            if self.next is not None:
+                self.VerifyNext()
+            if self.previous is not None:
+                self.VerifyPrevious()
 
     def run(self):
         """
@@ -598,7 +599,7 @@ class Node(threading.Thread):
         t1=threading.Thread(target=self.VerifyParent)
         t1.daemon=True
         t1.start()
-
+        self.print_resume()
         self.SayHello()
         self.ImListen()
         # t=threading.Thread(target=self.SayHello)
@@ -606,6 +607,7 @@ class Node(threading.Thread):
         #self.pyroDaemon.requestLoop()
 
     def print_resume(self):
+        Timer(5.0,self.print_resume).start()
         resume="############################\nRESUME:\nNEXT:{}\nNEXTAdrr:{}\nPREVIOUS:{}\nPREVIOUSAdrr:{}\nInRING:{}\nPARENT:{}\nPARENTAdrr:{}\nCHILD:{}\nCHILDAdrr:{}\n############################".format(self.next,self.nextAdrr,self.previous,self.previousAdrr,self.imInRing,self.parent,self.parentAdrr,self.child,self.childAdrr)
         print(resume)
 
