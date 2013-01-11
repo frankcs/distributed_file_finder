@@ -588,6 +588,8 @@ class Node(threading.Thread):
             all=[]
             if self.child is not None:
                 all.append(self.child.GetUri())
+            if self.parent is not None:
+                all.append(self.parent.GetUri())
             elem=self.next
             if elem is None:
                 return all
@@ -763,8 +765,9 @@ class Node(threading.Thread):
         while not info.cancel:
             data = file.read(bufsize)
             print("downloading...")
-            cant+=bufsize
+            cant+=len(data)
             info.ratio=cant/size*100
+            print("RATIO:{}".format(info.ratio))
             if not data:
                 break
             else:
