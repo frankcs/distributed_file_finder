@@ -578,12 +578,13 @@ class Node(threading.Thread):
 
 
     def CheckNext(self):
-        self.verifying=True
-        Timer(TIMERNEXTS,self.CheckNext).start()
-        if self.next is not None:
-            self.VerifyNext()
-        if self.previous is not None:
-            self.VerifyPrevious()
+        if self.imInRing:
+            self.verifying=True
+            Timer(TIMERNEXTS,self.CheckNext).start()
+            if self.next is not None:
+                self.VerifyNext()
+            if self.previous is not None:
+                self.VerifyPrevious()
 
     def run(self):
         """
