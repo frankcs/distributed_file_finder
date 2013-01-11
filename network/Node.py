@@ -6,13 +6,15 @@ import socket
 from threading import Timer
 import random
 import time
-from hashlib import md5
+import os
 
 TIMEOUT=3.0
 PORT=3200
 TIMECOMMCHILD=2
 TIMECHECKSYNC=2
 TIMERNEXTS=5.0
+bufsize = 65535
+rmode = 'rb'
 
 class Node(threading.Thread):
     """
@@ -37,19 +39,13 @@ class Node(threading.Thread):
         self.timer=None
         self.daemon=True
         self.fail=False
-        self.mySocket=None
-        self.timerNext=None
-        self.socketNext=None
-        self.timerPrevious=None
-        self.socketPrevious=None
         self.failNext=False
         self.failPrevious=False
         self.nextAdrr=None
         self.previousAdrr=None
-        self.failNext=False
-        self.failPrevious=False
         self.manager=manager
         self.verifying=False
+        self.file=None
 
 
     def GetId(self):
@@ -713,22 +709,40 @@ class Node(threading.Thread):
         print("Eliminar todos los datos de {}".format(machine_id))
         self.manager.delete_everything_from(machine_id)
 
-    def Download(self,file,to_who):
-        return self.SendFileTo(file,to_who)
+    def Download(self,file,to_who,to_where,info):
+        t=threading.Thread(target=self.SendFileTo,args=(file,to_who,to_where,info))
+        t.start()
 
-    def SendFileTo(self,path,to_who):
+    def SendFileTo(self,path,to_who,to_where,info):
         try:
-            file=open(path,rmode) 
+            file=open(path,rmode)
         except IOError as msg:
             print("Error:{} for file{}".format(msg,path))
-
-        m = md5()
-        while 1:
+        destination=Pyro4.Proxy(str(to_who))
+        destination.InitCopy(str(to_where))
+        size=os.path.getsize(path)
+        cant=0
+        while not info.cancel:
             data = file.read(bufsize)
+            cant+=bufsize
+            info.ratio=cant/size*100
             if not data:
                 break
-            m.update(data)
-        result.append(m.hexdigest())
+            else:
+                destination.TakeFile(data,size)
+        destination.FinishCopy()
+
+    def InitCopy(self,path):
+        self.file=open(path,'wb')
+
+
+    def TakeFile(self,data,size):
+        self.file.write(data)
+        #hacer algo con el size
+
+
+    def FinishCopy(self):
+        self.file.close()
 
 
 

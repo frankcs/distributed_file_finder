@@ -3,7 +3,9 @@ from references import *
 from ui_prog.local_options_prog import LocalOptionsDialog
 from ui_prog.about_dialog_prog import AboutDialog
 from ui_prog.download_prog import DownDialog
+from network.downloadinfo import DownloadInfo
 from threading import Thread
+import os
 
 class Form(QMainWindow,Ui_MainWindow):
     instances = []# to provide sdi
@@ -34,6 +36,7 @@ class Form(QMainWindow,Ui_MainWindow):
         self.disable_buttons()
         self.lineEdit_input.selectAll()
         self.lineEdit_input.setFocus()
+        self.selected_touple=None
 
 
     def show_dialog_about(self):
@@ -117,18 +120,30 @@ class Form(QMainWindow,Ui_MainWindow):
         self.cancel=True
 
     def select_row(self, item):
-        self.enable_buttons()
+        self.disable_buttons()
         self.tableWidget_result.selectRow(item.row())
+        name= self.tableWidget_result.item(item.row(),0).text()
+        is_dir=self.tableWidget_result.item(item.row(),1).text()
+        source=self.tableWidget_result.item(item.row(),2).text()
+        path=self.tableWidget_result.item(item.row(),3).text()
+        self.selected_touple=(name,is_dir,source,path)
+        if is_dir=='NO' or source=='localhost':
+            self.enable_buttons()
 
     def download(self):
-        dir = QFileDialog.getExistingDirectory(self,"Descargar",
+        destdir = QFileDialog.getExistingDirectory(self,"Descargar",
             "/home",
             QFileDialog.ShowDirsOnly
             | QFileDialog.DontResolveSymlinks)
         self.lineEdit_input.setText(dir)# just for test
         #now the code for downloading the file
-        dialog=DownDialog(parent=self)
-        dialog.show()
+        if destdir:
+            info=DownloadInfo()
+            dialog=DownDialog(parent=self, info)
+            dialog.show()
+            self.broker.connection.Download(os.path.join(self.selected_touple[3],
+                self.selected_touple[0]),
+                self.selected_touple[2],destdir,info)
 
     @staticmethod
     def updateInstances():

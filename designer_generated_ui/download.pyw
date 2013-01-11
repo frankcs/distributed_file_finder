@@ -30,7 +30,7 @@ class Ui_Dialog(object):
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.progressBar = QtGui.QProgressBar(Dialog)
-        self.progressBar.setProperty("value", 24)
+        self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName(_fromUtf8("progressBar"))
         self.horizontalLayout.addWidget(self.progressBar)
         self.pushButton = QtGui.QPushButton(Dialog)
