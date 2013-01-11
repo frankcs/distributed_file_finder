@@ -13,7 +13,7 @@ PORT=3200
 TIMECOMMCHILD=2
 TIMECHECKSYNC=2
 TIMERNEXTS=5.0
-bufsize = 8096
+bufsize = 65535
 rmode = 'rb'
 
 class Node(threading.Thread):
