@@ -155,7 +155,7 @@ class Node(threading.Thread):
         return Pyro4.socketutil.getMyIpAddress()
 
     def HasChild(self):
-        return self.child is None
+        return self.child is not None
 
     def GetUri(self):
         return self.uri
