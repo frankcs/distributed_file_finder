@@ -599,7 +599,7 @@ class Node(threading.Thread):
                 if elem.HasChild():
                     all.append(elem.GetChild().GetUri())
                 elem=elem.GetNext()
-                if elem.GetIpAddress() == self.myIp or elem is None:
+                if elem.GetIpAddress() == self.myIp or elem.GetIpAddress() == self.parent.GetIpAddress()  or elem is None:
                     return all
         except :
             return all
