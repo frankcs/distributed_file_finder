@@ -732,7 +732,7 @@ class Node(threading.Thread):
         while not info.cancel:
             data = file.read(bufsize)
             cant+=bufsize
-            info.rason=cant/size*100
+            info.ratio=cant/size*100
             if not data:
                 break
             else:
