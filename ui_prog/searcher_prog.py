@@ -2,6 +2,7 @@ __author__ = 'Frank'
 from references import *
 from ui_prog.local_options_prog import LocalOptionsDialog
 from ui_prog.about_dialog_prog import AboutDialog
+from ui_prog.download_prog import DownDialog
 from threading import Thread
 
 class Form(QMainWindow,Ui_MainWindow):
@@ -126,6 +127,8 @@ class Form(QMainWindow,Ui_MainWindow):
             | QFileDialog.DontResolveSymlinks)
         self.lineEdit_input.setText(dir)# just for test
         #now the code for downloading the file
+        dialog=DownDialog(parent=self)
+        dialog.show()
 
     @staticmethod
     def updateInstances():
