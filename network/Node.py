@@ -154,33 +154,6 @@ class Node(threading.Thread):
             print(inst)
             return "False"
 
-    """
-    def SetParent(self,parent):
-
-        Set the Parent Node.
-
-        print("SetParent")
-        if parent is None:
-            return
-        try:
-            if self.parent is None:
-                self.parent=parent
-                self.parentAdrr=self.parent.GetIpAddress()
-                self.next=self.parent.GetNext()
-                self.nextAdrr=self.next.GetIpAddress()
-                self.previous=self.parent.GetPrevious()
-                self.previousAdrr=self.previous.GetIpAddress()
-                self.parent.SetChildAddress(self.GetIpAddress())
-                print("PARENT:{0}".format(self.parent))
-                t1=threading.Thread(target=self.VerifyParent)
-                t1.daemon=True
-                t1.start()
-                return True
-            else:return False
-        except :
-            return False
-"""
-
     def GetIpAddress(self):
         return Pyro4.socketutil.getMyIpAddress()
 
@@ -285,7 +258,7 @@ class Node(threading.Thread):
                     return True
             except :
                 print("Parent is death.")
-                self.print_death()
+                self.Parent_death()
                 return False
 
     def CallForChild(self):
@@ -296,8 +269,38 @@ class Node(threading.Thread):
                     return True
             except :
                 print("Child is death.")
-                self.print_death()
+                self.Child_death()
                 return False
+
+    def Child_death(self):
+        self.DeleteEverythingFrom(self.childAdrr)
+        self.child=None
+        self.childAdrr=None
+
+    def Parent_death(self):
+        #Dos casos
+        #Caso 1: Mi padre se desconecta y yo veo a sus hermanos
+        try:
+            if self.next.IsAlive() and self.previous.IsAlive():
+                self.fail=True
+                #self.DeleteEverythingFrom(self.parentAdrr)
+                self.previous.SetNext(self)
+                self.next.SetPrevious(self)
+                self.next.DeleteEverythingFrom(self.parentAdrr)
+                self.parent=None
+                self.parentAdrr=None
+                print("I claim my parent place")
+                print("nexts updated.!!!")
+                self.ImInRing(True)
+                self.CheckNext()
+        except : #caso 2 estoy solo en el mundo
+            self.fail=True
+            self.parent=None
+            self.parentAdrr=None
+            self.SetNext(None)
+            self.SetPrevious(None)
+            self.SayHelloOnFails()
+
 
     def CallMe(self):
         if not self.imInRing:
@@ -305,87 +308,11 @@ class Node(threading.Thread):
         else:
             self.CallForChild()
 
-    def print_death(self):
-        #self.mySocket.close()
-        print("some death")
-        if self.imInRing:
-            try:
-                if self.next is not None and self.previous is not None:
-                    if self.next.IsAlive() and self.previous.IsAlive():
-                        self.ChildDisposal(self.childAdrr)
-                        self.child=None
-                        self.childAdrr=None
-                        print("my son is dead and my nexts alive")
-                else:
-                    self.ChildDisposal(self.childAdrr)
-                    self.child=None
-                    self.childAdrr=None
-                    print("My son is dead")
-            except:
-                self.ChildDisposal(self.childAdrr)
-                self.imInRing=False
-                self.childAdrr=None
-                self.next=None
-                self.nextAdrr=None
-                self.previous=None
-                self.previousAdrr=None
-                self.parent=None
-                self.parentAdrr=None
-                self.SayHello()
-                print("im a dead father")
-        else:
-            try:
-                if self.next is not None and self.previous is not None:
-                    if self.next.IsAlive() and self.previous.IsAlive():
-                        self.fail=True
-                        #self.DeleteEverythingFrom(self.parentAdrr)
-                        self.next.SetPrevious(self)
-                        self.previous.SetNext(self)
-                        self.next.DeleteEverythingFrom(self.parentAdrr)
-                        self.parent=None
-                        self.parentAdrr=None
-                        print("nexts updated.!!!")
-                        self.ImInRing(True)
-                        self.child=None
-                        self.childAdrr=None
-
-                else:
-                    print("mis nexts are None")
-                    self.fail=True
-                    #self.DeleteEverythingFrom(self.parentAdrr)
-                    self.parent=None
-                    self.parentAdrr=None
-                    self.child=None
-                    self.childAdrr=None
-                    self.ImInRing(True)
-                    #Timer(1.0,self.SendUriOnFails).start()
-                print("my father is dead and im in ring")
-            except:
-                self.fail=True
-                self.parent=None
-                self.parentAdrr=None
-                self.next=None
-                self.nextAdrr=None
-                self.previous=None
-                self.previousAdrr=None
-                Timer(1.0,self.SayHelloOnFails).start()
-                print("im a dead son")
-
     def SayHelloOnFails(self):
         if self.fail:
             print("Saying Hello")
             self.SayHello()
             Timer(10.0,self.SayHelloOnFails).start()
-
-    def SendUriOnFails(self):
-        if self.fail:
-            print("Sendind Uri")
-            sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            sock_out.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-            msg = str(self.uri)
-            sock_out.sendto(msg.encode(), ("255.255.255.255", PORT))
-            sock_out.close()
-            Timer(10.0,self.SendUriOnFails).start()
 
     def SayHello(self):
         """
