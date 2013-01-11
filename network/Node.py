@@ -72,8 +72,11 @@ class Node(threading.Thread):
                 t=threading.Thread(target=self.CheckNext)
                 t.daemon=True
                 t.start()
-            if self.child is not None:
-                self.child.SetNext(next)
+        else:
+            self.next=None
+            self.nextAdrr=None
+        if self.child is not None:
+            self.child.SetNext(next)
 
     def SetNextAddress(self,next):
         print("SetNextAddress")
@@ -103,8 +106,11 @@ class Node(threading.Thread):
                 t=threading.Thread(target=self.CheckNext)
                 t.daemon=True
                 t.start()
-            if self.child is not None:
-                self.child.SetPrevious(previous)
+        else:
+            self.previous=None
+            self.previousAdrr=None
+        if self.child is not None:
+            self.child.SetPrevious(previous)
 
     def GetPrevious(self):
         """
@@ -548,7 +554,7 @@ class Node(threading.Thread):
         self.nextAdrr=None
         if self.child is not None:
             self.child.SetNext(None)
-            self.child.SetNextAddress(None)
+
 
 
     def VerifyNext(self):
@@ -575,7 +581,7 @@ class Node(threading.Thread):
         self.previousAdrr=None
         if self.child is not None:
             self.child.SetPrevious(None)
-            self.child.SetPreviousAddress(None)
+            
 
     def VerifyPrevious(self):
         print("VerifyPrevious")
