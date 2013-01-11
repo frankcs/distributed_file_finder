@@ -576,6 +576,31 @@ class Node(threading.Thread):
             except :
                 return None
 
+
+    def GetChild(self):
+        return self.child
+
+    def AllWithoutMe(self):
+        """
+        Me da acceso a todas los piro objects del anillo
+        """
+        try:
+            all=[]
+            elem=self.next
+            if elem is None:
+                return None
+            while True:
+                all.append(elem)
+                if elem.HasChild():
+                    all.append(elem.GetChild())
+                elem=elem.GetNext()
+                if elem.GetIpAddress() == self.myIp or elem is None:
+                    if elem.HasChild():
+                        all.append(elem.GetChild())
+                    return all
+        except :
+            return None
+
     def ChildDisposal(self,childaddr):
         self.DeleteEverythingFrom(childaddr)
 
@@ -710,7 +735,7 @@ class Node(threading.Thread):
         self.manager.delete_everything_from(machine_id)
 
     def Download(self,file,to_who,to_where,info):
-        nodes=self.RingWithoutMe()
+        nodes=self.AllWithoutMe()
         if nodes:
             boss=None
             for elem in nodes:
