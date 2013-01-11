@@ -52,6 +52,7 @@ class Node(threading.Thread):
         self.failNext=False
         self.failPrevious=False
         self.manager=manager
+        self.verifying=False
 
 
     def GetId(self):
@@ -69,9 +70,11 @@ class Node(threading.Thread):
         if next is not None:
             self.next=next
             self.nextAdrr=next.GetIpAddress()
-            t=threading.Thread(target=self.VerifyNext)
-            t.daemon=True
-            t.start()
+            if not self.verifying:
+                self.verifying=True
+                t=threading.Thread(target=self.CheckNext)
+                t.daemon=True
+                t.start()
             if self.child is not None:
                 self.child.SetNext(next)
 
@@ -90,9 +93,11 @@ class Node(threading.Thread):
             print("SetPrevious")
             self.previous=previous
             self.previousAdrr=previous.GetIpAddress()
-            t=threading.Thread(target=self.VerifyPrevious)
-            t.daemon=True
-            t.start()
+            if not self.verifying:
+                self.verifying=True
+                t=threading.Thread(target=self.CheckNext)
+                t.daemon=True
+                t.start()
             if self.child is not None:
                 self.child.SetPrevious(previous)
 
@@ -198,28 +203,28 @@ class Node(threading.Thread):
                 index.SetPrevious(self)
                 self.next=index
                 self.nextAdrr=index.GetIpAddress()
-                t=threading.Thread(target=self.VerifyNext)
+                t=threading.Thread(target=self.CheckNext)
                 t.daemon=True
                 t.start()
                 self.previous=index
                 self.previousAdrr=index.GetIpAddress()
-                t1=threading.Thread(target=self.VerifyPrevious)
-                t1.daemon=True
-                t1.start()
+                #t1=threading.Thread(target=self.VerifyPrevious)
+                #t1.daemon=True
+                #t1.start()
                 self.ImInRing()
                 print("2 Nodes")
                 break
             if index.GetId() < self.id and self.id < nextIndex.GetId():#Case 2: Find your position by id
                 self.next=nextIndex
                 self.nextAdrr=nextIndex.GetIpAddress()
-                t=threading.Thread(target=self.VerifyNext)
+                t=threading.Thread(target=self.CheckNext)
                 t.daemon=True
                 t.start()
                 self.previous=index
                 self.previousAdrr=index.GetIpAddress()
-                t1=threading.Thread(target=self.VerifyNext)
-                t1.daemon=True
-                t1.start()
+                #t1=threading.Thread(target=self.VerifyNext)
+                #t1.daemon=True
+                #t1.start()
                 index.SetNext(self)
                 nextIndex.SetPrevious(self)
                 self.ImInRing()
@@ -228,14 +233,14 @@ class Node(threading.Thread):
             if index.GetId() < self.id and self.id > nextIndex.GetId():#Case 3: At the end of the ring
                 self.next=nextIndex
                 self.nextAdrr=nextIndex.GetIpAddress()
-                t=threading.Thread(target=self.VerifyNext)
+                t=threading.Thread(target=self.CheckNext)
                 t.daemon=True
                 t.start()
                 self.previous=index
                 self.previousAdrr=index.GetIpAddress()
-                t1=threading.Thread(target=self.VerifyNext)
-                t1.daemon=True
-                t1.start()
+                #t1=threading.Thread(target=self.VerifyNext)
+                #t1.daemon=True
+                #t1.start()
                 index.SetNext(self)
                 nextIndex.SetPrevious(self)
                 self.ImInRing()
@@ -593,7 +598,7 @@ class Node(threading.Thread):
             return False
 
         if self.next is not None:
-            Timer(TIMERNEXTS,self.VerifyNext).start()
+            #Timer(TIMERNEXTS,self.VerifyNext).start()
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg = "NEXT?"
             sock_out.sendto(msg.encode(), (self.nextAdrr, PORT))
@@ -638,7 +643,7 @@ class Node(threading.Thread):
             return False
 
         if self.previous is not None:
-            Timer(TIMERNEXTS,self.VerifyPrevious).start()
+            #Timer(TIMERNEXTS,self.VerifyPrevious).start()
             sock_out =  socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             msg = "PREVIOUS?"
             sock_out.sendto(msg.encode(), (self.previousAdrr, PORT))
@@ -666,6 +671,14 @@ class Node(threading.Thread):
                 self.socketPrevious.shutdown(socket.SHUT_RDWR)
                 self.socketPrevious.close()
                 return False
+
+    def CheckNext(self):
+        self.verifying=True
+        Timer(TIMERNEXTS,self.CheckNext).start()
+        if self.next is not None:
+            self.VerifyNext()
+        if self.previous is not None:
+            self.VerifyPrevious()
 
     def run(self):
         """
