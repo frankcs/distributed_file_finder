@@ -709,10 +709,11 @@ class Node(threading.Thread):
         print("Eliminar todos los datos de {}".format(machine_id))
         self.manager.delete_everything_from(machine_id)
 
-    def Download(self,file,to_who,to_where,m):
-        return self.SendFileTo(file,to_who,to_where)
+    def Download(self,file,to_who,to_where,info):
+        t=threading.Thread(target=self.SendFileTo,args=(file,to_who,to_where,info))
+        t.start()
 
-    def SendFileTo(self,path,to_who,to_where):
+    def SendFileTo(self,path,to_who,to_where,info):
         try:
             file=open(path,rmode)
         except IOError as msg:
@@ -720,8 +721,11 @@ class Node(threading.Thread):
         destination=Pyro4.Proxy(str(to_who))
         destination.InitCopy(str(to_where))
         size=os.path.getsize(path)
-        while 1:
+        cant=0
+        while not info.cancel:
             data = file.read(bufsize)
+            cant+=bufsize
+            info.rason=cant/size*100
             if not data:
                 break
             else:
