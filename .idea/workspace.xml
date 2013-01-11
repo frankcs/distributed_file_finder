@@ -32,19 +32,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="600" column="59" selection-start="19698" selection-end="19698" vertical-scroll-proportion="0.81220657">
+            <state line="769" column="47" selection-start="26143" selection-end="26143" vertical-scroll-proportion="-8.04">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="download_prog.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="download_prog.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ui_prog/download_prog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="21" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0">
+            <state line="19" column="26" selection-start="652" selection-end="652" vertical-scroll-proportion="0.4228395">
               <folding />
             </state>
           </provider>
@@ -63,6 +63,15 @@
         <entry file="file://$PROJECT_DIR$/app.pyw">
           <provider selected="true" editor-type-id="text-editor">
             <state line="153" column="0" selection-start="6311" selection-end="6311" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python32/Lib/site-packages/Pyro4/core.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="924" column="0" selection-start="39017" selection-end="39017" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,9 +132,9 @@
         <option value="$PROJECT_DIR$/data/db_module.py" />
         <option value="$PROJECT_DIR$/data/get_md5.py" />
         <option value="$PROJECT_DIR$/network/downloadinfo.py" />
-        <option value="$PROJECT_DIR$/ui_prog/download_prog.py" />
         <option value="$PROJECT_DIR$/ui_prog/searcher_prog.py" />
         <option value="$PROJECT_DIR$/network/Node.py" />
+        <option value="$PROJECT_DIR$/ui_prog/download_prog.py" />
       </list>
     </option>
   </component>
@@ -347,18 +356,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18892261" sideWeight="0.47098976" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.52901024" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18892261" sideWeight="0.62969285" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5887372" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5010225" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37110016" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37030718" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67886853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="149" y="75" width="1182" height="544" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -464,33 +473,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>739</line>
+          <line>741</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>750</line>
+          <line>754</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>772</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>781</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>776</line>
+          <line>777</line>
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="33" selection-start="11272" selection-end="11272" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://C:/Python32/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="278" column="0" selection-start="9427" selection-end="9427" vertical-scroll-proportion="0.0" />
@@ -524,20 +520,6 @@
     <entry file="file://C:/Python32/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="946" column="0" selection-start="32364" selection-end="32364" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui_prog/download_prog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/downloadinfo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="25" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -577,9 +559,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python32/Lib/site-packages/Pyro4/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="924" column="0" selection-start="39017" selection-end="39017" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="600" column="59" selection-start="19698" selection-end="19698" vertical-scroll-proportion="0.81220657">
+        <state line="769" column="47" selection-start="26143" selection-end="26143" vertical-scroll-proportion="-8.04">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/downloadinfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="25" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui_prog/download_prog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="26" selection-start="652" selection-end="652" vertical-scroll-proportion="0.4228395">
           <folding />
         </state>
       </provider>

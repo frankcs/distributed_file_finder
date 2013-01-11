@@ -588,9 +588,11 @@ class Node(threading.Thread):
             all=[]
             if self.child is not None:
                 all.append(self.child.GetUri())
+            if self.parent is not None:
+                all.append(self.parent.GetUri())
             elem=self.next
             if elem is None:
-                return None
+                return all
             while True:
                 all.append(elem.GetUri())
                 if elem.HasChild():
@@ -744,8 +746,10 @@ class Node(threading.Thread):
                 if str(elem).__contains__(to_who):
                     boss=elem
                     break
-            t=threading.Thread(target=self.SendFileTo,args=(file,boss,to_where,info))
-            t.start()
+            def useme(player,fil,to_wh,to_wher,inf):
+                user=Pyro4.Proxy(player)
+                user.SendFileTo(fil,to_wh,to_wher,inf)
+            threading.Thread(target=useme,args=(boss,file,self.uri,to_where,info)).start()
 
     def SendFileTo(self,path,to_who,to_where,info):
         try:
@@ -763,6 +767,7 @@ class Node(threading.Thread):
             print("downloading...")
             cant+=bufsize
             info.ratio=cant/size*100
+            print("RATIO:{}".format(info.ratio))
             if not data:
                 break
             else:

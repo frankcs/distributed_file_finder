@@ -17,7 +17,7 @@ class DownDialog(QDialog,Ui_Dialog):
 
     def update(self):
         while self.info.ratio <= 100:
-            time.sleep(0.5)
+            time.sleep(0.1)
             self.progressBar.setValue(self.info.ratio)
         self.close()
 
