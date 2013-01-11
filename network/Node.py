@@ -10,9 +10,6 @@ from hashlib import md5
 
 TIMEOUT=3.0
 PORT=3200
-ANSWERPORT=3201
-NEXTPORT=3203
-PREVIOUSPORT=3205
 TIMECOMMCHILD=2
 TIMECHECKSYNC=2
 TIMERNEXTS=5.0
@@ -77,6 +74,14 @@ class Node(threading.Thread):
                 t.start()
             if self.child is not None:
                 self.child.SetNext(next)
+
+    def SetNextAddress(self,next):
+        print("SetNextAddress")
+        self.nextAdrr=next
+
+    def SetPreviousAddress(self,previous):
+        print("SetPreviousAddress")
+        self.previousAdrr=previous
 
     def GetNext(self):
         """
@@ -541,6 +546,10 @@ class Node(threading.Thread):
         self.SendAdvice(self.uri,self.nextAdrr)
         self.next=None
         self.nextAdrr=None
+        if self.child is not None:
+            self.child.SetNext(None)
+            self.child.SetNextAddress(None)
+
 
     def VerifyNext(self):
         print("VerifyNext")
@@ -564,6 +573,9 @@ class Node(threading.Thread):
         self.SendAdvice(self.uri,self.previousAdrr)
         self.previous=None
         self.previousAdrr=None
+        if self.child is not None:
+            self.child.SetPrevious(None)
+            self.child.SetPreviousAddress(None)
 
     def VerifyPrevious(self):
         print("VerifyPrevious")
