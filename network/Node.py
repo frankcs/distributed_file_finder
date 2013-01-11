@@ -590,7 +590,7 @@ class Node(threading.Thread):
                 all.append(self.child.GetUri())
             elem=self.next
             if elem is None:
-                return None
+                return all
             while True:
                 all.append(elem.GetUri())
                 if elem.HasChild():
@@ -744,8 +744,10 @@ class Node(threading.Thread):
                 if str(elem).__contains__(to_who):
                     boss=elem
                     break
-            t=threading.Thread(target=self.SendFileTo,args=(file,boss,to_where,info))
-            t.start()
+            def useme(player,fil,to_wh,to_wher,inf):
+                user=Pyro4.Proxy(player)
+                user.SendFileTo(fil,to_wh,to_wher,inf)
+            threading.Thread(target=useme,args=(boss,file,self.uri,to_where,info)).start()
 
     def SendFileTo(self,path,to_who,to_where,info):
         try:
