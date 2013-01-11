@@ -747,9 +747,9 @@ class Node(threading.Thread):
                 if str(elem).__contains__(to_who):
                     boss=elem
                     break
-            def useme(player,fil,to_wh,to_wher,inf):
+            def useme(player,fil,to_wh,to_wher,inf,i):
                 user=Pyro4.Proxy(player)
-                user.SendFileTo(fil,to_wh,to_wher,inf)
+                user.SendFileTo(fil,to_wh,to_wher,inf,i)
             self.infos.append(info)
             threading.Thread(target=useme,args=(boss,file,self.uri,to_where,info,len(self.infos)-1)).start()
 
