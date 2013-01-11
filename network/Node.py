@@ -598,7 +598,7 @@ class Node(threading.Thread):
         t1=threading.Thread(target=self.VerifyParent)
         t1.daemon=True
         t1.start()
-
+        self.print_resume()
         self.SayHello()
         self.ImListen()
         # t=threading.Thread(target=self.SayHello)
@@ -606,7 +606,7 @@ class Node(threading.Thread):
         #self.pyroDaemon.requestLoop()
 
     def print_resume(self):
-        Timer(5.0,self.print_resume()).start()
+        Timer(5.0,self.print_resume).start()
         resume="############################\nRESUME:\nNEXT:{}\nNEXTAdrr:{}\nPREVIOUS:{}\nPREVIOUSAdrr:{}\nInRING:{}\nPARENT:{}\nPARENTAdrr:{}\nCHILD:{}\nCHILDAdrr:{}\n############################".format(self.next,self.nextAdrr,self.previous,self.previousAdrr,self.imInRing,self.parent,self.parentAdrr,self.child,self.childAdrr)
         print(resume)
 
