@@ -39,13 +39,10 @@ class Node(threading.Thread):
         self.timer=None
         self.daemon=True
         self.fail=False
-        self.mySocket=None
         self.failNext=False
         self.failPrevious=False
         self.nextAdrr=None
         self.previousAdrr=None
-        self.failNext=False
-        self.failPrevious=False
         self.manager=manager
         self.verifying=False
         self.file=None
