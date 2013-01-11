@@ -142,7 +142,9 @@ class Form(QMainWindow,Ui_MainWindow):
             dialog.show()
             self.broker.connection.Download(os.path.join(self.selected_touple[3],
                 self.selected_touple[0]),
-                self.selected_touple[2],destdir,info)
+                self.selected_touple[2],
+                os.path.join(destdir,self.selected_touple[0])
+                ,info)
 
     @staticmethod
     def updateInstances():
