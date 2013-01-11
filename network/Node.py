@@ -340,9 +340,8 @@ class Node(threading.Thread):
                         self.fail=True
                         #self.DeleteEverythingFrom(self.parentAdrr)
                         self.next.SetPrevious(self)
-                        self.next.DeleteEverythingFrom(self.parentAdrr)
                         self.previous.SetNext(self)
-                        #self.previous.DeleteEverythingFrom(self.parentAdrr)
+                        self.next.DeleteEverythingFrom(self.parentAdrr)
                         self.parent=None
                         self.parentAdrr=None
                         print("nexts updated.!!!")
@@ -591,7 +590,7 @@ class Node(threading.Thread):
         if self.previous is not None:
             try:
                 if self.previous.IsAlive():
-                    print("Next Alive")
+                    print("Previous Alive")
                     return True
             except :
                 self.Previous_death()
