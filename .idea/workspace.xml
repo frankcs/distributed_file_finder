@@ -32,28 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/network/Node.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="591" column="28" selection-start="19306" selection-end="19306" vertical-scroll-proportion="0.2125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="download_prog.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui_prog/download_prog.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="15" column="21" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="downloadinfo.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network/downloadinfo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="25" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -99,6 +81,24 @@
         <entry file="file://$PROJECT_DIR$/data/sentry.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="26" column="56" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="downloadinfo.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/network/downloadinfo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="25" selection-start="112" selection-end="112" vertical-scroll-proportion="0.25525525">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/Node.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="766" column="21" selection-start="25991" selection-end="25991" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -350,14 +350,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1032" height="748" extended-state="1" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19325154" sideWeight="0.6289517" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.528754" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19325154" sideWeight="0.6289517" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33386582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5010225" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37104824" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
@@ -471,19 +471,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>750</line>
+          <line>774</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>772</line>
+          <line>783</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>781</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>776</line>
+          <line>778</line>
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -538,13 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network/downloadinfo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="25" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/db_module.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="41" selection-start="2336" selection-end="2336" vertical-scroll-proportion="0.0">
@@ -582,7 +571,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="591" column="28" selection-start="19306" selection-end="19306" vertical-scroll-proportion="0.2125">
+        <state line="766" column="21" selection-start="25991" selection-end="25991" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/downloadinfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="25" selection-start="112" selection-end="112" vertical-scroll-proportion="0.25525525">
           <folding />
         </state>
       </provider>
