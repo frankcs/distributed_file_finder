@@ -35,23 +35,31 @@
       <file leaf-file-name="Node.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network/Node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="720" column="34" selection-start="24462" selection-end="24462" vertical-scroll-proportion="0.33867276">
+            <state line="731" column="32" selection-start="24783" selection-end="24783" vertical-scroll-proportion="0.24778761">
               <folding>
                 <element signature="e#22#34#0" expanded="true" />
-                <element signature="e#249#279#1" expanded="false" />
-                <element signature="e#323#358#1" expanded="false" />
-                <element signature="e#323#1177#0" expanded="false" />
-                <element signature="e#2861#2920#1" expanded="false" />
-                <element signature="e#2861#2978#0" expanded="false" />
-                <element signature="e#3024#3076#0" expanded="false" />
-                <element signature="e#3123#3177#0" expanded="false" />
-                <element signature="e#4097#4137#0" expanded="false" />
-                <element signature="e#4171#4196#0" expanded="false" />
-                <element signature="e#4228#4243#0" expanded="false" />
-                <element signature="e#4402#4640#0" expanded="false" />
-                <element signature="e#6910#7304#0" expanded="false" />
-                <element signature="e#7337#7348#0" expanded="false" />
+                <element signature="e#263#293#1" expanded="false" />
+                <element signature="e#337#372#1" expanded="false" />
+                <element signature="e#2776#2835#1" expanded="false" />
+                <element signature="e#2776#2893#0" expanded="false" />
+                <element signature="e#2939#2991#0" expanded="false" />
+                <element signature="e#3038#3092#0" expanded="false" />
+                <element signature="e#4012#4052#0" expanded="false" />
+                <element signature="e#4086#4111#0" expanded="false" />
+                <element signature="e#4143#4158#0" expanded="false" />
+                <element signature="e#4317#4555#0" expanded="false" />
+                <element signature="e#6825#7219#0" expanded="false" />
+                <element signature="e#7252#7263#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_md5.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/get_md5.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="25" selection-end="52" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,6 +168,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SISTDIST" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -311,11 +333,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17526555" sideWeight="0.85324234" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17526555" sideWeight="0.68600684" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31740615" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5010225" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14675768" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3139932" sideWeight="0.49182004" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67886853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="149" y="75" width="1182" height="544" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -380,61 +402,56 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>247</line>
+          <line>246</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>184</line>
+          <line>183</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>176</line>
+          <line>175</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>238</line>
+          <line>237</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>271</line>
+          <line>270</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>65</line>
+          <line>64</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>78</line>
+          <line>77</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>140</line>
+          <line>139</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>187</line>
+          <line>186</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>229</line>
+          <line>228</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>213</line>
+          <line>212</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/network/Node.py</url>
-          <line>289</line>
+          <line>288</line>
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/db_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="270" column="0" selection-start="12071" selection-end="12071" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://C:/Python32/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -513,24 +530,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/get_md5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="25" selection-end="52" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/network/Node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="720" column="34" selection-start="24462" selection-end="24462" vertical-scroll-proportion="0.33867276">
+        <state line="731" column="32" selection-start="24783" selection-end="24783" vertical-scroll-proportion="0.24778761">
           <folding>
             <element signature="e#22#34#0" expanded="true" />
-            <element signature="e#249#279#1" expanded="false" />
-            <element signature="e#323#358#1" expanded="false" />
-            <element signature="e#323#1177#0" expanded="false" />
-            <element signature="e#2861#2920#1" expanded="false" />
-            <element signature="e#2861#2978#0" expanded="false" />
-            <element signature="e#3024#3076#0" expanded="false" />
-            <element signature="e#3123#3177#0" expanded="false" />
-            <element signature="e#4097#4137#0" expanded="false" />
-            <element signature="e#4171#4196#0" expanded="false" />
-            <element signature="e#4228#4243#0" expanded="false" />
-            <element signature="e#4402#4640#0" expanded="false" />
-            <element signature="e#6910#7304#0" expanded="false" />
-            <element signature="e#7337#7348#0" expanded="false" />
+            <element signature="e#263#293#1" expanded="false" />
+            <element signature="e#337#372#1" expanded="false" />
+            <element signature="e#2776#2835#1" expanded="false" />
+            <element signature="e#2776#2893#0" expanded="false" />
+            <element signature="e#2939#2991#0" expanded="false" />
+            <element signature="e#3038#3092#0" expanded="false" />
+            <element signature="e#4012#4052#0" expanded="false" />
+            <element signature="e#4086#4111#0" expanded="false" />
+            <element signature="e#4143#4158#0" expanded="false" />
+            <element signature="e#4317#4555#0" expanded="false" />
+            <element signature="e#6825#7219#0" expanded="false" />
+            <element signature="e#7252#7263#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -6,13 +6,15 @@ import socket
 from threading import Timer
 import random
 import time
-from hashlib import md5
+import os
 
 TIMEOUT=3.0
 PORT=3200
 TIMECOMMCHILD=2
 TIMECHECKSYNC=2
 TIMERNEXTS=5.0
+bufsize = 8096
+rmode = 'rb'
 
 class Node(threading.Thread):
     """
@@ -38,10 +40,6 @@ class Node(threading.Thread):
         self.daemon=True
         self.fail=False
         self.mySocket=None
-        self.timerNext=None
-        self.socketNext=None
-        self.timerPrevious=None
-        self.socketPrevious=None
         self.failNext=False
         self.failPrevious=False
         self.nextAdrr=None
@@ -50,6 +48,7 @@ class Node(threading.Thread):
         self.failPrevious=False
         self.manager=manager
         self.verifying=False
+        self.file=None
 
 
     def GetId(self):
@@ -718,17 +717,31 @@ class Node(threading.Thread):
 
     def SendFileTo(self,path,to_who):
         try:
-            file=open(path,rmode) 
+            file=open(path,rmode)
         except IOError as msg:
             print("Error:{} for file{}".format(msg,path))
-
-        m = md5()
+        destination=Pyro4.Proxy(str(to_who))
+        destination.InitCopy("path")
+        size=os.path.getsize(path)
         while 1:
             data = file.read(bufsize)
             if not data:
                 break
-            m.update(data)
-        result.append(m.hexdigest())
+            else:
+                destination.TakeFile(data,size)
+        destination.FinishCopy()
+
+    def InitCopy(self,path):
+        self.file=open(path,'w')
+
+
+    def TakeFile(self,data,size):
+        self.file.write(data)
+        #hacer algo con el size
+
+
+    def FinishCopy(self):
+        self.file.close()
 
 
 
