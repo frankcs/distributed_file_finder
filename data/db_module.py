@@ -1,6 +1,6 @@
 import sqlite3
 import os
-import threading
+from data.get_md5 import get_md5_for_files
 
 TIMEOUT=10
 
@@ -49,7 +49,7 @@ class db_manager:
             );')
         connection.commit()
         connection.close()
-
+    #aquí se insertan
     def insert_everything_under_path(self,path):
         #with self.lock:
             connection=sqlite3.connect(self.db_path,timeout=TIMEOUT)
@@ -61,7 +61,8 @@ class db_manager:
                 for dirs in directory[1]:
                     self.db_files_insert(cursor,path_id,dirs,1,"")
                 for file in directory[2]:
-                    self.db_files_insert(cursor,path_id,file,0,"")
+                    md5= get_md5_for_files([os.path.realpath(os.path.join(directory[0],file))])[0]
+                    self.db_files_insert(cursor,path_id,file,0, md5)
             connection.commit()
             connection.close()
 
@@ -73,7 +74,8 @@ class db_manager:
         cursor.execute('SELECT path_id FROM paths WHERE path=?',(parent_directory,))
         path_id=cursor.fetchone()[0]
         #calcular el md5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        self.db_files_insert(cursor,path_id,base_name, 1,'')
+        md5= get_md5_for_files([os.path.realpath(path)])[0]
+        self.db_files_insert(cursor,path_id,base_name, 1,md5)
         connection.commit()
         cursor.close()
         self.insert_everything_under_path(path)
@@ -171,7 +173,8 @@ class db_manager:
         cursor.execute('SELECT path_id FROM paths WHERE path=?',(parent_directory,))
         path_id=cursor.fetchone()[0]
         #calcular el md5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        self.db_files_insert(cursor,path_id,base_name, isdir,'')
+        md5= get_md5_for_files([os.path.realpath(path)])[0]
+        self.db_files_insert(cursor,path_id,base_name, isdir,md5)
         connection.commit()
         connection.close()
 
