@@ -586,27 +586,11 @@ class Node(threading.Thread):
         Me da acceso a todas los piro objects del anillo
         """
         try:
-            result=[]
-            start=self
-            if not self.imInRing:
-                result.append(self.parent.GetUri())
-                start=self.parent
-            else:
-                result.append(self.child.GetUri())
-
-            ring = start.RingWithoutMe()
-            if ring:
-                for index in start.RingWithoutMe():
-                    result.append(index.GetUri())
-                    if index.HasChild():
-                        result.append(index.child.GetUri())
-            return result
-            """
             all=[]
-            if self.child is not None:
-                all.append(self.child.GetUri())
             if self.parent is not None:
                 all.append(self.parent.GetUri())
+            if self.child is not None:
+                all.append(self.child.GetUri())
             elem=self.next
             if elem is None:
                 return all
@@ -616,12 +600,9 @@ class Node(threading.Thread):
                     all.append(elem.GetChild().GetUri())
                 elem=elem.GetNext()
                 if elem.GetIpAddress() == self.myIp or elem is None:
-                    if elem.HasChild():
-                        all.append(elem.GetChild().GetUri())
                     return all
-            """
         except :
-            return None
+            return all
 
     def ChildDisposal(self,childaddr):
         self.DeleteEverythingFrom(childaddr)
