@@ -586,17 +586,19 @@ class Node(threading.Thread):
         """
         try:
             all=[]
+            if self.child is not None:
+                all.append(self.child.GetUri())
             elem=self.next
             if elem is None:
-                return None
+                return all
             while True:
-                all.append(elem)
+                all.append(elem.GetUri())
                 if elem.HasChild():
-                    all.append(elem.GetChild())
+                    all.append(elem.GetChild().GetUri())
                 elem=elem.GetNext()
                 if elem.GetIpAddress() == self.myIp or elem is None:
                     if elem.HasChild():
-                        all.append(elem.GetChild())
+                        all.append(elem.GetChild().GetUri())
                     return all
         except :
             return None
